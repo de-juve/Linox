@@ -144,6 +144,9 @@ public enum DataCollection {
     public void setMaxLuminance(int value) {
        maxLuminance = value;
     }
+    public void setLine(LinkedList<Integer> _line) {
+        line = new LinkedList<>(_line);
+    }
     public void addPointToLine(Integer id) {
         line.add(id);
     }

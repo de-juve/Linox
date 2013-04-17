@@ -1,5 +1,6 @@
 package plugins;
 
+import gui.Linox;
 import ij.ImagePlus;
 import ij.process.ImageProcessor;
 import plugins.morfology.AreaEqualing;
@@ -89,8 +90,20 @@ public class GACBuilder extends MyAPlugin{
         findCrossingPoints();
         createNodes();
         correctNodes();
-
         createEdges();
+
+         LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
+        luminanceCalculator.initProcessor(imageProcessor);
+        luminanceCalculator.run();
+
+        LineThickening thickening = new LineThickening();
+        thickening.initProcessor(imageProcessor);
+        for(NodeWorker.Node node : NodeWorker.getInstance().getNodes().values()) {
+            DataCollection.INSTANCE.setLine(node.getLine());
+            thickening.run();
+        }
+        ImagePlus imp = thickening.getResult(true);
+        (Linox.getInstance().getImageStore()).addImageTab(imp.getTitle(), imp);
 
     }
 

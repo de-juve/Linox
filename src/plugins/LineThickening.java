@@ -24,9 +24,9 @@ public class LineThickening extends MyAPlugin {
 
     @Override
     public void run() {
-        LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
+       /* LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
         luminanceCalculator.initProcessor(imageProcessor);
-        luminanceCalculator.run();
+        luminanceCalculator.run();*/
 
         LinkedList<Integer> line = DataCollection.INSTANCE.getLine();
         ShowStaticstics.showHistogram(line, false);
@@ -62,7 +62,7 @@ public class LineThickening extends MyAPlugin {
     }
 
     private void dilating(RoadPoint roadPoint, Integer neighboure, int type) {
-        if(neighboure > 0 && Math.abs(DataCollection.INSTANCE.getLuminance(neighboure) - (int)ShowStaticstics.mean) <= ShowStaticstics.stdDev) {
+        if(neighboure > 0 && Math.abs(DataCollection.INSTANCE.getLuminance(neighboure) - (int)ShowStaticstics.mean) <= 5/*ShowStaticstics.stdDev*/) {
             roadPoint.addPoint(neighboure);
             thickening(neighboure, roadPoint, type);
         }

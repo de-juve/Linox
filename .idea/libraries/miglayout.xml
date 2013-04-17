@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="miglayout">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/miglayout/miglayout-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/miglayout/miglayout-4.0-swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/miglayout/miglayout-4.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/miglayout/miglayout-4.0-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/miglayout/miglayout-4.0-ideutil.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

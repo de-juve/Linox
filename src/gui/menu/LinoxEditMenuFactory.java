@@ -7,6 +7,8 @@ import ij.WindowManager;
 import ij.plugin.Histogram;
 import ij.plugin.Scaler;
 import plugins.*;
+import plugins.gradationСonversions.GradationConverter;
+import plugins.histogramChanging.HistogramChanger;
 import plugins.morfology.AreaClosing;
 import plugins.morfology.AreaEqualing;
 import plugins.morfology.AreaOpening;
@@ -43,6 +45,24 @@ public class LinoxEditMenuFactory {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pluginRunner.setPlugin(new LowerCompletion());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
+        final Action gradationCoversion = new AbstractAction("Gradation conversion") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new GradationConverter());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
+        final Action histChanger = new AbstractAction("Histogram chaniging") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new HistogramChanger());
                 Thread myThready = new Thread(pluginRunner);
                 myThready.start();
             }
@@ -443,10 +463,10 @@ public class LinoxEditMenuFactory {
             }
         };
 
-
-
         items.add(new JMenuItem(gradientCalculator));
         items.add(new JMenuItem(lowerCompletion));
+        items.add(new JMenuItem(gradationCoversion));
+        items.add(new JMenuItem(histChanger));
         items.add(new JMenuItem(luminance));
         items.add(new JMenuItem(luminaceRedirector));
         items.add(new JMenuItem(luminaceDiscretizator));

@@ -35,7 +35,7 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
         luminanceCalculator.run();
 
         ShowStaticstics.showHistogram(DataCollection.INSTANCE.getLine(), false);
-        ShowStaticstics.showLuminanceChanging(DataCollection.INSTANCE.getLine(), false);
+        ShowStaticstics.showLuminanceChanging(DataCollection.INSTANCE.getLine(), true);
 
 
         LinkedList<Integer> line = DataCollection.INSTANCE.getLine();
