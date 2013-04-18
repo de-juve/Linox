@@ -92,7 +92,7 @@ public class GACBuilder extends MyAPlugin{
         correctNodes();
         createEdges();
 
-         LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
+        LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
         luminanceCalculator.initProcessor(imageProcessor);
         luminanceCalculator.run();
 

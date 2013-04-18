@@ -3,12 +3,13 @@ package plugins.histogramChanging;
 public class HistogramEqualisation extends HistogramChanging {
     @Override
     protected void defineValues(Integer[] luminance) {
-        HistogramCounter.count(luminance);
+        HistogramCounter hist = new HistogramCounter();
+        hist.count(luminance);
 
-        double[] s = new double[HistogramCounter.getHistogram().length];
-        for(int i = 0; i < HistogramCounter.getHistogram().length; i++) {
+        double[] s = new double[hist.getHistogram().length];
+        for(int i = 0; i < hist.getHistogram().length; i++) {
             for(int j = 0; j <= i; j++) {
-                s[i] += HistogramCounter.getHistogramValue(luminance[j]);
+                s[i] += hist.getHistogramValue(luminance[j]);
             }
         }
 

@@ -53,8 +53,6 @@ public class GradationConverter extends MyAPlugin implements DialogListener {
         gradationConversion.setConstantC(c);
         gradationConversion.setConstantY(y);
         gradationConversion.createImage(DataCollection.INSTANCE.getLuminances(), results);
-
-
     }
 
     protected void showDialog(String name) {

@@ -5,6 +5,7 @@ import plugins.DataCollection;
 import road.Direction;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 
 public class PixelsMentor {
@@ -108,30 +109,7 @@ public class PixelsMentor {
 
 
     public static ArrayList defineNeighboursIds(int id, int width, int height) {
-        ArrayList<Integer> resultArray = new ArrayList<>();
-        int[] size = {width, height};
-        int x = id%width;
-        int y = id/width;
-
-        resultArray.add(getId(x - 1, y - 1, size));
-        resultArray.add(getId(x, y - 1, size));
-        resultArray.add(getId(x + 1, y - 1, size));
-
-        resultArray.add(getId(x - 1, y, size));
-        resultArray.add(getId(x + 1, y, size));
-
-        resultArray.add(getId(x - 1, y + 1, size));
-        resultArray.add(getId(x, y + 1, size));
-        resultArray.add(getId(x + 1, y + 1, size));
-
-        if(resultArray.size() > 1) {
-            HashSet<Integer> hs = new HashSet<>();
-            hs.addAll(resultArray);
-            hs.remove(-1);
-            resultArray.clear();
-            resultArray.addAll(hs);
-        }
-        return resultArray;
+        return defineNeighboursIds(id, 1, width, height);
     }
 
     public static ArrayList defineNeighboursIds(int id, ImageProcessor ip) {
@@ -161,10 +139,6 @@ public class PixelsMentor {
         return resultArray;
     }
 
-    public static ArrayList defineNeighboursIds(int id, int radius, ImageProcessor ip) {
-        return defineNeighboursIds(id, radius, ip.getWidth(), ip.getHeight());
-    }
-
     public static Integer defineNeighbourId(int id, Direction direction, int width, int height) {
         int[] size = {width, height};
         int i = direction.getNeighboureId(id, width);
@@ -172,6 +146,31 @@ public class PixelsMentor {
             i = -1;
         }
         return i;
+    }
+
+    public static ArrayList defineAllNeighboursIds(int id, int width, int height) {
+        return  defineAllNeighboursIds(id, 1, width, height);
+    }
+
+    public static ArrayList defineAllNeighboursIds(int id, int radius, int width, int height) {
+        ArrayList<Integer> resultArray = new ArrayList<>();
+        int[] size = {width, height};
+        int x = id%width;
+        int y = id/width;
+
+        for(int yy = y - radius; yy <= y + radius; yy++) {
+            for(int xx = x - radius; xx <= x + radius; xx++) {
+                    resultArray.add(getId(xx, yy, size));
+            }
+        }
+
+        Integer obj = -1;
+        ArrayList<Integer> remove = new ArrayList<>(1);
+        remove.add(obj);
+
+        resultArray.removeAll(remove);
+
+        return resultArray;
     }
 
     public static boolean isNeighboures(int id, int jd, int width) {

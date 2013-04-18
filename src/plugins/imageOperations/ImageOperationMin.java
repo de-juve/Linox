@@ -1,10 +1,10 @@
-package image;
+package plugins.imageOperations;
 
-public class ImageOperationPlus extends ImageOperation {
+public class ImageOperationMin extends ImageOperation {
     @Override
     protected void defineValues(Integer[] closing, Integer[] opening) {
         for(int i = 0; i < closing.length; i++) {
-            values.add(i, closing[i]+opening[i]);
+            values.add(i, Math.min(closing[i], opening[i]));
         }
     }
 }

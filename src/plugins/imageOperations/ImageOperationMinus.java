@@ -1,10 +1,10 @@
-package image;
+package plugins.imageOperations;
 
-public class ImageOperationXor extends ImageOperation{
+public class ImageOperationMinus extends ImageOperation{
     @Override
     protected void defineValues(Integer[] closing, Integer[] opening) {
         for(int i = 0; i < closing.length; i++) {
-            values.add(i, closing[i] ^ opening[i]);
+            values.add(i, Math.abs(closing[i] - opening[i]));
         }
     }
 }

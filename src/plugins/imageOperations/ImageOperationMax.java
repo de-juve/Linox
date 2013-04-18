@@ -1,4 +1,4 @@
-package image;
+package plugins.imageOperations;
 
 public class ImageOperationMax extends ImageOperation {
     @Override

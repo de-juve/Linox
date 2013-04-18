@@ -25,6 +25,8 @@
       <root url="jar://$PROJECT_DIR$/lib/cglib-nodep-2.2.3.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/ij147e-src.zip!/source" />
+    </SOURCES>
   </library>
 </component>

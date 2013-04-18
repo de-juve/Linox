@@ -41,6 +41,15 @@ public class LinoxEditMenuFactory {
             }
         };
 
+        final Action laplasianCalculator = new AbstractAction("Laplasian") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new Laplasian());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
         final Action lowerCompletion = new AbstractAction("Lower completion") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -204,6 +213,17 @@ public class LinoxEditMenuFactory {
                 myThready.start();
             }
         };
+
+        final Action medianFilter = new AbstractAction("Median filter") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new MedianFilter());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
+
 
         final Action linePainter = new AbstractAction("Line extrapolation") {
             @Override
@@ -464,6 +484,7 @@ public class LinoxEditMenuFactory {
         };
 
         items.add(new JMenuItem(gradientCalculator));
+        items.add(new JMenuItem(laplasianCalculator));
         items.add(new JMenuItem(lowerCompletion));
         items.add(new JMenuItem(gradationCoversion));
         items.add(new JMenuItem(histChanger));
@@ -488,6 +509,8 @@ public class LinoxEditMenuFactory {
         items.add(new JMenuItem(color_deconvolution));
         items.add(new JMenuItem(linePainter));
         items.add(new JMenuItem(thickening));
+        items.add(new JMenuItem(medianFilter));
+
         for(JMenuItem item : items) {
             item.setEnabled(false);
         }

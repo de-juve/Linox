@@ -16,7 +16,7 @@ public enum DataCollection {
     private TreeMap<String, ImageProcessor> imageProcessorTreeMap;
     private ImagePlus imageOriginal, imageResult;
     private ImageStack stack;
-    private Integer[] luminances, gradients, lowerCompletions, status, shedLabels, wshPoints, nodeLabels;
+    private Integer[] luminances, gradients, laplasians, lowerCompletions, status, shedLabels, wshPoints, nodeLabels;
     private ArrayList<Integer> waterShedPoints;
     private int maxLuminance = 255;
 
@@ -79,6 +79,12 @@ public enum DataCollection {
             gradients[i] = -1;
         }
     }
+    public void newLaplasian(int length) {
+        laplasians = new Integer[length];
+        for(int i = 0; i < length; i++) {
+            laplasians[i] = -1;
+        }
+    }
 	public void newLowerCompletions(int length) {
 		lowerCompletions = new Integer[length];
         for(int i = 0; i < length; i++) {
@@ -123,6 +129,9 @@ public enum DataCollection {
     public void setGradient(int id, Integer value) {
         gradients[id] = value;
     }
+    public void setLaplasian(int id, Integer value) {
+        laplasians[id] = value;
+    }
 	public void setLowerCompletion(int id, Integer value) {
 		lowerCompletions[id] = value;
 	}
@@ -158,6 +167,9 @@ public enum DataCollection {
     public Integer getGradient(int id) {
         return gradients[id];
     }
+    public Integer getLaplasian(int id) {
+        return laplasians[id];
+    }
 	public Integer getLowerCompletion(int id) {
 		return lowerCompletions[id];
 	}
@@ -184,6 +196,9 @@ public enum DataCollection {
 	}
     public Integer[] getGradients() {
         return gradients;
+    }
+    public Integer[] getLaplasians() {
+        return laplasians;
     }
 	public Integer[] getLowerCompletions() {
 		return lowerCompletions;

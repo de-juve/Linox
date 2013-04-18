@@ -1,28 +1,23 @@
 package plugins;
 
 import ij.ImagePlus;
-import ij.process.ImageProcessor;
 import image.Mask;
-import image.MaskDgnl;
-import image.MaskHrznt;
-import image.MaskVrtcl;
-import workers.GetterNeighboures;
+import image.MaskLaplas;
+import plugins.gradationСonversions.GradationConverter;
 import workers.MassiveWorker;
 import workers.PixelsMentor;
 
-import java.awt.*;
 import java.util.ArrayList;
 
-public class GradientCalculator extends MyAPlugin {
+public class Laplasian extends MyAPlugin {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
         if(result == null) {
-          /*  MassiveWorker worker = new MassiveWorker();
-            worker.scale(DataCollection.INSTANCE.getGradients());*/
-
-            create(imageProcessor, DataCollection.INSTANCE.getGradients());
-            result = new ImagePlus("gradient " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
+            /*MassiveWorker worker = new MassiveWorker();
+            worker.scale(DataCollection.INSTANCE.getLaplasians());*/
+            create(imageProcessor, DataCollection.INSTANCE.getLaplasians());
+            result = new ImagePlus("laplasian " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
             if(addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
@@ -33,13 +28,11 @@ public class GradientCalculator extends MyAPlugin {
 
     @Override
     public void run() {
-
-        DataCollection.INSTANCE.newGradient(width*height);
-
-        calculateGradient();
+        DataCollection.INSTANCE.newLaplasian(width * height);
+        calculateLaplasian();
     }
 
-    private void calculateGradient() {
+    private void calculateLaplasian() {
         LuminanceCalculator luminanceCalculatorPlugin = new LuminanceCalculator();
         luminanceCalculatorPlugin.initProcessor(imageProcessor);
         luminanceCalculatorPlugin.run();
@@ -50,14 +43,12 @@ public class GradientCalculator extends MyAPlugin {
             for(Integer n : neigh) {
                 luminances.add(DataCollection.INSTANCE.getLuminance(n));
             }
-            int gradH = countGradientPixel(luminances, new MaskHrznt());
-            int gradV = countGradientPixel(luminances, new MaskVrtcl());
-            int gradD = countGradientPixel(luminances, new MaskDgnl());
-            DataCollection.INSTANCE.setGradient(i, (gradH + gradV + gradD)/3);
+            int lapl = countLaplasianPixel(luminances, new MaskLaplas());
+            DataCollection.INSTANCE.setLaplasian(i, lapl);
         }
     }
 
-    private int countGradientPixel(ArrayList<Integer> luminances, Mask mask)
+    private int countLaplasianPixel(ArrayList<Integer> luminances, Mask mask)
     {
         return   Math.abs(mask.R(luminances));
     }
