@@ -11,6 +11,10 @@ import java.util.ArrayList;
 
 public class Laplasian extends MyAPlugin {
 
+    public Laplasian() {
+        title = "Laplasian";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         if(result == null) {

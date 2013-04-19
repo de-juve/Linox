@@ -3,27 +3,33 @@ package gui.menu;
 import gui.Linox;
 import ij.ImagePlus;
 import plugins.DataCollection;
+import sun.awt.image.ImageAccessException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 public class LinoxImageStore extends JTabbedPane {
     private TabCloseUI closeUI = new TabCloseUI(this);
+    private ArrayList<String> titles;
 
     private LinoxImageFactory imageFactory;
 
     public LinoxImageStore() {
         imageFactory = new LinoxImageFactory();
+        titles = new ArrayList<>();
     }
 
     public void addImageTab(String title, ImagePlus image) {
         this.addTab(title+"   ", imageFactory.addImage(image));
+        titles.add(title);
     }
 
     public void removeSelectedImageTab() {
+        titles.remove(this.getTitleAt(this.getSelectedIndex()).trim());
         closeUI.removeSelectedTab();
     }
 
@@ -39,10 +45,23 @@ public class LinoxImageStore extends JTabbedPane {
         closeUI.cursorType = cursorType;
     }
 
+    public ArrayList<String> getTitles() {
+        return titles;
+    }
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         closeUI.paint(g);
+    }
+
+    public ImagePlus getImage(String title) throws ImageAccessException {
+        for(int i = 0; i < this.getTabCount(); i++) {
+            if(this.getTitleAt(i).trim().equals(title)) {
+                return ((ImageJPanel) this.getComponentAt(i)).getImage();
+            }
+        }
+        throw new ImageAccessException("Not found image with this title " + title);
     }
 
     private class TabCloseUI implements MouseListener, MouseMotionListener {
@@ -64,6 +83,7 @@ public class LinoxImageStore extends JTabbedPane {
         public void removeSelectedTab() {
             boolean isToCloseTab = tabAboutToClose(selectedTab);
             if (isToCloseTab && selectedTab > -1){
+                tabbedPane.getTitles().remove(tabbedPane.getTitleAt(selectedTab).trim());
                 tabbedPane.removeTabAt(selectedTab);
             }
         }

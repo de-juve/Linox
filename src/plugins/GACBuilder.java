@@ -19,6 +19,10 @@ public class GACBuilder extends MyAPlugin{
     boolean[] crossPoints;
     boolean[] used;
 
+    public GACBuilder() {
+        title = "GAC builder";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         if(result == null) {
@@ -76,6 +80,7 @@ public class GACBuilder extends MyAPlugin{
             watershed.initProcessor(imageProcessor);
             watershed.run();
             exit = watershed.exit;
+            setErrMessage(watershed.getErrMessage());
             if(exit) {
                 return;
             }

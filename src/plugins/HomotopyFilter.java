@@ -26,6 +26,9 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
     private int leftX, upY;
     private boolean finish = false;
 
+    public HomotopyFilter() {
+        title = "Homotopy filter";
+    }
 
     public void setAreaSizeX(int areaSizeX) {
         this.areaSizeX = areaSizeX;
@@ -197,6 +200,7 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
         gd.showDialog();
         if (gd.wasCanceled()) {
             exit = true;
+            setErrMessage("canceled");
             return;
         }
     }

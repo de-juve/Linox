@@ -7,6 +7,9 @@ import workers.MassiveWorker;
 
 
 public class LuminanceCalculator extends MyAPlugin {
+    public LuminanceCalculator() {
+        title = "Luminance calculator";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {

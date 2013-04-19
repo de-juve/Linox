@@ -13,6 +13,10 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
     SplineTuple[] splinesX, splinesY, splinesZ;
     String typeApproximation;
 
+    public LineExtrapolation() {
+        title = "Line approximation";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         result = new ImagePlus("line extrapolation " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
@@ -198,7 +202,8 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
     public double interpolateSpline(double x, SplineTuple[] splines) throws Exception {
         if (splines == null)
         {
-            throw  new Exception("Doesn't exists any spline"); // Если сплайны ещё не построены - возвращаем NaN
+            exit = true;
+            setErrMessage("Doesn't exists any spline");
         }
 
         int n = splines.length;
@@ -245,6 +250,7 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
         gd.showDialog();
         if (gd.wasCanceled()) {
             exit = true;
+            setErrMessage("canceled");
             return;
         }
     }

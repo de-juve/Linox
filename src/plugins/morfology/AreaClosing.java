@@ -8,6 +8,9 @@ import workers.ShedWorker;
 import java.awt.*;
 
 public class AreaClosing extends MorfologyOperation {
+    public AreaClosing() {
+        title = "Morphological area closing";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {

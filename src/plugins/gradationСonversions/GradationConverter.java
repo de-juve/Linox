@@ -20,6 +20,7 @@ public class GradationConverter extends MyAPlugin implements DialogListener {
 
     public GradationConverter() {
         this.factory = new GradationConversionsFactory();
+        title = "Gradation converter";
     }
 
     @Override
@@ -70,6 +71,7 @@ public class GradationConverter extends MyAPlugin implements DialogListener {
         gd.showDialog();
         if (gd.wasCanceled()) {
             exit = true;
+            setErrMessage("canceled");
             return;
         }
     }

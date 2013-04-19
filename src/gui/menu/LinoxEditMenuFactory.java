@@ -9,6 +9,7 @@ import ij.plugin.Scaler;
 import plugins.*;
 import plugins.gradationСonversions.GradationConverter;
 import plugins.histogramChanging.HistogramChanger;
+import plugins.imageOperations.ImageOperator;
 import plugins.morfology.AreaClosing;
 import plugins.morfology.AreaEqualing;
 import plugins.morfology.AreaOpening;
@@ -72,6 +73,15 @@ public class LinoxEditMenuFactory {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pluginRunner.setPlugin(new HistogramChanger());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
+        final Action imageOperator = new AbstractAction("Image operations") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new ImageOperator());
                 Thread myThready = new Thread(pluginRunner);
                 myThready.start();
             }
@@ -172,7 +182,7 @@ public class LinoxEditMenuFactory {
         final Action curveAnalizer = new AbstractAction("Curve Analyzer") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pluginRunner.setPlugin(new CurveAnalizer());
+                pluginRunner.setPlugin(new CurveAnalyzer());
                 Thread myThready = new Thread(pluginRunner);
                 myThready.start();
             }
@@ -488,6 +498,7 @@ public class LinoxEditMenuFactory {
         items.add(new JMenuItem(lowerCompletion));
         items.add(new JMenuItem(gradationCoversion));
         items.add(new JMenuItem(histChanger));
+        items.add(new JMenuItem(imageOperator));
         items.add(new JMenuItem(luminance));
         items.add(new JMenuItem(luminaceRedirector));
         items.add(new JMenuItem(luminaceDiscretizator));

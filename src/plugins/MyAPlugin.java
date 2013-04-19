@@ -12,12 +12,24 @@ public abstract class MyAPlugin  implements MyPlugInFilter{
 	protected int width, height;
     protected boolean exit = false;
     protected int criteria;
-  //  protected int iterations;
-    protected String title;
+    protected String errMessage = "";
+    protected String title = "";
 
     public ImagePlus getResult(boolean addToStack) {
 		return result;
 	}
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getErrMessage() {
+        return errMessage;
+    }
+
+    protected  void setErrMessage(String message) {
+        errMessage = message;
+    }
 
     @Override
     public void run() {}
@@ -43,14 +55,6 @@ public abstract class MyAPlugin  implements MyPlugInFilter{
 	protected int getCriteria() {
 		return criteria;
 	}
-
-	/*public int getIterations() {
-		return iterations;
-	}
-
-	public void setIterations(int iterations) {
-		this.iterations = iterations;
-	}*/
 
 	protected void create(ImageProcessor ip, Integer[] array) {
         for(int i = 0; i < array.length; i++) {

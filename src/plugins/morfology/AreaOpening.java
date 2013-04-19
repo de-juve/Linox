@@ -5,6 +5,9 @@ import ij.process.ImageProcessor;
 import plugins.DataCollection;
 
 public class AreaOpening extends MorfologyOperation {
+    public AreaOpening() {
+        title = "Morphological area opening";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {

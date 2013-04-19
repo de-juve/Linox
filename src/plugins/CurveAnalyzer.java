@@ -11,8 +11,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class CurveAnalizer extends MyAPlugin {
+public class CurveAnalyzer extends MyAPlugin {
 	double alpha = 0.1;
+
+    public CurveAnalyzer() {
+        title = "Curve analyzer";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {

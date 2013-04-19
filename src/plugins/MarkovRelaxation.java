@@ -24,6 +24,10 @@ public class MarkovRelaxation extends MyAPlugin{
     Integer[] luminance;
     TreeMap<Integer, Double> u_k, u_p, u_delta_p, u_sigma_k, u_mean_c, u_d;
 
+    public MarkovRelaxation() {
+        title = "Markov relaxation";
+    }
+
     @Override
     public void run() {
 

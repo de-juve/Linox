@@ -22,12 +22,13 @@ import java.util.TreeMap;
 
 public class Watershed2 extends MyAPlugin implements DialogListener {
     MassiveWorker worker;
-
     TreeMap<Integer, ArrayList<Integer>> steepestNeighboures;
-
     boolean[] maximum;
-
     Color[] colors;
+
+    public Watershed2() {
+        title = "Watershed2";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
@@ -392,6 +393,7 @@ public class Watershed2 extends MyAPlugin implements DialogListener {
         gd.showDialog();
         if (gd.wasCanceled()) {
             exit = true;
+            setErrMessage("canceled");
             return;
         }
     }

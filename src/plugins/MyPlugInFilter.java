@@ -8,4 +8,6 @@ public interface MyPlugInFilter extends Runnable {
     ImagePlus getResult(boolean addToStack);
 	boolean exit();
     void run();
+    String getTitle();
+    String getErrMessage();
 }

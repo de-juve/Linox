@@ -22,6 +22,10 @@ public class UnionFindComponentLabeling extends MyAPlugin{
 
     Integer[] parent;
 
+    public UnionFindComponentLabeling() {
+        title = "Union find component labeling";
+    }
+
     @Override
     public void run() {
         LuminanceCalculator lumCalc = new LuminanceCalculator();

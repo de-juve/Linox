@@ -14,6 +14,9 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GradientCalculator extends MyAPlugin {
+    public GradientCalculator() {
+        title = "Gradient calculator";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {

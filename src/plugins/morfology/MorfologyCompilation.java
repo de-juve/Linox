@@ -15,6 +15,7 @@ public class MorfologyCompilation extends MorfologyOperation {
 
     public MorfologyCompilation() {
         this.factory = new ImageOperationFactory();
+        title = "Morphological compilation";
     }
 
     @Override
@@ -71,6 +72,7 @@ public class MorfologyCompilation extends MorfologyOperation {
         gd.showDialog();
         if (gd.wasCanceled()) {
             exit = true;
+            setErrMessage("canceled");
             return;
         }
     }

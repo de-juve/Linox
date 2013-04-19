@@ -12,6 +12,11 @@ import java.math.RoundingMode;
 
 public class LuminanceDiscretizator extends MyAPlugin  implements DialogListener {
     private int discretizationLevels;
+
+    public LuminanceDiscretizator() {
+        title = "Luminance discretizator";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         if(result == null) {
@@ -55,6 +60,7 @@ public class LuminanceDiscretizator extends MyAPlugin  implements DialogListener
         gd.showDialog();
         if (gd.wasCanceled()) {
             exit = true;
+            setErrMessage("canceled");
             return;
         }
     }

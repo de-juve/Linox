@@ -19,6 +19,7 @@ public class HistogramChanger extends MyAPlugin implements DialogListener {
 
     public HistogramChanger() {
         this.factory = new HistogramChangingFactory();
+        title = "Histogram changing";
     }
 
     @Override

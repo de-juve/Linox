@@ -12,6 +12,10 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class LineThickening extends MyAPlugin {
+    public LineThickening() {
+        title = "Line thickening";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         result = new ImagePlus("line thickening " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);

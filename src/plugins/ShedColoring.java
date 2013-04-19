@@ -9,6 +9,10 @@ import workers.ShedWorker;
 import java.awt.*;
 
 public class ShedColoring extends  MyAPlugin {
+    public ShedColoring() {
+        title = "Sheds coloring";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         if(result == null) {

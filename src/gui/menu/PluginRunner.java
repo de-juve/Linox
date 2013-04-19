@@ -5,6 +5,7 @@ import gui.Linox;
 import plugins.DataCollection;
 import plugins.MyPlugInFilter;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class PluginRunner implements Runnable {
@@ -24,6 +25,7 @@ public class PluginRunner implements Runnable {
             plugin.initProcessor(DataCollection.INSTANCE.getImageOriginal().getProcessor().convertToRGB().duplicate());
             plugin.run();
             if(plugin.exit()) {
+                JOptionPane.showMessageDialog(Linox.getInstance(), "plugin " + plugin.getTitle() + " stoped. Because: " + plugin.getErrMessage());
                 return;
             }
             DataCollection.INSTANCE.setImageResult(plugin.getResult(true));

@@ -3,6 +3,9 @@ package plugins;
 import ij.ImagePlus;
 
 public class DetectEdges extends MyAPlugin{
+    public DetectEdges() {
+        title = "Find edges";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {

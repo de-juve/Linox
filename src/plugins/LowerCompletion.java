@@ -13,6 +13,10 @@ public class LowerCompletion extends MyAPlugin {
     Queue<Integer> queue = new LinkedList<> ();
     int distination;
 
+    public LowerCompletion() {
+        title = "Lower completion";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         if(result == null) {

@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 
 public class AreaEqualing extends MorfologyOperation {
+    public AreaEqualing() {
+        title = "Morphological area equaling";
+    }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {

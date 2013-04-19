@@ -7,6 +7,10 @@ import workers.PixelsMentor;
 import java.util.ArrayList;
 
 public class MedianFilter extends MyAPlugin {
+    public MedianFilter() {
+        title = "Median filter";
+    }
+
     @Override
     public ImagePlus getResult(boolean addToStack) {
         result = new ImagePlus("median filter " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
