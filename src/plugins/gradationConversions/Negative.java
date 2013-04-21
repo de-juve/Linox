@@ -1,4 +1,4 @@
-package plugins.gradationСonversions;
+package plugins.gradationConversions;
 
 public class Negative extends GradationConversion{
 

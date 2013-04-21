@@ -3,8 +3,6 @@ package plugins;
 import ij.ImagePlus;
 import image.Mask;
 import image.MaskLaplas;
-import plugins.gradationСonversions.GradationConverter;
-import workers.MassiveWorker;
 import workers.PixelsMentor;
 
 import java.util.ArrayList;

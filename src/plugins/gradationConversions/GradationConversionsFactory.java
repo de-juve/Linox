@@ -1,4 +1,4 @@
-package plugins.gradationСonversions;
+package plugins.gradationConversions;
 
 import java.util.HashMap;
 

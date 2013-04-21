@@ -8,10 +8,17 @@ import ij.gui.GenericDialog;
 import java.awt.*;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.TreeMap;
 
 public class LineExtrapolation extends MyAPlugin implements DialogListener {
     SplineTuple[] splinesX, splinesY, splinesZ;
     String typeApproximation;
+    int deviation, penalty, lengthExt;
+    LinkedList<Integer> extrapolateLine;
+    private TreeMap<Integer, LinkedList<Integer>> recoveryPointMap;
+    LinkedList<Integer> x, y, z;
+    double[] arX, arY, arZ, arT;
+
 
     public LineExtrapolation() {
         title = "Line approximation";
@@ -34,6 +41,8 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
             return;
         }
 
+        recoveryPointMap = new TreeMap<>();
+
         LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
         luminanceCalculator.initProcessor(imageProcessor);
         luminanceCalculator.run();
@@ -41,16 +50,97 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
         ShowStaticstics.showHistogram(DataCollection.INSTANCE.getLine(), false);
         ShowStaticstics.showLuminanceChanging(DataCollection.INSTANCE.getLine(), true);
 
-
         LinkedList<Integer> line = DataCollection.INSTANCE.getLine();
-        LinkedList<Integer> x = new LinkedList<>();
-        LinkedList<Integer> y = new LinkedList<>();
-        LinkedList<Integer> z = new LinkedList<>();
-        double[] arX = new double[line.size()];
-        double[] arY = new double[line.size()];
-        double[] arZ = new double[line.size()];
-        double[] arT = new double[line.size()];
 
+        extrapolateLine(line, lengthExt);
+
+       /* System.out.println("line " + line.size() + " extr " + extrapolateLine.size());
+        System.out.println("line " + line);
+        System.out.println("extr " + extrapolateLine);*/
+
+        for(Integer id : extrapolateLine) {
+            imageProcessor.set(id, Color.RED.getRGB());
+        }
+    }
+
+    private void extrapolateLine(LinkedList<Integer> line, int length) {
+        x = new LinkedList<>();
+        y = new LinkedList<>();
+        z = new LinkedList<>();
+        arX = new double[line.size()];
+        arY = new double[line.size()];
+        arZ = new double[line.size()];
+        arT = new double[line.size()];
+
+        extrapolateLine = new LinkedList<>();
+        extrapolateLine.addAll(line);
+
+        defineFunctionsPoints(line);
+
+        System.out.println(x);
+        System.out.println(y);
+
+        if(typeApproximation.equals("spline")) {
+            splinesX = new SplineTuple[arT.length];
+            splinesY = new SplineTuple[arT.length];
+            //splinesZ = new SplineTuple[arT.length];
+            buildSpline(arT, arX, arT.length, splinesX);
+            buildSpline(arT, arY, arT.length, splinesY);
+            //buildSpline(arT, arZ, arT.length, splinesZ);
+        }
+
+        for(int i = 0; i < line.size() + length; i++) {
+            int nx, ny, nz;
+            if(typeApproximation.equals("lagrange")) {
+                nx = lagrange(i, x);
+                ny = lagrange(i, y);
+                //int nz = lagrange(i, z);
+            } else {
+                try {
+                    nx = (int) interpolateSpline(i, splinesX);
+                    ny = (int) interpolateSpline(i, splinesY);
+                    //nz = (int) interpolateSpline(i, splinesZ);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+
+            System.out.println(i + ": " + x + " " + nx);
+            System.out.println(i + ": " + y + " " + ny);
+
+            if(nx >= width || nx < 0 || ny >= height || ny < 0) {
+                System.out.println("Out of bouds (" + nx + ", " + ny + ")");
+                break;
+            }
+            int id = nx + ny*width;
+            nz = getLuminance(id);
+            if(nz < 0) {
+               // penalty++;
+                if(penalty < 0) {
+                    break;
+                }
+                extrapolateLine(recoveryPointMap.get(penalty + 1), length + line.size() - recoveryPointMap.get(penalty + 1).size());
+                break;
+            } else {
+                extrapolateLine.add(id);
+            }
+
+            /*int value = (((nz & 0xff) << 16) +
+                    ((nz & 0xff) << 8) +
+                    (nz & 0xff));*/
+            /*System.out.println(i + ": " + x + " " + nx);
+            System.out.println(i + ": " + y + " " + ny);
+            System.out.println(i + ": " + z + " " + nz);
+            System.out.println();*/
+
+
+
+        }
+    }
+
+
+    private void defineFunctionsPoints(LinkedList<Integer> line) {
         int i = 0;
         ListIterator<Integer> iterator = line.listIterator();
         while (iterator.hasNext()) {
@@ -70,62 +160,18 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
             arZ[i] = DataCollection.INSTANCE.getLuminance(id);
             i++;
         }
+    }
 
-        if(typeApproximation.equals("lagrange")) {
-            for(i = 0; i < x.size() + 10; i++) {
-                int nx = lagrange(i, x);
-                int ny = lagrange(i, y);
-                int nz = lagrange(i, z);
-
-                if(nx >= width || nx < 0 || ny >= height || ny < 0) {
-                    continue;
-                }
-                int value = (((nz & 0xff) << 16) +
-                        ((nz & 0xff) << 8) +
-                        (nz & 0xff));
-                System.out.println(i + ": " + x + " " + nx);
-                System.out.println(i + ": " + y + " " + ny);
-                System.out.println(i + ": " + z + " " + nz);
-                System.out.println();
-
-                imageProcessor.set(nx, ny, Color.RED.getRGB());
-
-            }
+    private int getLuminance(int id) {
+        if(Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean) < deviation) {
+            return DataCollection.INSTANCE.getLuminance(id);
+        } else if(penalty >= 0) {
+            recoveryPointMap.put(penalty, (LinkedList<Integer>) extrapolateLine.clone());
+            penalty--;
+            return DataCollection.INSTANCE.getLuminance(id);
         } else {
-            splinesX = new SplineTuple[arT.length];
-            splinesY = new SplineTuple[arT.length];
-            splinesZ = new SplineTuple[arT.length];
-            buildSpline(arT, arX, arT.length, splinesX);
-            buildSpline(arT, arY, arT.length, splinesY);
-            buildSpline(arT, arZ, arT.length, splinesZ);
-
-            for(i = 0; i < x.size() + 10; i++) {
-
-                int nx, ny, nz;
-                try {
-                    nx = (int) interpolateSpline(i, splinesX);
-                    ny = (int) interpolateSpline(i, splinesY);
-                    nz = (int) interpolateSpline(i, splinesZ);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
-                System.out.println(i + ": " + x + " " + nx);
-                System.out.println(i + ": " + y + " " + ny);
-                System.out.println(i + ": " + z + " " + nz);
-                System.out.println();
-
-                if(nx >= width || nx < 0 || ny >= height || ny < 0) {
-                    continue;
-                }
-                int value = (((nz & 0xff) << 16) +
-                        ((nz & 0xff) << 8) +
-                        (nz & 0xff));
-                imageProcessor.set(nx, ny, Color.RED.getRGB());
-
-            }
+            return -1;
         }
-
     }
 
     private Integer lagrange(Integer x, LinkedList<Integer> line) {
@@ -134,6 +180,16 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
 
         L = 0;
 
+        for(int j = 0; j < line.size(); j++) {
+            l = 1;
+            for(int i = 0; i < line.size(); i++) {
+                if(i != j) {
+                    l *= (x - i) * 1d / (j-i);
+                }
+            }
+            L += (int) (line.get(j) * l);
+        }
+        /*
         ListIterator<Integer> iterator = line.listIterator();
         while (iterator.hasNext()) {
             int j = iterator.nextIndex();
@@ -145,7 +201,7 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
                 }
             }
             L += (int) (iterator.next() * l);
-        }
+        }*/
 
         return L;
     }
@@ -204,6 +260,7 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
         {
             exit = true;
             setErrMessage("Doesn't exists any spline");
+            return -1;
         }
 
         int n = splines.length;
@@ -243,7 +300,13 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
 
     protected void showDialog(String name) {
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
+        gd.addSlider("Count of penaltys", 0, 10, 3);
+        gd.addSlider("Luminance deviation", 0, 50, 10);
+        gd.addSlider("Lenght of extrapolation", 0, 50, 10);
         gd.addChoice("Type of approximation", new String[]{"lagrange", "spline"}, "lagrange");
+        penalty = 3;
+        deviation = 10;
+        lengthExt = 10;
         typeApproximation = "lagrange";
         gd.addDialogListener(this);
 
@@ -251,11 +314,13 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
         if (gd.wasCanceled()) {
             exit = true;
             setErrMessage("canceled");
-            return;
         }
     }
 
     public boolean dialogItemChanged(GenericDialog gd, AWTEvent e) {
+        penalty = (int) gd.getNextNumber();
+        deviation = (int) gd.getNextNumber();
+        lengthExt = (int) gd.getNextNumber();
         typeApproximation = gd.getNextChoice();
         return true;
     }

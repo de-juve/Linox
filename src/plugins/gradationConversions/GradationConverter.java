@@ -1,4 +1,4 @@
-package plugins.gradationСonversions;
+package plugins.gradationConversions;
 
 import ij.IJ;
 import ij.ImagePlus;

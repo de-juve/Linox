@@ -7,7 +7,7 @@ import ij.WindowManager;
 import ij.plugin.Histogram;
 import ij.plugin.Scaler;
 import plugins.*;
-import plugins.gradationСonversions.GradationConverter;
+import plugins.gradationConversions.GradationConverter;
 import plugins.histogramChanging.HistogramChanger;
 import plugins.imageOperations.ImageOperator;
 import plugins.morfology.AreaClosing;
