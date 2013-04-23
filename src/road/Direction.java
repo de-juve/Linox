@@ -9,6 +9,13 @@ public enum Direction {
         public Direction opposite2() { return WEST; }
 
         @Override
+        public Direction collinear1() { return NORTH_EAST; }
+
+        @Override
+        public Direction collinear2() { return NORTH_WEST; }
+
+
+        @Override
         public Integer getNeighboureId(int id, int width) {
             return id-width;
         }
@@ -21,9 +28,17 @@ public enum Direction {
         public Direction opposite2() { return WEST; }
 
         @Override
+        public Direction collinear1() { return SOUTH_EAST; }
+
+        @Override
+        public Direction collinear2() { return SOUTH_WEST; }
+
+        @Override
         public Integer getNeighboureId(int id, int width) {
             return id+width;
         }
+
+
     },
     EAST {
         @Override
@@ -31,6 +46,12 @@ public enum Direction {
 
         @Override
         public Direction opposite2() { return SOUTH; }
+
+        @Override
+        public Direction collinear1() { return SOUTH_EAST; }
+
+        @Override
+        public Direction collinear2() { return NORTH_EAST; }
 
         @Override
         public Integer getNeighboureId(int id, int width) {
@@ -45,6 +66,12 @@ public enum Direction {
         public Direction opposite2() { return SOUTH; }
 
         @Override
+        public Direction collinear1() { return SOUTH_WEST; }
+
+        @Override
+        public Direction collinear2() { return NORTH_WEST; }
+
+        @Override
         public Integer getNeighboureId(int id, int width) {
             return id+1;
         }
@@ -55,6 +82,12 @@ public enum Direction {
 
         @Override
         public Direction opposite2() { return SOUTH_WEST; }
+
+        @Override
+        public Direction collinear1() { return NORTH; }
+
+        @Override
+        public Direction collinear2() { return WEST; }
 
         @Override
         public Integer getNeighboureId(int id, int width) {
@@ -69,6 +102,12 @@ public enum Direction {
         public Direction opposite2() { return SOUTH_EAST; }
 
         @Override
+        public Direction collinear1() { return NORTH; }
+
+        @Override
+        public Direction collinear2() { return EAST; }
+
+        @Override
         public Integer getNeighboureId(int id, int width) {
             return id-width-1;
         }
@@ -79,6 +118,12 @@ public enum Direction {
 
         @Override
         public Direction opposite2() { return SOUTH_EAST; }
+
+        @Override
+        public Direction collinear1() { return SOUTH; }
+
+        @Override
+        public Direction collinear2() { return WEST; }
 
         @Override
         public Integer getNeighboureId(int id, int width) {
@@ -93,6 +138,12 @@ public enum Direction {
         public Direction opposite2() { return SOUTH_WEST; }
 
         @Override
+        public Direction collinear1() { return SOUTH; }
+
+        @Override
+        public Direction collinear2() { return EAST; }
+
+        @Override
         public Integer getNeighboureId(int id, int width) {
             return id+width-1;
         }
@@ -100,6 +151,9 @@ public enum Direction {
 
     public abstract Direction opposite1();
     public abstract Direction opposite2();
+    public abstract Direction collinear1();
+    public abstract Direction collinear2();
+
     public abstract Integer getNeighboureId(int id, int width);
 
     public static Direction defineDirection(int current, int next, int width) {

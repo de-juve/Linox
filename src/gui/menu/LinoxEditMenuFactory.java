@@ -4,6 +4,7 @@ import gui.Linox;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.WindowManager;
+import ij.plugin.FFT;
 import ij.plugin.Histogram;
 import ij.plugin.Scaler;
 import plugins.*;
@@ -451,6 +452,27 @@ public class LinoxEditMenuFactory {
             }
         };
 
+        final Action fft = new AbstractAction("Fourier Transform") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Linox.getInstance().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                try {
+                    WindowManager.setTempCurrentImage(DataCollection.INSTANCE.getImageOriginal());
+                    FFT f = new FFT();
+                    f.run("options");
+                    if( IJ.getImage() != null && WindowManager.getCurrentWindow() != null)  {
+                        DataCollection.INSTANCE.setImageResult((ImagePlus) IJ.getImage().clone());
+
+                        ((LinoxImageStore) Linox.getInstance().getImageStore()).addImageTab(WindowManager.getCurrentWindow().getTitle(), DataCollection.INSTANCE.getImageResult());
+                        WindowManager.closeAllWindows();
+                    }
+
+                } finally {
+                    Linox.getInstance().setCursor(Cursor.getDefaultCursor());
+                }
+            }
+        };
+
         final Action histogram = new AbstractAction("Histogram") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -516,6 +538,7 @@ public class LinoxEditMenuFactory {
         items.add(new JMenuItem(curveAnalizer));
         items.add(new JMenuItem(homotopy));
         items.add(new JMenuItem(scaler));
+        items.add(new JMenuItem(fft));
         items.add(new JMenuItem(histogram));
         items.add(new JMenuItem(color_deconvolution));
         items.add(new JMenuItem(linePainter));

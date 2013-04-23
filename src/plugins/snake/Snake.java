@@ -3,32 +3,38 @@ package plugins.snake;
 import java.util.LinkedList;
 
 public class Snake<T extends LinePoint> {
-    LinkedList<T> tail, head;
-    double step = 1;
+    private LinkedList<T> tail, head, line;
+    private int tailSize = 40, headSize = 10;
+    private double step = 1;
+    private double inc = 0.01;
 
     public Snake() {
         tail = new LinkedList<>();
         head = new LinkedList<>();
+        line = new LinkedList<>();
     }
     public Snake(LinkedList<T> _tail, LinkedList<T> _head) {
         tail = new LinkedList<>(_tail);
         head = new LinkedList<>(_head);
+        line = new LinkedList<>();
     }
 
     public void addElementToHead(T element) {
+        if(head.size() == headSize) {
+            tail.addFirst(head.removeLast());
+        }
         head.addFirst(element);
     }
 
-    public void removeElementFromHead() {
-        head.removeLast();
-    }
-
     public void addElementToTail(T element) {
+        if(tail.size() == tailSize) {
+            line.addFirst(tail.removeLast());
+        }
         tail.addFirst(element);
     }
 
-    public void removeElementFromTail() {
-        tail.removeLast();
+    public void addElementToLine(T element) {
+        line.addFirst(element);
     }
 
     public void addElement(T element) {
@@ -44,16 +50,24 @@ public class Snake<T extends LinePoint> {
         return head;
     }
 
+    public LinkedList<T> getLine() {
+        return line;
+    }
+
+
     public void setHead(LinkedList<T> head) {
         this.head = head;
     }
 
     public void increaseStep() {
-        step += 0.01;
+        step += inc;
     }
 
     public void reduceStep() {
-        step -= 0.01;
+        while(step-inc <= 0) {
+            inc /= 2;
+        }
+        step -= inc;
     }
 
     public double getStep() {
@@ -68,9 +82,9 @@ public class Snake<T extends LinePoint> {
         return values;
     }
 
-    public LinkedList<Integer> getHeadValues() {
+    public LinkedList<Integer> getLineValues() {
         LinkedList<Integer> values = new LinkedList<>();
-        for(LinePoint p : head) {
+        for(LinePoint p : line) {
             values.addFirst(p.getY());
         }
         return values;

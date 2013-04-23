@@ -1,5 +1,6 @@
 package plugins;
 
+import gui.Linox;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.DialogListener;
@@ -12,19 +13,13 @@ import workers.PixelsMentor;
 
 import java.awt.*;
 import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.TreeMap;
 
 public class LineExtrapolation extends MyAPlugin implements DialogListener {
     SplineTuple[] splinesX, splinesY;
     String typeApproximation;
     int deviation, penaltyThreshold;
-    Snake<LinePoint> snakeX, snakeY, snakeZ, snake;
-    LinkedList<Integer> extrapolateLine;
+    Snake<LinePoint> snakeX, snakeY, snake;
     Penalty penalty;
-
-    private TreeMap<Integer, LinkedList<LinePoint>> recoveryPointMap;
-
 
     public LineExtrapolation() {
         title = "Line approximation";
@@ -51,46 +46,53 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
         luminanceCalculator.initProcessor(imageProcessor);
         luminanceCalculator.run();
 
-        LinkedList<LinePoint> line = new LinkedList<>();
-        for(int i = 0; i < DataCollection.INSTANCE.getLine().size(); i++) {
-            line.addFirst(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
+        LinkedList<LinePoint> head = new LinkedList<>();
+        LinkedList<LinePoint> tail = new LinkedList<>();
+        for(int i = 0; i < DataCollection.INSTANCE.getLine().size() - 5; i++) {
+            tail.addFirst(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
+        }
+        for(int i = DataCollection.INSTANCE.getLine().size() - 5; i < DataCollection.INSTANCE.getLine().size(); i++) {
+            head.addFirst(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
         }
 
-        recoveryPointMap = new TreeMap<>();
-        snake = new Snake<>(line, line);
-
-        extrapolateLine = new LinkedList<>();
+        snake = new Snake<>(tail, head);
         penalty = new Penalty(penaltyThreshold);
 
         extrapolateLine();
 
-        if(exit)   {
-            return;
+        for(LinePoint p : snake.getTail()) {
+            snake.addElementToLine(p);
+        }
+        for(LinePoint p : snake.getHead()) {
+            snake.addElementToLine(p);
         }
 
-        System.out.println("line " + line.size() + " extr " + extrapolateLine.size() +
-                "\r\nline " + line +
-                "\r\nextr " + extrapolateLine);
+        for(LinePoint id : snake.getLine()) {
+            imageProcessor.set(id.getY(), Color.RED.getRGB());
+        }
 
-        for(Integer id : extrapolateLine) {
-            imageProcessor.set(id, Color.RED.getRGB());
+        ShowStaticstics.showLuminanceChanging(snake.getLineValues(), true);
+
+        if(exit) {
+            DataCollection.INSTANCE.setImageResult(getResult(true));
+            (Linox.getInstance().getImageStore()).addImageTab(DataCollection.INSTANCE.getImageResult().getTitle(), DataCollection.INSTANCE.getImageResult());
         }
     }
 
     private void extrapolateLine() {
         int nx, ny, nz;
+
         snakeX = new Snake<>();
         snakeY = new Snake<>();
-        snakeZ = new Snake<>();
 
         ShowStaticstics.showHistogram(snake.getTailValues(), false);
-        ShowStaticstics.showLuminanceChanging(snake.getTailValues(), true);
+        ShowStaticstics.showLuminanceChanging(snake.getTailValues(), false);
 
         defineHeadPoints(snake.getHead());
 
         if(typeApproximation.equals("spline")) {
-            splinesX = new SplineTuple[snake.getTail().size()];
-            splinesY = new SplineTuple[snake.getTail().size()];
+            splinesX = new SplineTuple[snake.getHead().size()];
+            splinesY = new SplineTuple[snake.getHead().size()];
 
             buildSpline(snakeX.getHead(), splinesX);
             buildSpline(snakeY.getHead(), splinesY);
@@ -98,6 +100,7 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
             nx = moveSpline(snakeX, splinesX);
             ny = moveSpline(snakeY, splinesY);
             if(exit)   {
+                System.out.println("spline err");
                 return;
             }
         } else {
@@ -106,7 +109,9 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
         }
 
         if(nx >= width || nx < 0 || ny >= height || ny < 0) {
-            System.out.println("Out of bouds (" + nx + ", " + ny + ")");
+            System.err.println("Out of bounds (" + nx + ", " + ny + ")");
+            setErrMessage("Out of bounds (" + nx + ", " + ny + ")");
+            exit = true;
             return;
         }
 
@@ -114,56 +119,99 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
 
         nz = getLuminance(id);
 
-        if(nz < 0) {
+        while(nz < 0) {
             //recover
-            snake.setHead(recoveryPointMap.get(0));
-            //see neighbour
-            int lastId = extrapolateLine.indexOf(extrapolateLine.getLast());
-            Direction d = Direction.defineDirection(extrapolateLine.get(lastId-1), extrapolateLine.get(lastId), width);
-            id = PixelsMentor.defineNeighbourId(extrapolateLine.get(lastId), d, width, height);
+            try {
+                LinkedList<LinePoint> recover = penalty.recover();
+              /*  if(recover.size() == snake.getHead().size() && snake.getHead().equals(recover))
+                {
+                    System.out.println("don't have recover");
+                    return;
+                }*/
+                snake.setHead(recover);
+            } catch (NegativeArraySizeException ex) {
+                System.err.println(ex.getMessage());
+                //setErrMessage(ex.getMessage());
+                //exit = true;
+                return;
+            }
+
+            //try go to neighbour
+            Direction d = Direction.defineDirection(snake.getHead().get(1).getY(), snake.getHead().get(0).getY(), width);
+            id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d, width, height);
             nz = getLuminance(id);
-        } else {
-            snake.addElementToHead(new LinePoint(snake.getHead().size(), id));
+            if(nz < 0) {
+                id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear1(), width, height);
+                nz = getLuminance(id);
+            }
+            if(nz < 0) {
+                penalty.recoverFirst();
+                id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear2(), width, height);
+                nz = getLuminance(id);
+            }
+            if(nz < 0 ) {
+                penalty.recoverFirst();
+            }
         }
-        //extrapolateLine.add(id);
+
+        snake.addElementToHead(new LinePoint(snake.getHead().size(), id));
+        extrapolateLine();
     }
 
     private int moveLagrange(Snake<LinePoint> snake) {
-        double i = snake.getHead().getLast().getX() + snake.getStep();
-        return lagrange(i, snake.getHead());
+        double i = snake.getHead().getFirst().getX() + snake.getStep();
+        int point = lagrange(i, snake.getHead());
+        while(Math.abs(point - snake.getHead().getFirst().getY()) > 1) {
+            snake.reduceStep();
+            i = snake.getHead().getFirst().getX() + snake.getStep();
+            point = lagrange(i, snake.getHead());
+        }
+        while(Math.abs(point - snake.getHead().getFirst().getY()) > 0 && Math.abs(point - snake.getHead().getFirst().getY()) < 1) {
+            snake.increaseStep();
+            i = snake.getHead().getFirst().getX() + snake.getStep();
+            point = lagrange(i, snake.getHead());
+        }
+        System.out.println(snake.getHead().getFirst().getY() + " " + point);
+        return point;
     }
 
     private int moveSpline(Snake<LinePoint> snake, SplineTuple[] splines) {
-        double i = snake.getHead().getLast().getX() + snake.getStep();
-        return (int) interpolateSpline(i, splines);
+        double i = snake.getHead().getFirst().getX() + snake.getStep();
+        int point = (int) interpolateSpline(i, splines);
+        while(Math.abs(point - snake.getHead().getFirst().getY()) > 1) {
+            snake.reduceStep();
+            i = snake.getHead().getFirst().getX() + snake.getStep();
+            point = (int) interpolateSpline(i, splines);
+        }
+        while(Math.abs(point - snake.getHead().getFirst().getY()) > 0 && Math.abs(point - snake.getHead().getFirst().getY()) < 1) {
+            snake.increaseStep();
+            i = snake.getHead().getFirst().getX() + snake.getStep();
+            point = (int) interpolateSpline(i, splines);
+        }
+        return point;
     }
 
     private int getLuminance(int id) {
         if (Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean) >= deviation) {
-            penalty.addPenalty(Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean));
+            penalty.addPenalty(Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean), snake.getHead());
             if(penalty.countPenalty() > penalty.getThreshold()) {
                 return -1;
             }
-            //recoveryPointMap.put(penalty, new LinkedList<>(extrapolateLine));
         }
+        penalty.addPenalty(0);
         return DataCollection.INSTANCE.getLuminance(id);
     }
 
     private void defineHeadPoints(LinkedList<LinePoint> line) {
         int id;
-        double i = 0;
-        ListIterator<LinePoint> iterator = line.listIterator();
-        while (iterator.hasNext()) {
-            if(typeApproximation.equals("lagrange") && iterator.nextIndex() < line.size() - 5) {
-                iterator.next();
+        for(int j = line.size() -1 ; j >= 0 ; j--) {
+            if(typeApproximation.equals("lagrange") && j > 5) {
                 continue;
             }
-            LinePoint point = iterator.next();
+            LinePoint point = line.get(j);
             id = point.getY();
-            snakeX.addElement(new LinePoint(i, id%width));
-            snakeY.addElement(new LinePoint(i, id/width));
-            snakeZ.addElement(new LinePoint(i,DataCollection.INSTANCE.getLuminance(id)));
-            i++;
+            snakeX.addElementToHead(new LinePoint(line.size() - j, id % width));
+            snakeY.addElementToHead(new LinePoint(line.size() - j, id / width));
         }
     }
 
@@ -280,10 +328,10 @@ public class LineExtrapolation extends MyAPlugin implements DialogListener {
 
     protected void showDialog(String name) {
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
-        gd.addSlider("Count of penaltys", 0, 10, 3);
-        gd.addSlider("Luminance deviation", 0, 50, 10);
+        gd.addSlider("Count of penaltys", 0, 100000, 100);
+        gd.addSlider("Luminance deviation", 0, 100, 10);
         gd.addChoice("Type of approximation", new String[]{"lagrange", "spline"}, "lagrange");
-        penaltyThreshold = 3;
+        penaltyThreshold = 100;
         deviation = 10;
         typeApproximation = "lagrange";
         gd.addDialogListener(this);
