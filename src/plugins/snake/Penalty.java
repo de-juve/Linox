@@ -10,23 +10,27 @@ public class Penalty {
     private int penaltiesSize = 10;
     private double[] weights;
     private TreeMap<Double, LinkedList<LinePoint>> recoveryPointMap;
+    private TreeMap<Double, LinkedList<Double>> recoveryPenaltiesMap;
 
     public Penalty(int threshold) {
         penalties = new LinkedList<>();
         weights = new double[] {2, 1.5, 1, 0.5, 0.3, 0.2, 0.15, 0.1, 0.05, 0.01};
         this.threshold = threshold;
         recoveryPointMap = new TreeMap<>();
+        recoveryPenaltiesMap = new TreeMap<>();
     }
 
     public void addPenalty(double value, LinkedList<LinePoint> line) {
         if(penalties.size() >= penaltiesSize) {
             double last = penalties.removeLast();
-            if(recoveryPointMap.containsKey(last)) {
+           /* if(recoveryPointMap.containsKey(last)) {
                 recoveryPointMap.remove(last);
-            }
+                recoveryPenaltiesMap.remove(last);
+            }*/
         }
         penalties.addFirst(value);
         recoveryPointMap.put(value, line);
+        recoveryPenaltiesMap.put(value, penalties);
     }
 
     public void addPenalty(double value) {
@@ -46,23 +50,13 @@ public class Penalty {
 
     public LinkedList<LinePoint> recover() throws NegativeArraySizeException {
         if(recoveryPointMap.size() > 0) {
-            double maxKey = Collections.max(recoveryPointMap.keySet());
-            return recoveryPointMap.remove(maxKey);
-        } else {
-            throw new NegativeArraySizeException("Empty recoveryPointMap");
-        }
-    }
-
-
-    public LinkedList<LinePoint> recoverFirst() throws NegativeArraySizeException {
-        if(recoveryPointMap.size() > 0) {
+           // double maxKey = Collections.max(recoveryPointMap.keySet());
+            penalties = recoveryPenaltiesMap.remove(recoveryPenaltiesMap.firstKey());
             return recoveryPointMap.remove(recoveryPointMap.firstKey());
         } else {
             throw new NegativeArraySizeException("Empty recoveryPointMap");
         }
     }
-
-
 
     public int getThreshold() {
         return threshold;

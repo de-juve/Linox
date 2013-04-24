@@ -9,28 +9,18 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout/miglayout-4.0-swt.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout/miglayout-4.0-ideutil.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-swing-4.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-ideutil-4.2-sources.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/image_edge.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-compiler-2.10.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/isophotcontour2.zip" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/Threshold_Colour.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-swing-4.2-sources.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-ideutil-4.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-library-2.10.0-sources.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/imageedgesrc.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-library-2.10.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-reflect-2.10.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/colour_deconvolution.zip" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/thresholdcolour.zip" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-core-4.2-sources.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-compiler-2.10.0-sources.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-core-4.2-javadoc.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/ij.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/ij147e-src.zip" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-reflect-2.10.0-sources.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-core-4.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/cglib-nodep-2.2.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jtransforms-2.4.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
