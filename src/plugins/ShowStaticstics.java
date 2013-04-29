@@ -16,7 +16,7 @@ import java.util.ListIterator;
 public class ShowStaticstics {
     public static double mean, stdDev;
 
-    static void showHistogram(LinkedList<Integer> line, boolean show) {
+    public static void showHistogram(LinkedList<Integer> line, boolean show) {
         ImagePlus imp;
 
         imp = NewImage.createRGBImage("Show Statistics", line.size(), 1, 1, NewImage.FILL_BLACK);
@@ -52,7 +52,7 @@ public class ShowStaticstics {
         }
     }
 
-    static void showLuminanceChanging(LinkedList<Integer> line, boolean show) {
+    public static void showLuminanceChanging(LinkedList<Integer> line, boolean show) {
         ImagePlus imp;
 
         imp = NewImage.createRGBImage("Show Luminance changing", line.size() + 100, 350, 1, NewImage.FILL_WHITE);

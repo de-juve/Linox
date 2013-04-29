@@ -15,6 +15,7 @@ import plugins.morfology.AreaClosing;
 import plugins.morfology.AreaEqualing;
 import plugins.morfology.AreaOpening;
 import plugins.morfology.MorfologyCompilation;
+import plugins.snake.MovementOfSnake;
 
 import javax.swing.*;
 import java.awt.*;
@@ -236,7 +237,7 @@ public class LinoxEditMenuFactory {
 
 
 
-        final Action linePainter = new AbstractAction("Line extrapolation") {
+        final Action snakeMove = new AbstractAction("Movement of a  Snake") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 final ImageJPanel panel = Linox.getInstance().getImageStore().getSelectedTab();
@@ -267,10 +268,10 @@ public class LinoxEditMenuFactory {
                                 panel.setMousePressed(false);
                                 panel.resetMouseMotionListener();
 
-                                panel.setButton(new AbstractAction("Extrapolation line") {
+                                panel.setButton(new AbstractAction("Move snake") {
                                     @Override
                                     public void actionPerformed(ActionEvent e) {
-                                        pluginRunner.setPlugin(new LineExtrapolation());
+                                        pluginRunner.setPlugin(new MovementOfSnake());
                                         Thread myThready = new Thread(pluginRunner);
                                         myThready.start();
                                         panel.removeButton();
@@ -541,7 +542,7 @@ public class LinoxEditMenuFactory {
         items.add(new JMenuItem(fft));
         items.add(new JMenuItem(histogram));
         items.add(new JMenuItem(color_deconvolution));
-        items.add(new JMenuItem(linePainter));
+        items.add(new JMenuItem(snakeMove));
         items.add(new JMenuItem(thickening));
         items.add(new JMenuItem(medianFilter));
 

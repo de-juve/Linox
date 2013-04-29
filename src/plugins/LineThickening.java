@@ -28,9 +28,9 @@ public class LineThickening extends MyAPlugin {
 
     @Override
     public void run() {
-       /* LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
+        LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
         luminanceCalculator.initProcessor(imageProcessor);
-        luminanceCalculator.run();*/
+        luminanceCalculator.run();
 
         LinkedList<Integer> line = DataCollection.INSTANCE.getLine();
         ShowStaticstics.showHistogram(line, false);
