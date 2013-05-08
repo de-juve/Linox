@@ -288,6 +288,57 @@ public class LinoxEditMenuFactory {
             }
         };
 
+        final Action ols = new AbstractAction("Ordinary Least Squares") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                final ImageJPanel panel = Linox.getInstance().getImageStore().getSelectedTab();
+                final ImagePlus image = panel.image.duplicate();
+
+                panel.setButton(new AbstractAction("Paint line") {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        panel.setMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseDragged(MouseEvent e) {
+                                if (panel.getMousePressed()) {
+                                    image.getProcessor().set(e.getX(), e.getY(), Color.RED.getRGB());
+                                    panel.imageView.setIcon(new ImageIcon(image.getBufferedImage()));
+                                    int id = e.getX() + e.getY() * image.getWidth();
+                                    DataCollection.INSTANCE.addPointToLine(id);
+                                }
+                            }
+
+                            @Override
+                            public void mousePressed(MouseEvent e) {
+                                panel.setMousePressed(true);
+                                DataCollection.INSTANCE.newLine();
+                            }
+
+                            @Override
+                            public void mouseReleased(MouseEvent e) {
+                                panel.setMousePressed(false);
+                                panel.resetMouseMotionListener();
+
+                                panel.setButton(new AbstractAction("Regress") {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        pluginRunner.setPlugin(new OLS());
+                                        Thread myThready = new Thread(pluginRunner);
+                                        myThready.start();
+                                        panel.removeButton();
+                                        panel.imageView.setIcon(new ImageIcon(panel.image.getBufferedImage()));
+                                        (Linox.getInstance().getImageStore()).addImageTab(image.getTitle(), image.duplicate());
+                                        image.close();
+                                    }
+                                }, true);
+                            }
+                        });
+                    }
+                }, true);
+
+            }
+        };
+
         final Action thickening = new AbstractAction("Line Thickening") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -543,6 +594,7 @@ public class LinoxEditMenuFactory {
         items.add(new JMenuItem(histogram));
         items.add(new JMenuItem(color_deconvolution));
         items.add(new JMenuItem(snakeMove));
+        items.add(new JMenuItem(ols));
         items.add(new JMenuItem(thickening));
         items.add(new JMenuItem(medianFilter));
 
