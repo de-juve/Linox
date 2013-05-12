@@ -15,6 +15,7 @@ import plugins.morfology.AreaClosing;
 import plugins.morfology.AreaEqualing;
 import plugins.morfology.AreaOpening;
 import plugins.morfology.MorfologyCompilation;
+import plugins.nonlinearRegression.OLS;
 import plugins.snake.MovementOfSnake;
 
 import javax.swing.*;

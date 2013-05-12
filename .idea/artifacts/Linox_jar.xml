@@ -10,16 +10,16 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-swing-4.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/image_edge.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-compiler-2.10.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/isophotcontour2.zip" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/Threshold_Colour.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-ideutil-4.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-library-2.10.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-reflect-2.10.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/colour_deconvolution.zip" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/ij.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/miglayout-core-4.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/cglib-nodep-2.2.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/commons-math3-3.2/commons-math3-3.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/lma_v1.3/jama.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/guava-14.0.1.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
