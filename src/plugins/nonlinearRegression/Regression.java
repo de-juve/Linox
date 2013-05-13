@@ -4,7 +4,6 @@ import jaolho.data.lma.LMA;
 import jaolho.data.lma.LMAFunction;
 import plugins.snake.LinePoint;
 
-import java.awt.*;
 import java.util.LinkedList;
 
 public class Regression {
@@ -63,10 +62,13 @@ public class Regression {
         fitParams = lmaPar.parameters;
     }
 
-    public int getY(int x) {
+    public int getY(double x) {
         return (int) lmaFunction.getY(x, fitParams);
     }
 
+    public double[] getFitParams() {
+        return fitParams;
+    }
 
     private static class PolynomFunction extends LMAFunction {
         @Override

@@ -1,10 +1,11 @@
 package plugins.snake;
 
-import ij.IJ;
+import gui.dialog.ChoiceDialog;
+import gui.dialog.ParameterComboBox;
+import gui.dialog.ParameterSlider;
 import ij.ImagePlus;
-import ij.gui.DialogListener;
-import ij.gui.GenericDialog;
 import plugins.*;
+import plugins.nonlinearRegression.Regression;
 import road.Direction;
 import workers.PixelsMentor;
 
@@ -12,11 +13,13 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class MovementOfSnake extends MyAPlugin implements DialogListener {
+public class MovementOfSnake extends MyAPlugin {
+    private Regression lineRegressionX, lineRegressionY;
     private LineExtrapolation lineExtrapolation;
     private LineExtrapolation.SplineTuple[] splinesX, splinesY;
-    private String typeApproximation;
-    private int deviation, penaltyThreshold;
+    private double[] fitParamsX, fitParamsY;
+    private String typeFunction, typeMove;
+    private int deviation, penaltyThreshold, polynomialDegree;
     private Snake<LinePoint> snakeX, snakeY, snake;
     private Penalty penalty;
     private boolean recount = false;
@@ -42,6 +45,7 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
         if(exit)   {
             return;
         }
+
         LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
         luminanceCalculator.initProcessor(imageProcessor);
         luminanceCalculator.run();
@@ -49,14 +53,22 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
         LinkedList<LinePoint> head = new LinkedList<>();
         LinkedList<LinePoint> tail = new LinkedList<>();
         int approxSize = 5;
+
         for(int i = 0; i < Math.max(0, DataCollection.INSTANCE.getLine().size() - approxSize); i++) {
             tail.addFirst(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
         }
+
         for(int i = Math.max(0, DataCollection.INSTANCE.getLine().size() - approxSize); i < DataCollection.INSTANCE.getLine().size(); i++) {
             head.addFirst(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
         }
 
-        lineExtrapolation = new LineExtrapolation();
+        if(typeMove.equals("ols")) {
+            lineRegressionX = new Regression();
+            lineRegressionY = new Regression();
+        } else {
+            lineExtrapolation = new LineExtrapolation();
+        }
+
         snake = new Snake<>(tail, head);
         penalty = new Penalty(penaltyThreshold);
         recount = true;
@@ -86,18 +98,34 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
             recount();
             recount = !recount;
         }
-
-        if(typeApproximation.equals("spline")) {
-            nx = moveSpline(snakeX, splinesX);
-            ny = moveSpline(snakeY, splinesY);
-            if(exit)   {
-                System.err.println("spline err");
+        switch (typeFunction) {
+            case "spline" : {
+                nx = moveSpline(snakeX, splinesX);
+                ny = moveSpline(snakeY, splinesY);
+                if(exit)   {
+                    System.err.println("spline err");
+                    return;
+                }
+                break;
+            }
+            case "lagrange" : {
+                nx = moveLagrange(snakeX);
+                ny = moveLagrange(snakeY);
+                break;
+            }
+            case "polynomial" :
+            case "parabola" :
+            case "sin" : {
+                nx = moveRegression(snakeX, lineRegressionX);
+                ny = moveRegression(snakeY, lineRegressionY);
+                break;
+            }
+            default:  {
+                System.err.println("Fail type function");
                 return;
             }
-        } else {
-            nx = moveLagrange(snakeX);
-            ny = moveLagrange(snakeY);
         }
+
         int id = nx + ny*width;
         //return id;
         if(nx >= width || nx < 0 || ny >= height || ny < 0) {
@@ -192,6 +220,22 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
         return -1;
     }
 
+    private int moveRegression(Snake<LinePoint> snake, Regression regression) {
+        double i = snake.getHead().getFirst().getX() + snake.getStep();
+        int point = regression.getY(i);
+        while(Math.abs(point - snake.getHead().getFirst().getY()) > 1) {
+            snake.reduceStep();
+            i = snake.getHead().getFirst().getX() + snake.getStep();
+            point = regression.getY(i);
+        }
+        while(Math.abs(point - snake.getHead().getFirst().getY()) > 0 && Math.abs(point - snake.getHead().getFirst().getY()) < 1) {
+            snake.increaseStep();
+            i = snake.getHead().getFirst().getX() + snake.getStep();
+            point = regression.getY(i);
+        }
+        return point;
+    }
+
     private int moveLagrange(Snake<LinePoint> snake) {
         double i = snake.getHead().getFirst().getX() + snake.getStep();
         int point = lineExtrapolation.lagrange(i, snake.getHead());
@@ -205,7 +249,6 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
             i = snake.getHead().getFirst().getX() + snake.getStep();
             point = lineExtrapolation.lagrange(i, snake.getHead());
         }
-        System.out.println(snake.getHead().getFirst().getY() + " " + point);
         return point;
     }
 
@@ -259,7 +302,25 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
 
         defineHeadPoints(snake.getHead());
 
-        if(typeApproximation.equals("spline")) {
+        switch (typeFunction) {
+            case "spline" : {
+                splinesX = new LineExtrapolation.SplineTuple[snake.getHead().size()];
+                splinesY = new LineExtrapolation.SplineTuple[snake.getHead().size()];
+
+                lineExtrapolation.buildSpline(snakeX.getHead(), splinesX);
+                lineExtrapolation.buildSpline(snakeY.getHead(), splinesY);
+                break;
+            }
+            case "polynomial" :
+            case "parabola" :
+            case "sin" : {
+                lineRegressionX.calcFitParams(snakeX.getHead(), typeFunction, polynomialDegree);
+                lineRegressionY.calcFitParams(snakeY.getHead(), typeFunction, polynomialDegree);
+                break;
+            }
+
+        }
+        if(typeFunction.equals("spline")) {
             splinesX = new LineExtrapolation.SplineTuple[snake.getHead().size()];
             splinesY = new LineExtrapolation.SplineTuple[snake.getHead().size()];
 
@@ -271,7 +332,7 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
     private void defineHeadPoints(LinkedList<LinePoint> line) {
         int id;
         int start = line.size()-1;
-        if(typeApproximation.equals("lagrange")) {
+        if(typeFunction.equals("lagrange")) {
             start = Math.min(4, start);
         }
         for(int j = start; j >= 0 ; j--) {
@@ -285,28 +346,61 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
 
 
     protected void showDialog(String name) {
-        GenericDialog gd = new GenericDialog(name, IJ.getInstance());
+        ParameterComboBox functionCombo = new ParameterComboBox("Choose ols or approximation", new String[]{"ols", "approximation"});
+        ParameterComboBox approximationCombo = new ParameterComboBox("Choose approximation function", new String[]{"lagrange", "spline"});
+        ParameterComboBox olsCombo = new ParameterComboBox("Or choose ols function", new String[]{"polynomial", "parabola", "sin"});
+        ParameterSlider polynomDegreeSlider = new ParameterSlider("Polynom degree", 1, 12, 1);
+        ParameterSlider penaltySlider = new ParameterSlider("Count of penaltys", 0, 100000, 100);
+        ParameterSlider lyminanceSlider = new ParameterSlider("Luminance deviation", 0, 100, 10);
+
+        ChoiceDialog cd = new ChoiceDialog();
+        cd.setTitle(name);
+        cd.addParameterComboBox(functionCombo);
+        cd.addParameterComboBox(olsCombo);
+        cd.addParameterComboBox(approximationCombo);
+        cd.addParameterSlider(polynomDegreeSlider);
+        cd.addParameterSlider(penaltySlider);
+        cd.addParameterSlider(lyminanceSlider);
+
+        cd.setVisible(true);
+        if (cd.wasCanceled()) {
+            exit = true;
+            setErrMessage("canceled");
+        }
+
+        typeMove = cd.getValueComboBox(functionCombo);
+        if(typeMove.equals("ols")) {
+            typeFunction =  cd.getValueComboBox(olsCombo);
+            polynomialDegree = cd.getValueSlider(polynomDegreeSlider);
+        } else {
+            typeFunction = cd.getValueComboBox(approximationCombo);
+        }
+
+        penaltyThreshold = cd.getValueSlider(penaltySlider);
+        deviation = cd.getValueSlider(lyminanceSlider);
+
+        /*GenericDialog gd = new GenericDialog(name, IJ.getInstance());
         gd.addSlider("Count of penaltys", 0, 100000, 100);
         gd.addSlider("Luminance deviation", 0, 100, 10);
         gd.addChoice("Type of approximation", new String[]{"lagrange", "spline"}, "lagrange");
         gd.addCheckboxGroup(2, 2, new String[]{"lagrange", "spline"}, new boolean[] {true, false});
-                penaltyThreshold = 100;
+        penaltyThreshold = 100;
         deviation = 10;
-        typeApproximation = "lagrange";
+        typeFunction = "lagrange";
         gd.addDialogListener(this);
 
         gd.showDialog();
         if (gd.wasCanceled()) {
             exit = true;
             setErrMessage("canceled");
-        }
+        }*/
     }
 
-    @Override
+  /*  @Override
     public boolean dialogItemChanged(GenericDialog gd, AWTEvent e) {
         penaltyThreshold = (int) gd.getNextNumber();
         deviation = (int) gd.getNextNumber();
-        typeApproximation = gd.getNextChoice();
+        typeFunction = gd.getNextChoice();
         return true;
-    }
+    }*/
 }

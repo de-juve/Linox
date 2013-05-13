@@ -2,10 +2,9 @@ package plugins.nonlinearRegression;
 
 import com.google.common.primitives.Doubles;
 import gui.dialog.ChoiceDialog;
-import ij.IJ;
+import gui.dialog.ParameterComboBox;
+import gui.dialog.ParameterSlider;
 import ij.ImagePlus;
-import ij.gui.DialogListener;
-import ij.gui.GenericDialog;
 import jaolho.data.lma.LMA;
 import jaolho.data.lma.LMAFunction;
 import plugins.DataCollection;
@@ -15,7 +14,7 @@ import plugins.MyAPlugin;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class OLS extends MyAPlugin implements DialogListener {
+public class OLS extends MyAPlugin {
     private String typeFunction;
     private int polynomialDegree;
 
@@ -127,29 +126,21 @@ public class OLS extends MyAPlugin implements DialogListener {
     }
 
     protected void showDialog(String name) {
+        ParameterComboBox typeFunctionParameter = new ParameterComboBox("Type of function", new String[]{"polynomial", "parabola", "sin"});
+        ParameterSlider polynomDegreeSlider = new ParameterSlider("Polynom degree", 1, 12, 1);
+
         ChoiceDialog cd = new ChoiceDialog();
+        cd.setTitle(name);
+        cd.addParameterComboBox(typeFunctionParameter);
+        cd.addParameterSlider(polynomDegreeSlider);
+
         cd.setVisible(true);
-
-
-        GenericDialog gd = new GenericDialog(name, IJ.getInstance());
-        gd.addChoice("Type of function", new String[]{"polynomial", "parabola", "sin"}, "polynomial");
-        gd.addSlider("Polynomial degree", 1, Math.min(12, DataCollection.INSTANCE.getLine().size()-1), 1);
-        typeFunction = "polynomial";
-        polynomialDegree = 1;
-        gd.addDialogListener(this);
-
-        gd.showDialog();
-        if (gd.wasCanceled()) {
+        if (cd.wasCanceled()) {
             exit = true;
             setErrMessage("canceled");
         }
-    }
-
-    @Override
-    public boolean dialogItemChanged(GenericDialog gd, AWTEvent e) {
-        typeFunction = gd.getNextChoice();
-        polynomialDegree = (int) gd.getNextNumber();
-        return true;
+        typeFunction = cd.getValueComboBox(typeFunctionParameter);
+        polynomialDegree = cd.getValueSlider(polynomDegreeSlider);
     }
 
     public static class PolynomFunction extends LMAFunction {

@@ -14,8 +14,10 @@ public class ParameterComboBox extends JPanel implements ActionListener {
     public ParameterComboBox(String name, String[] values) {
         this.setLayout(new MigLayout());
 
-        label.setText(name);
+        label = new JLabel(name);
         comboBox = new JComboBox<>(values);
+        comboBox.setSelectedIndex(0);
+        value = (String) comboBox.getSelectedItem();
         comboBox.addActionListener(this);
 
         this.add(label);

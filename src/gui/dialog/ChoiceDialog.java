@@ -10,17 +10,14 @@ public class ChoiceDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
+    private JPanel viewPane;
+    private JPanel buttonPane;
     private ArrayList<ParameterSlider> parameterSliders;
     private ArrayList<ParameterComboBox> parameterComboBoxes;
 
     public boolean cancle = false;
 
     public ChoiceDialog() {
-        this.setLayout(new MigLayout());
-
-        parameterSliders = new ArrayList<>();
-        parameterComboBoxes = new ArrayList<>();
-
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -38,7 +35,7 @@ public class ChoiceDialog extends JDialog {
         });
 
 // call onCancel() when cross is clicked
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 onCancel();
@@ -51,6 +48,13 @@ public class ChoiceDialog extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+
+        viewPane.setLayout(new MigLayout());
+        setSize(300, 300);
+
+        parameterSliders = new ArrayList<>();
+        parameterComboBoxes = new ArrayList<>();
     }
 
     private void onOK() {
@@ -65,7 +69,7 @@ public class ChoiceDialog extends JDialog {
 
     public void addParameterSlider(ParameterSlider slider) {
         parameterSliders.add(slider);
-        this.add(slider);
+        viewPane.add(slider, "wrap");
     }
 
     public int getValueSlider(ParameterSlider slider) {
@@ -74,11 +78,15 @@ public class ChoiceDialog extends JDialog {
 
     public void addParameterComboBox(ParameterComboBox comboBox) {
         parameterComboBoxes.add(comboBox);
-        this.add(comboBox);
+        viewPane.add(comboBox, "wrap");
     }
 
     public String getValueComboBox(ParameterComboBox comboBox) {
         return parameterComboBoxes.get(parameterComboBoxes.lastIndexOf(comboBox)).getValue();
+    }
+
+    public boolean wasCanceled() {
+        return cancle;
     }
 
     public static void main(String[] args) {
