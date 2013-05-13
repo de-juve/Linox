@@ -1,6 +1,7 @@
 package plugins.nonlinearRegression;
 
 import com.google.common.primitives.Doubles;
+import gui.dialog.ChoiceDialog;
 import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.DialogListener;
@@ -126,6 +127,10 @@ public class OLS extends MyAPlugin implements DialogListener {
     }
 
     protected void showDialog(String name) {
+        ChoiceDialog cd = new ChoiceDialog();
+        cd.setVisible(true);
+
+
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
         gd.addChoice("Type of function", new String[]{"polynomial", "parabola", "sin"}, "polynomial");
         gd.addSlider("Polynomial degree", 1, Math.min(12, DataCollection.INSTANCE.getLine().size()-1), 1);

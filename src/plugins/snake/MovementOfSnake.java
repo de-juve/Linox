@@ -289,7 +289,8 @@ public class MovementOfSnake extends MyAPlugin implements DialogListener {
         gd.addSlider("Count of penaltys", 0, 100000, 100);
         gd.addSlider("Luminance deviation", 0, 100, 10);
         gd.addChoice("Type of approximation", new String[]{"lagrange", "spline"}, "lagrange");
-        penaltyThreshold = 100;
+        gd.addCheckboxGroup(2, 2, new String[]{"lagrange", "spline"}, new boolean[] {true, false});
+                penaltyThreshold = 100;
         deviation = 10;
         typeApproximation = "lagrange";
         gd.addDialogListener(this);
