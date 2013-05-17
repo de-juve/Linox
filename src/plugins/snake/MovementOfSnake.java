@@ -17,12 +17,10 @@ public class MovementOfSnake extends MyAPlugin {
     private Regression lineRegressionX, lineRegressionY;
     private LineExtrapolation lineExtrapolation;
     private LineExtrapolation.SplineTuple[] splinesX, splinesY;
-    private double[] fitParamsX, fitParamsY;
     private String typeFunction, typeMove;
     private int deviation, penaltyThreshold, polynomialDegree;
     private Snake<LinePoint> snakeX, snakeY, snake;
     private Penalty penalty;
-    private boolean recount = false;
     private boolean stop = false;
 
     public MovementOfSnake() {
@@ -50,16 +48,14 @@ public class MovementOfSnake extends MyAPlugin {
         luminanceCalculator.initProcessor(imageProcessor);
         luminanceCalculator.run();
 
-        LinkedList<LinePoint> head = new LinkedList<>();
-        LinkedList<LinePoint> tail = new LinkedList<>();
-        int approxSize = 5;
+        snake = new Snake<>();
 
-        for(int i = 0; i < Math.max(0, DataCollection.INSTANCE.getLine().size() - approxSize); i++) {
-            tail.addFirst(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
+        for(int i = 0; i < Math.max(0, DataCollection.INSTANCE.getLine().size() - snake.getNeckSize()); i++) {
+            snake.addElementToTail(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
         }
 
-        for(int i = Math.max(0, DataCollection.INSTANCE.getLine().size() - approxSize); i < DataCollection.INSTANCE.getLine().size(); i++) {
-            head.addFirst(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
+        for(int i = Math.max(0, DataCollection.INSTANCE.getLine().size() - snake.getNeckSize()); i < DataCollection.INSTANCE.getLine().size(); i++) {
+            snake.addElementToNeck(new LinePoint(i, DataCollection.INSTANCE.getLine().get(i)));
         }
 
         if(typeMove.equals("ols")) {
@@ -69,35 +65,26 @@ public class MovementOfSnake extends MyAPlugin {
             lineExtrapolation = new LineExtrapolation();
         }
 
-        snake = new Snake<>(tail, head);
         penalty = new Penalty(penaltyThreshold);
-        recount = true;
 
         moveSnake();
 
-        for(LinePoint p : snake.getTail()) {
-            snake.addElementToLine(p);
-        }
-        for(LinePoint p : snake.getHead()) {
-            snake.addElementToLine(p);
-        }
+        snake.merge();
 
         for(LinePoint id : snake.getLine()) {
             imageProcessor.set(id.getY(), Color.RED.getRGB());
         }
 
         ShowStaticstics.showLuminanceChanging(snake.getLineValues(), true);
-
-
     }
 
     public void moveSnake() {
         int nx, ny, nz;
 
-        if(recount) {
+        if(snake.isRecount()) {
             recount();
-            recount = !recount;
         }
+
         switch (typeFunction) {
             case "spline" : {
                 nx = moveSpline(snakeX, splinesX);
@@ -127,7 +114,7 @@ public class MovementOfSnake extends MyAPlugin {
         }
 
         int id = nx + ny*width;
-        //return id;
+
         if(nx >= width || nx < 0 || ny >= height || ny < 0) {
             if(snakeX.getHead().getFirst().getY() ==  width-1 || snakeY.getHead().getFirst().getY() == height-1) {
                 return;
@@ -151,7 +138,7 @@ public class MovementOfSnake extends MyAPlugin {
             return;
         }
         snake.addElementToHead(new LinePoint(snake.getHeadId(), id));
-        recount = true;
+
         moveSnake();
     }
 
@@ -194,43 +181,49 @@ public class MovementOfSnake extends MyAPlugin {
         Direction d = Direction.defineDirection(snake.getHead().get(2).getY(), snake.getHead().get(0).getY(), width);
         int id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d, width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            recount = true;
+            //recount = true;
             return id;
         }
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear1(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            recount = true;
+            //recount = true;
             return id;
         }
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear2(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            recount = true;
+            //recount = true;
             return id;
         }
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.opposite1(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            recount = true;
+            //recount = true;
             return id;
         }
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.opposite2(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            recount = true;
+            //recount = true;
             return id;
         }
         return -1;
     }
 
     private int moveRegression(Snake<LinePoint> snake, Regression regression) {
-        double i = snake.getHead().getFirst().getX() + snake.getStep();
+        LinePoint prevPoint;
+        if(snake.getHead().size() > 0) {
+            prevPoint =  snake.getHead().getFirst();
+        } else {
+            prevPoint = snake.getNeck().getFirst();
+        }
+        double i = prevPoint.getX() + snake.getStep();
         int point = regression.getY(i);
-        while(Math.abs(point - snake.getHead().getFirst().getY()) > 1) {
+        while(Math.abs(point - prevPoint.getY()) > 1) {
             snake.reduceStep();
-            i = snake.getHead().getFirst().getX() + snake.getStep();
+            i = prevPoint.getX() + snake.getStep();
             point = regression.getY(i);
         }
-        while(Math.abs(point - snake.getHead().getFirst().getY()) > 0 && Math.abs(point - snake.getHead().getFirst().getY()) < 1) {
+        while(Math.abs(point - prevPoint.getY()) > 0 && Math.abs(point - prevPoint.getY()) < 1) {
             snake.increaseStep();
-            i = snake.getHead().getFirst().getX() + snake.getStep();
+            i = prevPoint.getX() + snake.getStep();
             point = regression.getY(i);
         }
         return point;
@@ -300,36 +293,28 @@ public class MovementOfSnake extends MyAPlugin {
         ShowStaticstics.showHistogram(snake.getTailValues(), false);
         ShowStaticstics.showLuminanceChanging(snake.getTailValues(), false);
 
-        defineHeadPoints(snake.getHead());
+        defineNeckPoints(snake.getNeck());
 
         switch (typeFunction) {
             case "spline" : {
-                splinesX = new LineExtrapolation.SplineTuple[snake.getHead().size()];
-                splinesY = new LineExtrapolation.SplineTuple[snake.getHead().size()];
+                splinesX = new LineExtrapolation.SplineTuple[snake.getNeck().size()];
+                splinesY = new LineExtrapolation.SplineTuple[snake.getNeck().size()];
 
-                lineExtrapolation.buildSpline(snakeX.getHead(), splinesX);
-                lineExtrapolation.buildSpline(snakeY.getHead(), splinesY);
+                lineExtrapolation.buildSpline(snakeX.getNeck(), splinesX);
+                lineExtrapolation.buildSpline(snakeY.getNeck(), splinesY);
                 break;
             }
             case "polynomial" :
             case "parabola" :
             case "sin" : {
-                lineRegressionX.calcFitParams(snakeX.getHead(), typeFunction, polynomialDegree);
-                lineRegressionY.calcFitParams(snakeY.getHead(), typeFunction, polynomialDegree);
+                lineRegressionX.calcFitParams(snakeX.getNeck(), typeFunction, polynomialDegree);
+                lineRegressionY.calcFitParams(snakeY.getNeck(), typeFunction, polynomialDegree);
                 break;
             }
-
-        }
-        if(typeFunction.equals("spline")) {
-            splinesX = new LineExtrapolation.SplineTuple[snake.getHead().size()];
-            splinesY = new LineExtrapolation.SplineTuple[snake.getHead().size()];
-
-            lineExtrapolation.buildSpline(snakeX.getHead(), splinesX);
-            lineExtrapolation.buildSpline(snakeY.getHead(), splinesY);
         }
     }
 
-    private void defineHeadPoints(LinkedList<LinePoint> line) {
+    private void defineNeckPoints(LinkedList<LinePoint> line) {
         int id;
         int start = line.size()-1;
         if(typeFunction.equals("lagrange")) {
@@ -338,8 +323,8 @@ public class MovementOfSnake extends MyAPlugin {
         for(int j = start; j >= 0 ; j--) {
             LinePoint point = line.get(j);
             id = point.getY();
-            snakeX.addElementToHead(new LinePoint(line.size() - j, id % width));
-            snakeY.addElementToHead(new LinePoint(line.size() - j, id / width));
+            snakeX.addElementToNeck(new LinePoint(line.size() - j, id % width));
+            snakeY.addElementToNeck(new LinePoint(line.size() - j, id / width));
         }
     }
 
