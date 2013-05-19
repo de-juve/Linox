@@ -3,66 +3,53 @@ package plugins.snake;
 import java.util.LinkedList;
 
 public class Snake<T extends LinePoint> {
-    private LinkedList<T> head, neck, tail, line;
-    private int headSize = 10, neckSize = 10, tailSize = 40;
-    private int headId;
+    private LinkedList<T> head, tail, baseSetPoints, line;
+    private int headSize = 10, baseSetPointsSize = 10, tailSize = 40;
+    private int headId, baseSetPointsId;
     private double step = 1;
     private double inc = 0.01;
     private boolean recount;
 
     public Snake() {
         head = new LinkedList<>();
-        neck = new LinkedList<>();
+        baseSetPoints = new LinkedList<>();
         tail = new LinkedList<>();
         line = new LinkedList<>();
         headId = 0;
         recount = true;
     }
 
-   /* public Snake(LinkedList<T> _neck, LinkedList<T> _tail) {
-        head = new LinkedList<>();
-        neck = new LinkedList<>(_neck);
-        tail = new LinkedList<>(_tail);
-        line = new LinkedList<>();
-        headId = _tail.size();
-    }*/
-
-    public void addElementToHead(T element) {
-        if(head.size() == headSize) {
-            addElementsToNeck(head);
+    public boolean addFirstElementToHead(T element) {
+        if(head.size() + 1 > headSize) {
+            addElementsToTail(head);
             head.clear();
         }
         head.addFirst(element);
-        headId++;
+        headId = (int)element.getX();
+        return true;
     }
 
-    public void addElementToNeck(T element) {
-        if(neck.size() == neckSize) {
-            addElementsToTail(neck);
-            neck.clear();
+    public boolean addFirstElementToBaseSetPoints(T element) {
+        if(baseSetPoints.size() + 1 > baseSetPointsSize) {
+            return false;
         }
-        neck.addFirst(element);
+        baseSetPoints.addFirst(element);
+        baseSetPointsId = (int)element.getX();
+        return true;
     }
 
-    public void addElementToTail(T element) {
-        if(tail.size() == tailSize) {
-            addElementsToLine(tail);
-            tail.clear();
+    public void removeElementsFromBaseSetPoints(int count) {
+        for(int i = 0; i < Math.min(Math.abs(count), baseSetPointsSize-1); i++) {
+            baseSetPoints.removeLast();
         }
-        tail.addFirst(element);
     }
 
-    private void addElementsToNeck(LinkedList<T> elements) {
-        if(neck.size() == neckSize) {
-            addElementsToTail(neck);
-            neck.clear();
-        }
-        neck.addAll(elements);
-        recount = true;
+    public int getBaseSetPointsId() {
+        return baseSetPointsId;
     }
 
     private void addElementsToTail(LinkedList<T> elements) {
-        if(tail.size() + elements.size() >= tailSize) {
+        if(tail.size() + elements.size() > tailSize) {
             addElementsToLine(tail);
             tail.clear();
         }
@@ -77,12 +64,8 @@ public class Snake<T extends LinePoint> {
         return head;
     }
 
-    public LinkedList<T> getNeck() {
-        return neck;
-    }
-
-    public LinkedList<T> getTail() {
-        return tail;
+    public LinkedList<T> getBaseSetPoints() {
+        return baseSetPoints;
     }
 
     public LinkedList<T> getLine() {
@@ -93,8 +76,8 @@ public class Snake<T extends LinePoint> {
         return headSize;
     }
 
-    public int getNeckSize() {
-        return neckSize;
+    public int getBaseSetPointsSize() {
+        return baseSetPointsSize;
     }
 
     public int getTailSize() {
@@ -111,20 +94,14 @@ public class Snake<T extends LinePoint> {
 
     public void merge() {
         if(head.size() > 0) {
-            addElementsToNeck(head);
+            addElementsToTail(head);
             head.clear();
-        }
-        if(neck.size() > 0) {
-            addElementsToTail(neck);
-            neck.clear();
         }
         if(tail.size() > 0) {
             addElementsToLine(tail);
             tail.clear();
         }
     }
-
-
 
     public void setHead(LinkedList<T> head) {
         this.head = head;
@@ -145,21 +122,13 @@ public class Snake<T extends LinePoint> {
         return step;
     }
 
-    public int getHeadId() {
+    public double getHeadId() {
         return headId;
     }
 
     public LinkedList<Integer> getTailValues() {
         LinkedList<Integer> values = new LinkedList<>();
         for(LinePoint p : tail) {
-            values.addFirst(p.getY());
-        }
-        return values;
-    }
-
-    public LinkedList<Integer> getLineValues() {
-        LinkedList<Integer> values = new LinkedList<>();
-        for(LinePoint p : line) {
             values.addFirst(p.getY());
         }
         return values;

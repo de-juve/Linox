@@ -66,10 +66,6 @@ public class Regression {
         return (int) lmaFunction.getY(x, fitParams);
     }
 
-    public double[] getFitParams() {
-        return fitParams;
-    }
-
     private static class PolynomFunction extends LMAFunction {
         @Override
         public double getY(double x, double[] a) {

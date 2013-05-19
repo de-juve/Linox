@@ -1,18 +1,17 @@
 package plugins.nonlinearRegression;
 
-import com.google.common.primitives.Doubles;
 import gui.dialog.ChoiceDialog;
 import gui.dialog.ParameterComboBox;
 import gui.dialog.ParameterSlider;
 import ij.ImagePlus;
-import jaolho.data.lma.LMA;
 import jaolho.data.lma.LMAFunction;
 import plugins.DataCollection;
 import plugins.LuminanceCalculator;
 import plugins.MyAPlugin;
+import plugins.snake.LinePoint;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class OLS extends MyAPlugin {
     private String typeFunction;
@@ -44,8 +43,31 @@ public class OLS extends MyAPlugin {
         luminanceCalculator.run();
 
         int size = DataCollection.INSTANCE.getLine().size();
+        Regression regressionX = new Regression();
+        Regression regressionY = new Regression();
+        LinkedList<LinePoint> x = new LinkedList<>();
+        LinkedList<LinePoint> y = new LinkedList<>();
 
-        ArrayList<Double> xt = new ArrayList<>();
+        for(int i = 0; i < size; i++) {
+            int id = DataCollection.INSTANCE.getLine().get(i);
+            x.add(new LinePoint(i, id % width));
+            y.add(new LinePoint(i, id / width));
+        }
+
+        regressionX.calcFitParams(x, typeFunction, polynomialDegree);
+        regressionY.calcFitParams(y, typeFunction, polynomialDegree);
+
+        int[] xx = new int[size + 40];
+        int[] yy = new int[size + 40];
+
+        for(int i = 0; i < size + 40; i++) {
+            xx[i] = (int) regressionX.getY(i);
+            yy[i] = (int) regressionY.getY(i);
+            imageProcessor.set(xx[i], yy[i], Color.RED.getRGB());
+        }
+
+
+/*        ArrayList<Double> xt = new ArrayList<>();
         ArrayList<Double> x = new ArrayList<>();
         ArrayList<Double> yt = new ArrayList<>();
         ArrayList<Double> y = new ArrayList<>();
@@ -115,14 +137,14 @@ public class OLS extends MyAPlugin {
         fitParamsX = lmaParX.parameters;
         fitParamsY = lmaParY.parameters;
 
-        int[] xx = new int[size];
-        int[] yy = new int[size];
+        int[] xx = new int[size + 40];
+        int[] yy = new int[size + 40];
 
-        for(int i = 0; i < size; i++) {
+        for(int i = 0; i < size + 40; i++) {
             xx[i] = (int) lmaFunctionX.getY(i, fitParamsX);
             yy[i] = (int) lmaFunctionY.getY(i, fitParamsY);
             imageProcessor.set(xx[i], yy[i], Color.RED.getRGB());
-        }
+        }*/
     }
 
     protected void showDialog(String name) {
