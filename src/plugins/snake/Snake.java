@@ -151,4 +151,12 @@ public class Snake<T extends LinePoint> {
         }
         return false;
     }
+
+    public LinkedList<Integer> getBaseSetPointsValues() {
+        LinkedList<Integer> values = new LinkedList<>();
+        for(LinePoint p : baseSetPoints) {
+            values.addFirst(p.getY());
+        }
+        return values;
+    }
 }

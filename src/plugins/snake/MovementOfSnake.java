@@ -80,6 +80,7 @@ public class MovementOfSnake extends MyAPlugin {
             }
         }
 
+
         //moveSnake();
 
         snake.merge();
@@ -113,6 +114,7 @@ public class MovementOfSnake extends MyAPlugin {
                     System.err.println("конец изображения");
                     return;
                 }
+                //вышли за пределы изображения
             /*id = recover();
             if (stop) {
                 System.err.println("Out of bounds (" + nx + ", " + ny + ") Don't have any options");
@@ -121,14 +123,15 @@ public class MovementOfSnake extends MyAPlugin {
                 System.err.println("вышли за пределы изображения");
                 return;
             } else {
-            /*nz = getLuminance(id);
-            if(nz < 0) {
-                id = recover();
-                if (stop) {
-                    System.err.println("Don't have any options");
-                    return;
+                nz = getLuminance(id);
+                if(nz < 0) {
+                    // превысили штраф
+                    id = recover(id);
+                    if (stop) {
+                        System.err.println("Don't have any options");
+                        return;
+                    }
                 }
-            }*/
             }
             if(id < 0 /*|| snake.headContains(id) || snake.tailContains(id)*/) {
                 System.err.println("точка уже встречалась");
@@ -260,14 +263,14 @@ public class MovementOfSnake extends MyAPlugin {
             System.err.println("вышли за пределы изображения");
             return;
         } else {
-            /*nz = getLuminance(id);
+            nz = getLuminance(id);
             if(nz < 0) {
-                id = recover();
+                id = recover(id);
                 if (stop) {
                     System.err.println("Don't have any options");
                     return;
                 }
-            }*/
+            }
         }
         if(id < 0 || snake.headContains(id) || snake.tailContains(id)) {
             System.err.println("точка уже встречалась");
@@ -280,22 +283,35 @@ public class MovementOfSnake extends MyAPlugin {
         moveSnake();
     }
 
-    private int recover() {
-        int point;
+    private int recover(int badPoint) {
+        int y;
         //либо мы вышли за границы изборажения, либо превысили лимит штрафов
         if(penalty.countPenalty() > penalty.getThreshold()) {
+            //превысили лимит штрафов
+            LinePoint point = snake.getHead().removeFirst();
+            if(!checkLuminance(point.getY())) {
+                //предыдущая точка тоже была со штрафом, вернуться до точки в которой нет штрафа
+                while(!checkLuminance(point.getY())) {
+                    point = snake.getHead().removeFirst();
+                }
+            }
+
+            //нашли точку на дороге, Возвращаем ее в начало головы змеи.
+            //Надо выбрать для продолжения одного из ее соседей
+            snake.getHead().addFirst(point);
+
             //сначала пробуем соседние точки
-            point = turnHead();
-            if(point > 0) {
+            y = turnHead();
+            if(y > 0) {
                 //snake.getHead().removeFirst();
-                return point;
+                return y;
             }
         }
 
         //делаем откат, проверить, что мы пойдем другим путем.
-        point = undertow();
+        y = undertow();
 
-        return point;
+        return y;
     }
 
     private int undertow() {
@@ -315,35 +331,37 @@ public class MovementOfSnake extends MyAPlugin {
     }
 
     private int turnHead() {
-        HashMap<Integer, Integer> ids = new HashMap<>();
         Direction d = Direction.defineDirection(snake.getHead().get(2).getY(), snake.getHead().get(0).getY(), width);
+        //проверяем в этом же направлении точку
         int id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d, width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            //recount = true;
             return id;
         }
+
+        //проверяем сонаправленные направления по диагонали
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear1(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            //recount = true;
             return id;
         }
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear2(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            //recount = true;
             return id;
         }
+
+        //проверяем перпендикулярные направления
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.opposite1(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            //recount = true;
             return id;
         }
         id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.opposite2(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
-            //recount = true;
             return id;
         }
+
         return -1;
     }
+
+
 
     private LinePoint getPreviousPoint(ShortSnake<LinePoint> snake) {
         LinePoint prevPoint;
@@ -433,11 +451,12 @@ public class MovementOfSnake extends MyAPlugin {
     }
 
     private int getLuminance(int id) {
-        if (Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean) >= deviation) {
+        if(!checkLuminance(id)) {
             penalty.addPenalty(Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean), snake.getHead());
             if(penalty.countPenalty() > penalty.getThreshold()) {
                 return -1;
             }
+            return DataCollection.INSTANCE.getLuminance(id);
         }
         penalty.addPenalty(0);
         return DataCollection.INSTANCE.getLuminance(id);
@@ -468,8 +487,13 @@ public class MovementOfSnake extends MyAPlugin {
     }
 
     private void updateStatistics() {
-        ShowStaticstics.showHistogram(snake.getTailValues(), false);
-        ShowStaticstics.showLuminanceChanging(snake.getTailValues(), false);
+        if(snake.getTailValues().size() > 0) {
+            ShowStaticstics.showHistogram(snake.getTailValues(), false);
+            ShowStaticstics.showLuminanceChanging(snake.getTailValues(), false);
+        } else {
+            ShowStaticstics.showHistogram(snake.getBaseSetPointsValues(), false);
+            ShowStaticstics.showLuminanceChanging(snake.getBaseSetPointsValues(), false);
+        }
     }
 
     private void defineBaseSetPoints() {
