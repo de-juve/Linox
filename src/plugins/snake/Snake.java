@@ -21,12 +21,36 @@ public class Snake<T extends LinePoint> {
 
     public boolean addFirstElementToHead(T element) {
         if(head.size() + 1 > headSize) {
+            for(T e : head) {
+                e.removeStack();
+            }
             addElementsToTail(head);
             head.clear();
         }
+        if(head.size() > 0) {
+            T prev = head.getFirst();
+        } else {
+            T prev = baseSetPoints.getFirst();
+        }
+
+
         head.addFirst(element);
         headId = (int)element.getX();
         return true;
+    }
+
+    public T getElementFromHead(int id) {
+        return head.get(id);
+    }
+
+    public T getFirstElementFromHead() {
+        return head.getFirst();
+    }
+
+    public T removeFirstElementFromHead() {
+        T element = head.removeFirst();
+        headId = (int)head.getFirst().getX();
+        return element;
     }
 
     public boolean addFirstElementToBaseSetPoints(T element) {
@@ -44,10 +68,6 @@ public class Snake<T extends LinePoint> {
         }
     }
 
-    public int getBaseSetPointsId() {
-        return baseSetPointsId;
-    }
-
     private void addElementsToTail(LinkedList<T> elements) {
         if(tail.size() + elements.size() > tailSize) {
             addElementsToLine(tail);
@@ -60,28 +80,15 @@ public class Snake<T extends LinePoint> {
         line.addAll(elements);
     }
 
-    public LinkedList<T> getHead() {
-        return head;
-    }
-
     public LinkedList<T> getBaseSetPoints() {
         return baseSetPoints;
     }
-
     public LinkedList<T> getLine() {
         return line;
     }
 
     public int getHeadSize() {
-        return headSize;
-    }
-
-    public int getBaseSetPointsSize() {
-        return baseSetPointsSize;
-    }
-
-    public int getTailSize() {
-        return tailSize;
+        return head.size();
     }
 
     public boolean isRecount() {
@@ -101,25 +108,6 @@ public class Snake<T extends LinePoint> {
             addElementsToLine(tail);
             tail.clear();
         }
-    }
-
-    public void setHead(LinkedList<T> head) {
-        this.head = head;
-    }
-
-    public void increaseStep() {
-        step += inc;
-    }
-
-    public void reduceStep() {
-        while(step-inc <= 0) {
-            inc /= 2;
-        }
-        step -= inc;
-    }
-
-    public double getStep() {
-        return step;
     }
 
     public double getHeadId() {

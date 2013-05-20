@@ -10,7 +10,6 @@ import road.Direction;
 import workers.PixelsMentor;
 
 import java.awt.*;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -89,7 +88,7 @@ public class MovementOfSnake extends MyAPlugin {
             imageProcessor.set(id.getY(), Color.RED.getRGB());
         }
 
-    //    ShowStaticstics.showLuminanceChanging(snake.getLineValues(), true);
+        //    ShowStaticstics.showLuminanceChanging(snake.getLineValues(), true);
     }
 
     public void correctPoints() {
@@ -100,11 +99,9 @@ public class MovementOfSnake extends MyAPlugin {
         Iterator<LinePoint> iteratorY = snakeY.getBaseSetPoints().descendingIterator();
         while(iterator.hasNext()) {
             iterator.next();
-            LinePoint pX = iteratorX.next();
-            LinePoint pY = iteratorY.next();
 
-            LinePoint pointX = getPoint(pX, "x");
-            LinePoint pointY = getPoint(pY, "y");
+            LinePoint pointX = getPoint(iteratorX.next(), "x");
+            LinePoint pointY = getPoint(iteratorY.next(), "y");
             nx = pointX.getY();
             ny = pointY.getY();
             int id = nx + ny*width;
@@ -114,15 +111,12 @@ public class MovementOfSnake extends MyAPlugin {
                     System.err.println("конец изображения");
                     return;
                 }
-                //вышли за пределы изображения
-            /*id = recover();
-            if (stop) {
-                System.err.println("Out of bounds (" + nx + ", " + ny + ") Don't have any options");
-                return;
-            }*/
                 System.err.println("вышли за пределы изображения");
                 return;
             } else {
+                if(snake.getHeadSize() > 0) {
+                    defineVariantsOfDirection(id);
+                }
                 nz = getLuminance(id);
                 if(nz < 0) {
                     // превысили штраф
@@ -138,8 +132,39 @@ public class MovementOfSnake extends MyAPlugin {
                 return;
             }
             snake.addFirstElementToHead(new LinePoint(snake.getHeadId(), id));
-            snakeX.addFirstElementToHead(new LinePoint(snakeX.getHeadId(), nx));
-            snakeY.addFirstElementToHead(new LinePoint(snakeY.getHeadId(), ny));
+            snakeX.addFirstElementToHead(new LinePoint(snakeX.getHeadId(), pointX.getY()));//snakeX.addFirstElementToHead(new LinePoint(pointX.getX(), pointX.getY()));
+            snakeY.addFirstElementToHead(new LinePoint(snakeY.getHeadId(), pointY.getY()));//snakeY.addFirstElementToHead(new LinePoint(pointY.getX(), pointY.getY()));
+        }
+    }
+
+    private void defineVariantsOfDirection(int nextPoint) {
+        LinePoint point = snake.getFirstElementFromHead();
+        point.createStack();
+        Direction direction = Direction.defineDirection(point.getY(), nextPoint, width);
+
+        //проверяем перпендикулярные направления
+        int id = PixelsMentor.defineNeighbourId(point.getY(), direction.opposite1(), width, height);
+        if(checkLuminance(id)) {
+            point.pushNeighbour(id);
+        }
+        id = PixelsMentor.defineNeighbourId(point.getY(), direction.opposite2(), width, height);
+        if(checkLuminance(id)) {
+            point.pushNeighbour(id);
+        }
+
+        //проверяем сонаправленные направления по диагонали
+        id = PixelsMentor.defineNeighbourId(point.getY(), direction.collinear1(), width, height);
+        if(checkLuminance(id)) {
+            point.pushNeighbour(id);
+        }
+        id = PixelsMentor.defineNeighbourId(point.getY(), direction.collinear2(), width, height);
+        if(checkLuminance(id)) {
+            point.pushNeighbour(id);
+        }
+
+        id = PixelsMentor.defineNeighbourId(point.getY(), direction, width, height);
+        if(checkLuminance(id)) {
+         //   point.pushNeighbour(id);
         }
     }
 
@@ -284,37 +309,33 @@ public class MovementOfSnake extends MyAPlugin {
     }
 
     private int recover(int badPoint) {
-        int y;
-        //либо мы вышли за границы изборажения, либо превысили лимит штрафов
+        //превысили лимит штрафов
         if(penalty.countPenalty() > penalty.getThreshold()) {
-            //превысили лимит штрафов
-            LinePoint point = snake.getHead().removeFirst();
-            if(!checkLuminance(point.getY())) {
-                //предыдущая точка тоже была со штрафом, вернуться до точки в которой нет штрафа
-                while(!checkLuminance(point.getY())) {
-                    point = snake.getHead().removeFirst();
+            int neighbour = -1, luminance = -1;
+            LinePoint point = new LinePoint(-1,-1);
+            HEAD: {
+                while (snake.getHeadSize() > 0) {
+                    point = snake.removeFirstElementFromHead();
+                    while(point.getStackSize() > 0) {
+                        neighbour = point.popNeighbour();
+                        luminance = getLuminance(neighbour);
+                        if(luminance > 0) {
+                            break HEAD;
+                        }
+                        neighbour = luminance = -1;
+                    }
                 }
             }
-
-            //нашли точку на дороге, Возвращаем ее в начало головы змеи.
-            //Надо выбрать для продолжения одного из ее соседей
-            snake.getHead().addFirst(point);
-
-            //сначала пробуем соседние точки
-            y = turnHead();
-            if(y > 0) {
-                //snake.getHead().removeFirst();
-                return y;
+            if(luminance > 0) {
+                snake.addFirstElementToHead(point);
+                return neighbour;
             }
         }
+        return -1;
 
-        //делаем откат, проверить, что мы пойдем другим путем.
-        y = undertow();
-
-        return y;
     }
 
-    private int undertow() {
+/*    private int undertow() {
         try {
             LinkedList<LinePoint> recover = penalty.recover();
             if(snake.getHead().size() == recover.size() && recover.equals(snake.getHead())) {
@@ -328,32 +349,32 @@ public class MovementOfSnake extends MyAPlugin {
             stop = true;
             return -1;
         }
-    }
+    }*/
 
     private int turnHead() {
-        Direction d = Direction.defineDirection(snake.getHead().get(2).getY(), snake.getHead().get(0).getY(), width);
+        Direction d = Direction.defineDirection(snake.getElementFromHead(2).getY(), snake.getFirstElementFromHead().getY(), width);
         //проверяем в этом же направлении точку
-        int id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d, width, height);
+        int id = PixelsMentor.defineNeighbourId(snake.getFirstElementFromHead().getY(), d, width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
             return id;
         }
 
         //проверяем сонаправленные направления по диагонали
-        id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear1(), width, height);
+        id = PixelsMentor.defineNeighbourId(snake.getFirstElementFromHead().getY(), d.collinear1(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
             return id;
         }
-        id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.collinear2(), width, height);
+        id = PixelsMentor.defineNeighbourId(snake.getFirstElementFromHead().getY(), d.collinear2(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
             return id;
         }
 
         //проверяем перпендикулярные направления
-        id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.opposite1(), width, height);
+        id = PixelsMentor.defineNeighbourId(snake.getFirstElementFromHead().getY(), d.opposite1(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
             return id;
         }
-        id = PixelsMentor.defineNeighbourId(snake.getHead().get(0).getY(), d.opposite2(), width, height);
+        id = PixelsMentor.defineNeighbourId(snake.getFirstElementFromHead().getY(), d.opposite2(), width, height);
         if(checkLuminance(id) && !snake.headContains(id)) {
             return id;
         }
@@ -452,7 +473,7 @@ public class MovementOfSnake extends MyAPlugin {
 
     private int getLuminance(int id) {
         if(!checkLuminance(id)) {
-            penalty.addPenalty(Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean), snake.getHead());
+            penalty.addPenalty(Math.abs(DataCollection.INSTANCE.getLuminance(id) - ShowStaticstics.mean));
             if(penalty.countPenalty() > penalty.getThreshold()) {
                 return -1;
             }
