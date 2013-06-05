@@ -4,22 +4,26 @@ import java.util.LinkedList;
 
 public class Snake<T extends LinePoint> {
     private LinkedList<T> head, tail, baseSetPoints, line;
-    private int headSize = 10, baseSetPointsSize = 10, tailSize = 40;
-    private int headId, baseSetPointsId;
-    private double step = 1;
-    private double inc = 0.01;
+    private int headSize = 10, baseSetPointsSize, tailSize = 40;
+    private int headId;
+    private int step = 1;
     private boolean recount;
 
-    public Snake() {
+    public Snake(int _baseSetPointsSize) {
         head = new LinkedList<>();
         baseSetPoints = new LinkedList<>();
         tail = new LinkedList<>();
         line = new LinkedList<>();
         headId = 0;
+        baseSetPointsSize = headSize = _baseSetPointsSize;
         recount = true;
     }
 
-    public boolean addFirstElementToHead(T element) {
+    public int getStep() {
+        return step;
+    }
+
+    public boolean addElementToHead(T element) {
         if(head.size() + 1 > headSize) {
             for(T e : head) {
                 e.removeStack();
@@ -27,38 +31,27 @@ public class Snake<T extends LinePoint> {
             addElementsToTail(head);
             head.clear();
         }
-        if(head.size() > 0) {
-            T prev = head.getFirst();
-        } else {
-            T prev = baseSetPoints.getFirst();
-        }
 
-
-        head.addFirst(element);
+        head.add(element);
         headId = (int)element.getX();
         return true;
     }
 
-    public T getElementFromHead(int id) {
-        return head.get(id);
+    public T getLastElementFromHead() {
+        return head.getLast();
     }
 
-    public T getFirstElementFromHead() {
-        return head.getFirst();
-    }
-
-    public T removeFirstElementFromHead() {
-        T element = head.removeFirst();
-        headId = (int)head.getFirst().getX();
+    public T removeElementFromHead() {
+        T element = head.removeLast();
+        headId = (int)element.getX();
         return element;
     }
 
-    public boolean addFirstElementToBaseSetPoints(T element) {
+    public boolean addElementToBaseSetPoints(T element) {
         if(baseSetPoints.size() + 1 > baseSetPointsSize) {
             return false;
         }
-        baseSetPoints.addFirst(element);
-        baseSetPointsId = (int)element.getX();
+        baseSetPoints.add(element);
         return true;
     }
 
@@ -80,9 +73,14 @@ public class Snake<T extends LinePoint> {
         line.addAll(elements);
     }
 
-    public LinkedList<T> getBaseSetPoints() {
-        return baseSetPoints;
+    public int getBaseSetPointsSize() {
+        return baseSetPoints.size();
     }
+
+    public T getBaseSetPoint(int id) {
+        return baseSetPoints.get(id);
+    }
+
     public LinkedList<T> getLine() {
         return line;
     }

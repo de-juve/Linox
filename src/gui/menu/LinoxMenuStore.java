@@ -102,7 +102,7 @@ public class LinoxMenuStore extends JMenuBar {
     }
 
     void closeImage() {
-        ((LinoxImageStore) Linox.getInstance().getImageStore()).removeSelectedImageTab();
+        (Linox.getInstance().getImageStore()).removeSelectedImageTab();
         DataCollection.INSTANCE.setImageOriginal(null);
     }
 

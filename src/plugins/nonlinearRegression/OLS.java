@@ -61,90 +61,13 @@ public class OLS extends MyAPlugin {
         int[] yy = new int[size + 40];
 
         for(int i = 0; i < size + 40; i++) {
-            xx[i] = (int) regressionX.getY(i);
-            yy[i] = (int) regressionY.getY(i);
+            xx[i] = regressionX.getY(i);
+            yy[i] = regressionY.getY(i);
+            if(xx[i] >= width || xx[i] < 0|| yy[i] >= height || yy[i] < 0) {
+                break;
+            }
             imageProcessor.set(xx[i], yy[i], Color.RED.getRGB());
         }
-
-
-/*        ArrayList<Double> xt = new ArrayList<>();
-        ArrayList<Double> x = new ArrayList<>();
-        ArrayList<Double> yt = new ArrayList<>();
-        ArrayList<Double> y = new ArrayList<>();
-
-        for(int i = 0; i < size; i++) {
-            int id = DataCollection.INSTANCE.getLine().get(i);
-            xt.add((double) i);
-            x.add((double) id % width);
-            yt.add((double) i);
-            y.add((double) id / width);
-        }
-
-        double[] xArr = Doubles.toArray(x);
-        double[] yArr = Doubles.toArray(y);
-        double[] xtArr = Doubles.toArray(xt);
-        double[] ytArr = Doubles.toArray(yt);
-        double[] params = new double[1];
-        double[] fitParamsX, fitParamsY ;
-        LMAFunction lmaFunctionX = new PolynomFunction();
-        LMAFunction lmaFunctionY = new PolynomFunction();
-
-        switch (typeFunction) {
-            case "polynomial" : {
-                params = new double[polynomialDegree];
-                for(int i = 0; i < polynomialDegree; i++) {
-                    params[i] = 1;
-                }
-                lmaFunctionX = new PolynomFunction();
-                lmaFunctionY = new PolynomFunction();
-                break;
-            }
-            case "parabola" : {
-                params = new double[3];
-                for(int i = 0; i < 3; i++) {
-                    params[i] = 1;
-                }
-                lmaFunctionX = new ParabolaFunction();
-                lmaFunctionY = new ParabolaFunction();
-                break;
-            }
-            case "sin" : {
-                params = new double[2];
-                for(int i = 0; i < 2; i++) {
-                    params[i] = 1;
-                }
-                lmaFunctionX = new SinFunction();
-                lmaFunctionY = new SinFunction();
-                break;
-            }
-        }
-
-        LMA lmaParX = new LMA(
-                lmaFunctionX,
-                params.clone(),
-                new double[][] { xtArr, xArr}
-        );
-
-        LMA lmaParY = new LMA(
-                lmaFunctionY,
-                params,
-                new double[][] { ytArr, yArr}
-        );
-
-        lmaParX.fit();
-        lmaParY.fit();
-
-        fitParamsX = lmaParX.parameters;
-        fitParamsY = lmaParY.parameters;
-
-        int[] xx = new int[size + 40];
-        int[] yy = new int[size + 40];
-
-        for(int i = 0; i < size + 40; i++) {
-            xx[i] = (int) lmaFunctionX.getY(i, fitParamsX);
-            yy[i] = (int) lmaFunctionY.getY(i, fitParamsY);
-            imageProcessor.set(xx[i], yy[i], Color.RED.getRGB());
-        }*/
     }
 
     protected void showDialog(String name) {
@@ -156,6 +79,7 @@ public class OLS extends MyAPlugin {
         cd.addParameterComboBox(typeFunctionParameter);
         cd.addParameterSlider(polynomDegreeSlider);
 
+        cd.pack();
         cd.setVisible(true);
         if (cd.wasCanceled()) {
             exit = true;
