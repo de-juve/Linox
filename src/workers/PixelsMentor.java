@@ -214,4 +214,27 @@ public class PixelsMentor {
     public static int getY(int id, int width) {
         return id/width;
     }
+
+    public static ArrayList<Integer> getWatershedNeighbouresIds(Integer p, ArrayList<Integer> crpoints, int width, int height) {
+        ArrayList<Integer> resultArray = new ArrayList<>();
+        ArrayList<Integer> neighboures = defineAllNeighboursIds(p, 1, width, height);
+        for(Integer n : neighboures) {
+            if(DataCollection.INSTANCE.getWshPoint(n) == 255) {
+                if(isDiagonalNeighboure(p, n, width)) {
+                    int xp = p%width;
+                    int yp = p/width;
+                    int xn = n%width;
+                    int yn = n/width;
+                    int id1 = xp + yn*width;
+                    int id2 = xn + yp*width;
+                    if(!crpoints.contains(id1) && !crpoints.contains(id2)) {
+                        resultArray.add(n);
+                    }
+                } else {
+                    resultArray.add(n);
+                }
+            }
+        }
+        return resultArray;
+    }
 }

@@ -20,10 +20,10 @@ public class MorfologyCompilation extends MorfologyOperation {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, results);
             result = new ImagePlus(typeCompilation + " " + criteria + " " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -33,10 +33,10 @@ public class MorfologyCompilation extends MorfologyOperation {
 
     @Override
     public void run() {
-        if(criteria <= 0) {
+        if (criteria <= 0) {
             showDialog("compilation");
         }
-        if(exit)   {
+        if (exit) {
             return;
         }
         type = "closing";
@@ -57,13 +57,12 @@ public class MorfologyCompilation extends MorfologyOperation {
     }
 
 
-
     @Override
     protected void showDialog(String name) {
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
-        gd.addSlider("Criterion", Math.min(1, width), width*height-1, 1);
+        gd.addSlider("Criterion", Math.min(1, width), width * height - 1, 1);
 
-        if(name.equalsIgnoreCase("compilation")) {
+        if (name.equalsIgnoreCase("compilation")) {
             gd.addChoice("Type of compilation", factory.getOperationMap().keySet().toArray(new String[0]), factory.getOperationMap().keySet().toArray(new String[0])[0]);
             typeCompilation = factory.getOperationMap().keySet().toArray(new String[0])[0];
         }

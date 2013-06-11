@@ -56,6 +56,10 @@ public class NodeWorker {
         return nodes.containsKey(label);
     }
 
+    public boolean isEmpty() {
+        return nodes.isEmpty();
+    }
+
     public Node getNodeByLabel(int label) {
         return nodes.get(label);
     }
@@ -95,8 +99,8 @@ public class NodeWorker {
         private double meanPotential;
         private double meanVariationPotential;
         private double meanContrast;
-        private Integer start;
-        private Integer end;
+        private Integer start = -1;
+        private Integer end = -1;
 
         public void setMeanContrast(double meanContrast) {
             this.meanContrast = meanContrast;

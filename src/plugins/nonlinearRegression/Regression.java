@@ -20,31 +20,31 @@ public class Regression {
         double[] params = new double[1];
 
 
-        for(int i = 0; i < line.size(); i++) {
+        for (int i = 0; i < line.size(); i++) {
             xArr[i] = line.get(i).getX();
             yArr[i] = line.get(i).getY();
         }
 
         switch (typeFunction) {
-            case "polynomial" : {
+            case "polynomial": {
                 params = new double[polynomialDegree];
-                for(int i = 0; i < polynomialDegree; i++) {
+                for (int i = 0; i < polynomialDegree; i++) {
                     params[i] = 1;
                 }
                 lmaFunction = new PolynomFunction();
                 break;
             }
-            case "parabola" : {
+            case "parabola": {
                 params = new double[3];
-                for(int i = 0; i < 3; i++) {
+                for (int i = 0; i < 3; i++) {
                     params[i] = 1;
                 }
                 lmaFunction = new ParabolaFunction();
                 break;
             }
-            case "sin" : {
+            case "sin": {
                 params = new double[2];
-                for(int i = 0; i < 2; i++) {
+                for (int i = 0; i < 2; i++) {
                     params[i] = 1;
                 }
                 lmaFunction = new SinFunction();
@@ -55,7 +55,7 @@ public class Regression {
         LMA lmaPar = new LMA(
                 lmaFunction,
                 params.clone(),
-                new double[][] { xArr, yArr}
+                new double[][]{xArr, yArr}
         );
 
         lmaPar.fit();
@@ -69,8 +69,8 @@ public class Regression {
     private static class PolynomFunction extends LMAFunction {
         @Override
         public double getY(double x, double[] a) {
-            Double accumulator = a[a.length-1];
-            for (int i = a.length-2; i >= 0; i--) {
+            Double accumulator = a[a.length - 1];
+            for (int i = a.length - 2; i >= 0; i--) {
                 accumulator = (accumulator * x) + a[i];
             }
             return accumulator;
@@ -87,12 +87,16 @@ public class Regression {
         public double getY(double x, double[] a) {
             return a[2] * x * x + a[1] * x + a[0];
         }
+
         @Override
         public double getPartialDerivate(double x, double[] a, int parameterIndex) {
             switch (parameterIndex) {
-                case 0: return 1;
-                case 1: return x;
-                case 2: return x*x;
+                case 0:
+                    return 1;
+                case 1:
+                    return x;
+                case 2:
+                    return x * x;
             }
             throw new RuntimeException("No such parameter index: " + parameterIndex);
         }
@@ -107,10 +111,14 @@ public class Regression {
         @Override
         public double getPartialDerivate(double x, double[] a, int parameterIndex) {
             switch (parameterIndex) {
-                case 0: return Math.sin(x / a[1]);
-                case 1: return a[0] * Math.cos(x / a[1]) * (-x / (a[1] * a[1]));
+                case 0:
+                    return Math.sin(x / a[1]);
+                case 1:
+                    return a[0] * Math.cos(x / a[1]) * (-x / (a[1] * a[1]));
             }
             throw new RuntimeException("No such fit parameter: " + parameterIndex);
         }
-    };
+    }
+
+    ;
 }

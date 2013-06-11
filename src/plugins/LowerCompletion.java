@@ -10,7 +10,7 @@ import java.util.Queue;
 
 
 public class LowerCompletion extends MyAPlugin {
-    Queue<Integer> queue = new LinkedList<> ();
+    Queue<Integer> queue = new LinkedList<>();
     int distination;
 
     public LowerCompletion() {
@@ -19,13 +19,13 @@ public class LowerCompletion extends MyAPlugin {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             //MassiveWorker w = new MassiveWorker();
             //w.scale(DataCollection.INSTANCE.getLowerCompletions());
 
             create(imageProcessor, DataCollection.INSTANCE.getLowerCompletions());
             result = new ImagePlus("lower completion " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -44,8 +44,8 @@ public class LowerCompletion extends MyAPlugin {
     private void FirstStage() {
         //ImageStack stack = new ImageStack(width, height);
         //ImageProcessor ip = imageProcessor.duplicate();
-        Color[] colors = new Color[width*height];
-        for(int i = 0; i < colors.length; i++) {
+        Color[] colors = new Color[width * height];
+        for (int i = 0; i < colors.length; i++) {
             colors[i] = Color.BLACK;
         }
 
@@ -53,24 +53,20 @@ public class LowerCompletion extends MyAPlugin {
 
         distination = 1;
         queue.add(-1);
-        while (!queue.isEmpty())
-        {
+        while (!queue.isEmpty()) {
             int id = queue.remove();
-            if (id == -1 && queue.size() > 0)
-            {
+            if (id == -1 && queue.size() > 0) {
                 //create(ip, colors);
                 //stack.addSlice(ip.duplicate());
 
                 queue.add(-1);
                 distination++;
-            }
-            else if(id > -1)
-            {
+            } else if (id > -1) {
                 colors[id] = Color.WHITE;
                 DataCollection.INSTANCE.setLowerCompletion(id, distination);
                 ArrayList<Integer> neighbs = PixelsMentor.defineNeighboursIdsWithSameValueLuminance(id, imageProcessor);
-                for(Integer nid : neighbs) {
-                    if(DataCollection.INSTANCE.getLowerCompletion(nid) == 0) {
+                for (Integer nid : neighbs) {
+                    if (DataCollection.INSTANCE.getLowerCompletion(nid) == 0) {
                         queue.add(nid);
                         DataCollection.INSTANCE.setLowerCompletion(nid, -1);
                     }
@@ -84,12 +80,12 @@ public class LowerCompletion extends MyAPlugin {
 
     private void SecondStage() {
         //Put the lower complete values in the output image);
-        for(int i = 0; i < width*height; i++) {
+        for (int i = 0; i < width * height; i++) {
             int low = 0;
             //int low =  DataCollection.INSTANCE.getLuminance(i);
-            if(DataCollection.INSTANCE.getLowerCompletion(i) != 0) {
-               // low = distination *  DataCollection.INSTANCE.getLuminance(i) +  DataCollection.INSTANCE.getLowerCompletion(i) -1;
-                low = 255*(DataCollection.INSTANCE.getLuminance(i) *  DataCollection.INSTANCE.getLowerCompletion(i))/(255*distination);
+            if (DataCollection.INSTANCE.getLowerCompletion(i) != 0) {
+                // low = distination *  DataCollection.INSTANCE.getLuminance(i) +  DataCollection.INSTANCE.getLowerCompletion(i) -1;
+                low = 255 * (DataCollection.INSTANCE.getLuminance(i) * DataCollection.INSTANCE.getLowerCompletion(i)) / (255 * distination);
                 //low = DataCollection.INSTANCE.getLowerCompletion(i);// * DataCollection.INSTANCE.getLuminance(i);
             }
             DataCollection.INSTANCE.setLowerCompletion(i, low);
@@ -101,12 +97,12 @@ public class LowerCompletion extends MyAPlugin {
         luminanceCalculatorPlugin.initProcessor(imageProcessor);
         luminanceCalculatorPlugin.run();
 
-        for(int i = 0; i < width*height; i++) {
+        for (int i = 0; i < width * height; i++) {
             DataCollection.INSTANCE.setLowerCompletion(i, 0);
 
             ArrayList<Integer> neighbs = PixelsMentor.defineNeighboursIds(i, imageProcessor);
-            for(Integer n : neighbs) {
-                if(DataCollection.INSTANCE.getLuminance(n) < DataCollection.INSTANCE.getLuminance(i)) {
+            for (Integer n : neighbs) {
+                if (DataCollection.INSTANCE.getLuminance(n) < DataCollection.INSTANCE.getLuminance(i)) {
                     DataCollection.INSTANCE.setLowerCompletion(i, -1);
                     queue.add(i);
                     break;

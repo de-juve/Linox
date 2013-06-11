@@ -11,17 +11,17 @@ import java.awt.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class LuminanceRedirector extends MyAPlugin  implements DialogListener {
+public class LuminanceRedirector extends MyAPlugin implements DialogListener {
     public LuminanceRedirector() {
         title = "Luminance redirector";
     }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, DataCollection.INSTANCE.getLuminances());
             result = new ImagePlus("luminance redirect " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -31,10 +31,10 @@ public class LuminanceRedirector extends MyAPlugin  implements DialogListener {
 
     @Override
     public void run() {
-        if(DataCollection.INSTANCE.getMaxLuminance() == 255) {
+        if (DataCollection.INSTANCE.getMaxLuminance() == 255) {
             showDialog("new high luminance");
         }
-        if(exit)   {
+        if (exit) {
             return;
         }
 
@@ -44,15 +44,15 @@ public class LuminanceRedirector extends MyAPlugin  implements DialogListener {
 
         int max = DataCollection.INSTANCE.getMaxLuminance();
         Integer[] values = new Integer[width * height];
-        for(int i = 0; i < width * height; i++) {
+        for (int i = 0; i < width * height; i++) {
             int pixel = DataCollection.INSTANCE.getLuminance(i);
-            int newDouble = new BigDecimal(Math.abs(255f/max * ((float)pixel - max))).setScale(0, RoundingMode.HALF_UP).intValue();
+            int newDouble = new BigDecimal(Math.abs(255f / max * ((float) pixel - max))).setScale(0, RoundingMode.HALF_UP).intValue();
             int value = 255 - newDouble;
-            values[i] =value;
+            values[i] = value;
 
         }
 
-        for(int i = 0; i < width * height; i++) {
+        for (int i = 0; i < width * height; i++) {
             DataCollection.INSTANCE.setLuminance(i, values[i]);
         }
 

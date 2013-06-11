@@ -8,22 +8,22 @@ import workers.ShedWorker;
 
 import java.awt.*;
 
-public class ShedColoring extends  MyAPlugin {
+public class ShedColoring extends MyAPlugin {
     public ShedColoring() {
         title = "Sheds coloring";
     }
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
-            Color[] colors = new Color[width*height];
-            for(int i = 0; i < DataCollection.INSTANCE.getShedLabels().length; i++) {
+        if (result == null) {
+            Color[] colors = new Color[width * height];
+            for (int i = 0; i < DataCollection.INSTANCE.getShedLabels().length; i++) {
                 colors[i] = ShedWorker.getInstance().getShedColor(DataCollection.INSTANCE.getShedLabel(i));
             }
             create(imageProcessor, colors);
             result = new ImagePlus("sheds coloring " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
 
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Time: 16:38
  * To change this template use File | Settings | File Templates.
  */
-public class UnionFindComponentLabeling extends MyAPlugin{
+public class UnionFindComponentLabeling extends MyAPlugin {
     int label;
     int currentLabel;
     MassiveWorker worker;
@@ -31,7 +31,7 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         LuminanceCalculator lumCalc = new LuminanceCalculator();
         lumCalc.initProcessor(imageProcessor);
         lumCalc.run();
-        luminance =  DataCollection.INSTANCE.getLuminances();
+        luminance = DataCollection.INSTANCE.getLuminances();
         parent = new Integer[luminance.length];
         worker = new MassiveWorker();
         worker.sort(luminance);
@@ -48,11 +48,10 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         secondPassOpening();
     }
 
-    private void firstPassOpening()
-    {
-        ArrayList<Integer> ids  = worker.getIds();
+    private void firstPassOpening() {
+        ArrayList<Integer> ids = worker.getIds();
         //start from pixels with max property
-        for(int i = 0; i < ids.size(); i++) {
+        for (int i = 0; i < ids.size(); i++) {
             int id = ids.get(i);
 
             //var current = BijectionIdAfterMaxSortingToId[i]; //get number 'id' of pixel in PixelMap
@@ -64,8 +63,8 @@ public class UnionFindComponentLabeling extends MyAPlugin{
             ArrayList<Integer> nValues = getterN.getElements(id, imageProcessor.getWidth(), imageProcessor.getHeight());
             ArrayList<Integer> neighboures = new ArrayList<Integer>();
 
-            for(int j = 0; j < nIds.size(); j++) {
-                if(luminance[id] < nValues.get(j) ||
+            for (int j = 0; j < nIds.size(); j++) {
+                if (luminance[id] < nValues.get(j) ||
                         (luminance[id] == nValues.get(j) && ids.indexOf(nIds.get(j)) < i)) {
                     neighboures.add(nIds.get(j));
                 }
@@ -81,24 +80,22 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         }
     }
 
-    private void secondPassOpening()
-    {
+    private void secondPassOpening() {
         /* Resolving phase in reverse sort order */
         currentLabel = 1;
 
         // CreateShedWorker();
         //ShedWorker.CreateShedsMap();
-        ArrayList<Integer> ids  = worker.getIds();
+        ArrayList<Integer> ids = worker.getIds();
         //start from pixels with min property
-        for(int i = ids.size() -1; i >= 0; i--) {
+        for (int i = ids.size() - 1; i >= 0; i--) {
             int id = ids.get(i);
-            if(parent[id] < 0) {
+            if (parent[id] < 0) {
                 parent[id] = luminance[id];
                 // p.ShedLabel = _currlab;
                 //  ShedWorker.AddShed(p);
                 // _currlab++;
-            }
-            else {
+            } else {
                 //p.ShedLabel = PixelWorker.ImageData.PixelMap[p.Parent].ShedLabel;
                 parent[id] = parent[parent[id]];
                 // p.Parent = PixelWorker.ImageData.PixelMap[p.Parent].Parent;
@@ -113,11 +110,11 @@ public class UnionFindComponentLabeling extends MyAPlugin{
     }
 
     private void firstPassClosing() {
-        ArrayList<Integer> ids  = worker.getIds();
+        ArrayList<Integer> ids = worker.getIds();
         //start from pixels with min property
-        for(int i = ids.size() -1; i >= 0; i--) {
+        for (int i = ids.size() - 1; i >= 0; i--) {
             int id = ids.get(i);
-            if(parent[id] != 0)
+            if (parent[id] != 0)
                 continue;
             MakeSet(id);
             GetterNeighboures getterN = new GetterNeighboures(luminance);
@@ -125,8 +122,8 @@ public class UnionFindComponentLabeling extends MyAPlugin{
             ArrayList<Integer> nValues = getterN.getElements(id, imageProcessor.getWidth(), imageProcessor.getHeight());
             ArrayList<Integer> nIds = getterN.getIds();//getterN.getIds(id, ip.getWidth(), ip.getHeight());
             ArrayList<Integer> neighboures = new ArrayList<Integer>();
-            for(int j = 0; j < nIds.size(); j++) {
-                if(luminance[id] > nValues.get(j) ||
+            for (int j = 0; j < nIds.size(); j++) {
+                if (luminance[id] > nValues.get(j) ||
                         (luminance[id] == nValues.get(j) && ids.indexOf(nIds.get(j)) > i)) {
                     neighboures.add(nIds.get(j));
                 }
@@ -142,17 +139,16 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         }
     }
 
-    private void secondPassClosing()
-    {
+    private void secondPassClosing() {
         /* Resolving phase in reverse sort order */
         currentLabel = 1;
 
         //CreateShedWorker();
         //ShedWorker.CreateShedsMap();
 
-        ArrayList<Integer> ids  = worker.getIds();
+        ArrayList<Integer> ids = worker.getIds();
         //start from pixels with max property
-        for(int i = 0; i < ids.size(); i++) {
+        for (int i = 0; i < ids.size(); i++) {
             int id = ids.get(i);
             // for (Integer id : ids) {
 
@@ -171,17 +167,15 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         }
     }
 
-    private void areaEqualing()
-    {
+    private void areaEqualing() {
         firstPassEqual();
         secondPassEqual();
     }
 
-    private void firstPassEqual()
-    {
-        ArrayList<Integer> ids  = worker.getIds();
+    private void firstPassEqual() {
+        ArrayList<Integer> ids = worker.getIds();
         //start from pixels with min property
-        for(int i = ids.size() -1; i >= 0; i--) {
+        for (int i = ids.size() - 1; i >= 0; i--) {
             int id = ids.get(i);
             MakeSet(id);
 
@@ -189,8 +183,8 @@ public class UnionFindComponentLabeling extends MyAPlugin{
             ArrayList<Integer> nIds = getterN.getIds(id, imageProcessor.getWidth(), imageProcessor.getHeight());
             ArrayList<Integer> nValues = getterN.getElements(id, imageProcessor.getWidth(), imageProcessor.getHeight());
             ArrayList<Integer> neighboures = new ArrayList<Integer>();
-            for(int j = 0; j < nIds.size(); j++) {
-                if(luminance[id] == nValues.get(j) && ids.indexOf(nIds.get(j)) > i) {
+            for (int j = 0; j < nIds.size(); j++) {
+                if (luminance[id] == nValues.get(j) && ids.indexOf(nIds.get(j)) > i) {
                     neighboures.add(nIds.get(j));
                 }
             }
@@ -203,28 +197,25 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         }
     }
 
-    private void secondPassEqual()
-    {
+    private void secondPassEqual() {
         /* Resolving phase in reverse sort order */
         currentLabel = 1;
 
         //CreateShedWorker();
         //ShedWorker.CreateShedsMap();
 
-        ArrayList<Integer> ids  = worker.getIds();
+        ArrayList<Integer> ids = worker.getIds();
         //start from pixels with max property
-        for (int i = 0; i < ids.size(); i++)
-        {
+        for (int i = 0; i < ids.size(); i++) {
             int id = ids.get(i);
-            if(parent[id] < 0) {
+            if (parent[id] < 0) {
                 parent[id] = luminance[id];
                 /*
                  p.ShedLabel = _currlab;
                 ShedWorker.AddShed(p);
                 _currlab++;
                  */
-            }
-            else {
+            } else {
                 //  p.ShedLabel = PixelWorker.ImageData.PixelMap[p.Parent].ShedLabel;
                 parent[id] = parent[parent[id]];
                 //  ShedWorker.AddElementToShed(p);
@@ -232,35 +223,29 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         }
     }
 
-    private void MakeSet(int id)
-    {
+    private void MakeSet(int id) {
         parent[id] = -1;
     }
 
-    void union(int neighboure, int p)
-    {
+    void union(int neighboure, int p) {
         int rootId = findRoot(neighboure);
 
         if (rootId == p) return; //neighboure and p already in the same set
-        if (criterion(rootId, p))
-        {
+        if (criterion(rootId, p)) {
             //two trees are merged
             //adding the area of root to that of p, and making p the parent of root.
 
             parent[p] += parent[rootId];
             parent[rootId] = p;
 
-        }
-        else
-        {
+        } else {
             //a neighboure has a root grey level higher than I[p] and has a sufficiently large area
             parent[p] = -label;
         }
     }
 
-    int findRoot(int id)
-    {
-        if(parent[id] >= 0) {
+    int findRoot(int id) {
+        if (parent[id] >= 0) {
             //is child
             parent[id] = findRoot(parent[id]);
             return parent[id];
@@ -269,8 +254,7 @@ public class UnionFindComponentLabeling extends MyAPlugin{
         return id;
     }
 
-    boolean criterion(int root, int p)
-    {
+    boolean criterion(int root, int p) {
         //(-root.Parent < PixelWorker.Lambda) - if "true" then root is ACTIVE
         return (luminance[root] == luminance[p] || (-parent[root] < label));
     }

@@ -17,13 +17,13 @@ public class AreaEqualing extends MorfologyOperation {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, DataCollection.INSTANCE.getStatuses());
             result = new ImagePlus("area equaling " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 ImageProcessor ip = imageProcessor.duplicate();
-                Color[] colors = new Color[width*height];
-                for(int i = 0; i < DataCollection.INSTANCE.getShedLabels().length; i++) {
+                Color[] colors = new Color[width * height];
+                for (int i = 0; i < DataCollection.INSTANCE.getShedLabels().length; i++) {
                     colors[i] = ShedWorker.getInstance().getShedColor(DataCollection.INSTANCE.getShedLabel(i));
                 }
                 create(ip, colors);
@@ -35,10 +35,10 @@ public class AreaEqualing extends MorfologyOperation {
         return result;
     }
 
-	@Override
-	public void run() {
-		type = "equaling";
+    @Override
+    public void run() {
+        type = "equaling";
         criteria = 1;
         morfRun();
-	}
+    }
 }

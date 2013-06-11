@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class ImageOperationFactory {
     HashMap<String, Class> operationMap;
+
     {
         operationMap = new HashMap();
         operationMap.put("Plus", ImageOperationPlus.class);

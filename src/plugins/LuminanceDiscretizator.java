@@ -10,7 +10,7 @@ import java.awt.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class LuminanceDiscretizator extends MyAPlugin  implements DialogListener {
+public class LuminanceDiscretizator extends MyAPlugin implements DialogListener {
     private int discretizationLevels;
 
     public LuminanceDiscretizator() {
@@ -19,10 +19,10 @@ public class LuminanceDiscretizator extends MyAPlugin  implements DialogListener
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, DataCollection.INSTANCE.getLuminances());
             result = new ImagePlus("discretization " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -34,7 +34,7 @@ public class LuminanceDiscretizator extends MyAPlugin  implements DialogListener
     public void run() {
         showDialog("Discretization");
 
-        if(exit)   {
+        if (exit) {
             return;
         }
 
@@ -44,7 +44,7 @@ public class LuminanceDiscretizator extends MyAPlugin  implements DialogListener
         int discretizationStep = 255 / discretizationLevels;
 
         Integer[] values = new Integer[width * height];
-        for(int i = 0; i < width * height; i++) {
+        for (int i = 0; i < width * height; i++) {
             int pixel = DataCollection.INSTANCE.getLuminance(i);
             values[i] = discretizationStep * (pixel / discretizationStep);
             DataCollection.INSTANCE.setLuminance(i, values[i]);
@@ -66,7 +66,7 @@ public class LuminanceDiscretizator extends MyAPlugin  implements DialogListener
     }
 
     public boolean dialogItemChanged(GenericDialog gd, AWTEvent e) {
-        discretizationLevels =(int) gd.getNextNumber();
+        discretizationLevels = (int) gd.getNextNumber();
         return true;
     }
 

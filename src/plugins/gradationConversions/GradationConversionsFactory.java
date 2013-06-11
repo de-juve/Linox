@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class GradationConversionsFactory {
     HashMap<String, Class> conversionsMap;
+
     {
         conversionsMap = new HashMap();
         conversionsMap.put("Negative", Negative.class);

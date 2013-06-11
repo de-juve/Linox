@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class HistogramChangingFactory {
     HashMap<String, Class> histogramChangingMap;
+
     {
         histogramChangingMap = new HashMap();
         histogramChangingMap.put("Equalisation", HistogramEqualisation.class);

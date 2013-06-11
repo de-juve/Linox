@@ -13,8 +13,8 @@ public abstract class HistogramChanging {
         defineValues(luminance);
         double max = Collections.max(values);
         double min = Collections.min(values);
-        for(int i = 0; i < luminance.length; i++) {
-            result[i] = (int)((values.get(i) - min)*255/(max-min));
+        for (int i = 0; i < luminance.length; i++) {
+            result[i] = (int) ((values.get(i) - min) * 255 / (max - min));
         }
     }
 

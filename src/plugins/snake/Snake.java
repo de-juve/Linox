@@ -57,7 +57,7 @@ public class Snake<T extends LinePoint> {
 
     public void removeElementsFromBaseSetPoints(int count) {
         for(int i = 0; i < Math.min(Math.abs(count), baseSetPointsSize-1); i++) {
-            baseSetPoints.removeLast();
+            baseSetPoints.removeFirst();//Last();
         }
     }
 

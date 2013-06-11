@@ -16,6 +16,9 @@ import plugins.morfology.AreaEqualing;
 import plugins.morfology.AreaOpening;
 import plugins.morfology.MorfologyCompilation;
 import plugins.nonlinearRegression.OLS;
+import plugins.roadGraph.CurveAnalyzer;
+import plugins.roadGraph.GACAnalizer;
+import plugins.roadGraph.GACBuilder;
 import plugins.snake.MovementOfSnake;
 
 import javax.swing.*;
@@ -155,24 +158,6 @@ public class LinoxEditMenuFactory {
             }
         };
 
-        final Action watershed2 = new AbstractAction("Watershed2") {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pluginRunner.setPlugin(new Watershed2());
-                Thread myThready = new Thread(pluginRunner);
-                myThready.start();
-            }
-        };
-
-        final Action watershed3 = new AbstractAction("Watershed3") {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pluginRunner.setPlugin(new Watershed3());
-                Thread myThready = new Thread(pluginRunner);
-                myThready.start();
-            }
-        };
-
         final Action edgeDetector = new AbstractAction("Edge Detector") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -199,6 +184,16 @@ public class LinoxEditMenuFactory {
                 myThready.start();
             }
         };
+
+        final Action gacAnalizer = new AbstractAction("GAC Analizer") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new GACAnalizer());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
 
         final Action homotopy = new AbstractAction("Homotopy") {
             @Override
@@ -584,10 +579,9 @@ public class LinoxEditMenuFactory {
         items.add(new JMenuItem(shedColoring));
 
         items.add(new JMenuItem(watershed));
-        items.add(new JMenuItem(watershed2));
-        items.add(new JMenuItem(watershed3));
         items.add(new JMenuItem(edgeDetector));
         items.add(new JMenuItem(gac));
+        items.add(new JMenuItem(gacAnalizer));
         items.add(new JMenuItem(curveAnalizer));
         items.add(new JMenuItem(homotopy));
         items.add(new JMenuItem(scaler));

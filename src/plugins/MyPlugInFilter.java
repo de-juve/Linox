@@ -5,9 +5,14 @@ import ij.process.ImageProcessor;
 
 public interface MyPlugInFilter extends Runnable {
     void initProcessor(ImageProcessor ip);
+
     ImagePlus getResult(boolean addToStack);
-	boolean exit();
+
+    boolean exit();
+
     void run();
+
     String getTitle();
+
     String getErrMessage();
 }

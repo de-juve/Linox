@@ -14,14 +14,14 @@ public class AreaClosing extends MorfologyOperation {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, DataCollection.INSTANCE.getStatuses());
             result = new ImagePlus("area closing " + criteria + " " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
 
-            if(addToStack) {
+            if (addToStack) {
                 ImageProcessor ip = imageProcessor.duplicate();
-                Color[] colors = new Color[width*height];
-                for(int i = 0; i < DataCollection.INSTANCE.getShedLabels().length; i++) {
+                Color[] colors = new Color[width * height];
+                for (int i = 0; i < DataCollection.INSTANCE.getShedLabels().length; i++) {
                     colors[i] = ShedWorker.getInstance().getShedColor(DataCollection.INSTANCE.getShedLabel(i));
                 }
                 create(ip, colors);
@@ -33,16 +33,16 @@ public class AreaClosing extends MorfologyOperation {
         return result;
     }
 
-	@Override
-	public void run() {
-		if(criteria <= 0) {
-			showDialog("area closing");
-		}
-		if(exit)   {
-			return;
-		}
-		type = "closing";
-		morfRun();
+    @Override
+    public void run() {
+        if (criteria <= 0) {
+            showDialog("area closing");
+        }
+        if (exit) {
+            return;
+        }
+        type = "closing";
+        morfRun();
 
-	}
+    }
 }

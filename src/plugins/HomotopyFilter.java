@@ -44,10 +44,10 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, DataCollection.INSTANCE.getLuminances());
             result = new ImagePlus("homotopy " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -58,7 +58,7 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
     @Override
     public void run() {
         showDialog("Homotopy");
-        if(exit) {
+        if (exit) {
             return;
         }
         LuminanceCalculator luminanceCalculatorPlugin = new LuminanceCalculator();
@@ -67,49 +67,50 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
 
         leftX = upY = 0;
 
-         while(leftX + areaSizeX <= width && upY + areaSizeY <= height) {
-             deleteArea();
-             defineNewBounds();
-             if(finish) {
-                 break;
-             }
-         }
+        while (leftX + areaSizeX <= width && upY + areaSizeY <= height) {
+            deleteArea();
+            defineNewBounds();
+            if (finish) {
+                break;
+            }
+        }
     }
 
     private void deleteArea() {
-        visited = new boolean[width*height];
-        for(int iy = upY; iy <= upY + areaSizeY; iy++) {
-            X : for(int ix = leftX; ix <= leftX + areaSizeX; ix++) {
+        visited = new boolean[width * height];
+        for (int iy = upY; iy <= upY + areaSizeY; iy++) {
+            X:
+            for (int ix = leftX; ix <= leftX + areaSizeX; ix++) {
                 int id = PixelsMentor.getId(ix, iy, width, height);
-                if(!visited[id]) {
+                if (!visited[id]) {
                     visited[id] = true;
-                    if(isBorderOfArea(id)) {
+                    if (isBorderOfArea(id)) {
                         continue;
                     }
                     area = new HashSet<Integer>();
                     borders = new HashSet<Integer>();
                     queue = new PriorityQueue<>();
-                    visited2 =new HashSet<Integer>();
+                    visited2 = new HashSet<Integer>();
 
                     foregroundColor = DataCollection.INSTANCE.getLuminance(id);
                     area.add(id);
                     queue.add(id);
                     visited2.add(id);
 
-                    while(!queue.isEmpty()) {
+                    while (!queue.isEmpty()) {
                         id = queue.remove();
                         fillArea(id);
                     }
-                    if(!area.isEmpty()) {
+                    if (!area.isEmpty()) {
                         backgroudColor = -1;
-                        for(Integer border : borders) {
-                            if(!isBackgroundPixel(border)) {
+                        for (Integer border : borders) {
+                            if (!isBackgroundPixel(border)) {
                                 borders.clear();
                                 area.clear();
                                 continue X;
                             }
                         }
-                        for(Integer i : area) {
+                        for (Integer i : area) {
                             DataCollection.INSTANCE.setLuminance(i, backgroudColor);
                         }
                     }
@@ -121,16 +122,16 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
     private void fillArea(int id) {
         int x = PixelsMentor.getX(id, width);
         int y = PixelsMentor.getY(id, width);
-        for(int iy = y-1; iy <= y+1; iy++) {
-            for(int ix = x-1; ix <= x+1; ix++) {
-                if(iy < upY || iy > upY + areaSizeY || ix < leftX || ix > leftX + areaSizeX) {
+        for (int iy = y - 1; iy <= y + 1; iy++) {
+            for (int ix = x - 1; ix <= x + 1; ix++) {
+                if (iy < upY || iy > upY + areaSizeY || ix < leftX || ix > leftX + areaSizeX) {
                     continue;
                 }
                 int neigh = PixelsMentor.getId(ix, iy, width, height);
-                if(visited2.contains(neigh)) {
+                if (visited2.contains(neigh)) {
                     continue;
                 }
-                if(isBorderOfArea(neigh) && isForegroundPixel(neigh)) {
+                if (isBorderOfArea(neigh) && isForegroundPixel(neigh)) {
                     visited[neigh] = true;
                     queue.clear();
                     borders.clear();
@@ -141,7 +142,7 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
 
                 visited[neigh] = true;
                 visited2.add(neigh);
-                if(isForegroundPixel(neigh)) {
+                if (isForegroundPixel(neigh)) {
                     area.add(neigh);
                     queue.add(neigh);
                 } else {
@@ -162,27 +163,24 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
     }
 
     private boolean isBackgroundPixel(int id) {
-        if(backgroudColor < 0) {
+        if (backgroudColor < 0) {
             backgroudColor = DataCollection.INSTANCE.getLuminance(id);
         }
         return (DataCollection.INSTANCE.getLuminance(id) <= backgroudColor + deviation) && (DataCollection.INSTANCE.getLuminance(id) >= backgroudColor - deviation) ? true : false;
     }
 
     private void defineNewBounds() {
-        if(leftX  + 2 * areaSizeX < width) {
+        if (leftX + 2 * areaSizeX < width) {
             leftX += areaSizeX;
-        }
-        else if(upY + 2 * areaSizeY > height){
+        } else if (upY + 2 * areaSizeY > height) {
             finish = true;
-        }
-        else {
-            if(shift) {
-                leftX = areaSizeX/2;
-            }
-            else {
+        } else {
+            if (shift) {
+                leftX = areaSizeX / 2;
+            } else {
                 leftX = 0;
             }
-            upY += areaSizeY/2;
+            upY += areaSizeY / 2;
             shift = !shift;
         }
     }

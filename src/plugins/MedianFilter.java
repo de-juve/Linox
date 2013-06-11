@@ -14,7 +14,7 @@ public class MedianFilter extends MyAPlugin {
     @Override
     public ImagePlus getResult(boolean addToStack) {
         result = new ImagePlus("median filter " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-        if(addToStack) {
+        if (addToStack) {
             DataCollection.INSTANCE.addtoHistory(result);
         }
 
@@ -29,18 +29,18 @@ public class MedianFilter extends MyAPlugin {
 
         HistogramCounter hist = new HistogramCounter();
 
-        for(int i = 0; i < width*height; i++) {
+        for (int i = 0; i < width * height; i++) {
             ArrayList<Integer> neigh = PixelsMentor.defineAllNeighboursIds(i, 3, width, height);
             Integer[] arr = new Integer[neigh.size()];
             int j = 0;
-            for(Integer n : neigh) {
+            for (Integer n : neigh) {
                 arr[j] = DataCollection.INSTANCE.getLuminance(n);
                 j++;
             }
             hist.count(arr);
-            int value = ((((int)hist.getMedian() & 0xff) << 16) +
-                    (((int)hist.getMedian() & 0xff) << 8) +
-                    ((int)hist.getMedian() & 0xff));
+            int value = ((((int) hist.getMedian() & 0xff) << 16) +
+                    (((int) hist.getMedian() & 0xff) << 8) +
+                    ((int) hist.getMedian() & 0xff));
             imageProcessor.set(i, value);
         }
     }

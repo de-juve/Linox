@@ -15,12 +15,12 @@ public class Laplasian extends MyAPlugin {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             /*MassiveWorker worker = new MassiveWorker();
             worker.scale(DataCollection.INSTANCE.getLaplasians());*/
             create(imageProcessor, DataCollection.INSTANCE.getLaplasians());
             result = new ImagePlus("laplasian " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -39,10 +39,10 @@ public class Laplasian extends MyAPlugin {
         luminanceCalculatorPlugin.initProcessor(imageProcessor);
         luminanceCalculatorPlugin.run();
 
-        for(int i = 0; i < DataCollection.INSTANCE.getLuminances().length; i++) {
+        for (int i = 0; i < DataCollection.INSTANCE.getLuminances().length; i++) {
             ArrayList<Integer> neigh = PixelsMentor.defineAllNeighboursIds(i, width, height);
             ArrayList<Integer> luminances = new ArrayList<>(neigh.size());
-            for(Integer n : neigh) {
+            for (Integer n : neigh) {
                 luminances.add(DataCollection.INSTANCE.getLuminance(n));
             }
             int lapl = countLaplasianPixel(luminances, new MaskLaplas());
@@ -50,8 +50,7 @@ public class Laplasian extends MyAPlugin {
         }
     }
 
-    private int countLaplasianPixel(ArrayList<Integer> luminances, Mask mask)
-    {
-        return   Math.abs(mask.R(luminances));
+    private int countLaplasianPixel(ArrayList<Integer> luminances, Mask mask) {
+        return Math.abs(mask.R(luminances));
     }
 }

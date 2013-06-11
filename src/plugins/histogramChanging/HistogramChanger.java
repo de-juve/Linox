@@ -24,10 +24,10 @@ public class HistogramChanger extends MyAPlugin implements DialogListener {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, results);
             result = new ImagePlus(typeChanging + " " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -38,14 +38,14 @@ public class HistogramChanger extends MyAPlugin implements DialogListener {
     @Override
     public void run() {
         showDialog("Histogram Changing");
-        if(exit)   {
+        if (exit) {
             return;
         }
         LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
         luminanceCalculator.initProcessor(imageProcessor);
         luminanceCalculator.run();
 
-        results = new Integer[width*height];
+        results = new Integer[width * height];
         HistogramChanging histogramChanging = factory.createImageOperation(typeChanging);
         histogramChanging.setWidth(width);
         histogramChanging.setHeight(height);
@@ -55,7 +55,7 @@ public class HistogramChanger extends MyAPlugin implements DialogListener {
     protected void showDialog(String name) {
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
 
-        if(name.equalsIgnoreCase("histogram changing")) {
+        if (name.equalsIgnoreCase("histogram changing")) {
             gd.addChoice("Type of changings", factory.getHistogramChangingMap().keySet().toArray(new String[0]), factory.getHistogramChangingMap().keySet().toArray(new String[0])[0]);
             typeChanging = factory.getHistogramChangingMap().keySet().toArray(new String[0])[0];
         }

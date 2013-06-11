@@ -13,7 +13,7 @@ import sun.awt.image.ImageAccessException;
 
 import java.awt.*;
 
-public class ImageOperator  extends MyAPlugin implements DialogListener {
+public class ImageOperator extends MyAPlugin implements DialogListener {
     ImageOperationFactory factory;
     String typeOperation;
 
@@ -27,10 +27,10 @@ public class ImageOperator  extends MyAPlugin implements DialogListener {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, results);
             result = new ImagePlus(typeOperation + " " + criteria + " " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-            if(addToStack) {
+            if (addToStack) {
                 DataCollection.INSTANCE.addtoHistory(result);
             }
         }
@@ -40,14 +40,14 @@ public class ImageOperator  extends MyAPlugin implements DialogListener {
 
     @Override
     public void run() {
-        if(Linox.getInstance().getImageStore().getTitles().size() < 2) {
+        if (Linox.getInstance().getImageStore().getTitles().size() < 2) {
             exit = true;
             setErrMessage("not enough images");
         } else {
             showDialog("operation");
         }
 
-        if(exit)   {
+        if (exit) {
             return;
         }
 
@@ -73,11 +73,11 @@ public class ImageOperator  extends MyAPlugin implements DialogListener {
     protected void showDialog(String name) {
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
 
-        gd.addChoice("Select minuend",  Linox.getInstance().getImageStore().getTitles().toArray(new String[0]),  Linox.getInstance().getImageStore().getTitles().toArray(new String[0])[0]);
-        gd.addChoice("Select subtrahend",  Linox.getInstance().getImageStore().getTitles().toArray(new String[0]),  Linox.getInstance().getImageStore().getTitles().toArray(new String[0])[1]);
+        gd.addChoice("Select minuend", Linox.getInstance().getImageStore().getTitles().toArray(new String[0]), Linox.getInstance().getImageStore().getTitles().toArray(new String[0])[0]);
+        gd.addChoice("Select subtrahend", Linox.getInstance().getImageStore().getTitles().toArray(new String[0]), Linox.getInstance().getImageStore().getTitles().toArray(new String[0])[1]);
 
 
-        if(name.equalsIgnoreCase("operation")) {
+        if (name.equalsIgnoreCase("operation")) {
             gd.addChoice("Type of operation", factory.getOperationMap().keySet().toArray(new String[0]), factory.getOperationMap().keySet().toArray(new String[0])[0]);
             typeOperation = factory.getOperationMap().keySet().toArray(new String[0])[0];
         }
@@ -100,7 +100,7 @@ public class ImageOperator  extends MyAPlugin implements DialogListener {
             exit = true;
             setErrMessage(e1.getMessage());
         }
-        if(ip.getWidth() != imageProcessor.getWidth() || ip.getHeight() != imageProcessor.getHeight()) {
+        if (ip.getWidth() != imageProcessor.getWidth() || ip.getHeight() != imageProcessor.getHeight()) {
             exit = true;
             setErrMessage("Images have different size");
         }

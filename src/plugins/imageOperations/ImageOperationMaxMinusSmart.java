@@ -17,7 +17,7 @@ public class ImageOperationMaxMinusSmart extends ImageOperation {
         smart.values = new ArrayList<>();
         smart.defineValues(closing, opening);
 
-        for(int i = 0; i < closing.length; i++) {
+        for (int i = 0; i < closing.length; i++) {
             values.add(i, Math.abs(max.getValue(i) - smart.getValue(i)));
         }
     }

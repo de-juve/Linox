@@ -11,11 +11,11 @@ public class AreaOpening extends MorfologyOperation {
 
     @Override
     public ImagePlus getResult(boolean addToStack) {
-        if(result == null) {
+        if (result == null) {
             create(imageProcessor, DataCollection.INSTANCE.getStatuses());
             result = new ImagePlus("area opening " + criteria + " " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
 
-            if(addToStack) {
+            if (addToStack) {
                 ImageProcessor ip = imageProcessor.duplicate();
                 create(ip, DataCollection.INSTANCE.getShedLabels());
                 DataCollection.INSTANCE.addtoHistory(new ImagePlus("area opening colors " + criteria + " " + DataCollection.INSTANCE.getImageOriginal().getTitle(), ip));
@@ -26,20 +26,20 @@ public class AreaOpening extends MorfologyOperation {
         return result;
     }
 
-	@Override
-	public void run() {
-		if(criteria <= 0) {
-			showDialog("area opening");
-		}
-		if(exit)   {
-			return;
-		}
-		type = "opening";
+    @Override
+    public void run() {
+        if (criteria <= 0) {
+            showDialog("area opening");
+        }
+        if (exit) {
+            return;
+        }
+        type = "opening";
         morfRun();
 
 
         /*
-		stack.addSlice("status opening", ipDuplicate);
+        stack.addSlice("status opening", ipDuplicate);
 
 		ShedWorker sh = ShedWorker.getInstance();
 		Color[] colors = new Color[status.length];
@@ -52,5 +52,5 @@ public class AreaOpening extends MorfologyOperation {
 		result = new MyImagePlus("area opening", stack);
 
 		*/
-	}
+    }
 }

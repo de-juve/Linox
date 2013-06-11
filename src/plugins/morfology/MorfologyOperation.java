@@ -29,17 +29,17 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
     }
 
     protected void initialization() {
-        DataCollection.INSTANCE.newStatus(width*height);
-        for(int i = 0; i < width*height; i++) {
+        DataCollection.INSTANCE.newStatus(width * height);
+        for (int i = 0; i < width * height; i++) {
             DataCollection.INSTANCE.setStatus(i, NOT_ANALYZED);
         }
-        DataCollection.INSTANCE.newShedLabels(width*height);
+        DataCollection.INSTANCE.newShedLabels(width * height);
 
         area = new int[256];
         last = new int[256];
         representative = new int[256];
 
-        for(int i = 0; i < last.length; i++) {
+        for (int i = 0; i < last.length; i++) {
             last[i] = NONE;
             area[i] = 0;
             representative[i] = NONE;
@@ -47,7 +47,7 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
     }
 
     protected void morfRun() {
-        DataCollection.INSTANCE.newStatus(width*height);
+        DataCollection.INSTANCE.newStatus(width * height);
         initialization();
 
         LuminanceCalculator luminanceCalculatorPlugin = new LuminanceCalculator();
@@ -57,17 +57,16 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
         worker = new MassiveWorker();
         worker.sort(DataCollection.INSTANCE.getLuminances());
 
-        if(type.equals("closing") || type.equals("equaling")) {
-            for(int h = worker.getMax(); h >= worker.getMin(); h--) {
+        if (type.equals("closing") || type.equals("equaling")) {
+            for (int h = worker.getMax(); h >= worker.getMin(); h--) {
+                preflood(h);
+            }
+        } else if (type.equals("opening")) {
+            for (int h = worker.getMin(); h <= worker.getMax(); h++) {
                 preflood(h);
             }
         }
-        else if(type.equals("opening")) {
-            for(int h = worker.getMin(); h <= worker.getMax(); h++) {
-                preflood(h);
-            }
-        }
-        ArrayList<Integer> ids  = worker.getIds();
+        ArrayList<Integer> ids = worker.getIds();
 
         //start from pixels with min property
         for (Integer p : ids) {
@@ -86,9 +85,9 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
             }
         }
 
-        for(int i = 0; i < width*height; i++) {
-            int bright = -DataCollection.INSTANCE.getStatus(i)-1;
-            DataCollection.INSTANCE.setStatus(i,bright);
+        for (int i = 0; i < width * height; i++) {
+            int bright = -DataCollection.INSTANCE.getStatus(i) - 1;
+            DataCollection.INSTANCE.setStatus(i, bright);
 
         }
 
@@ -113,7 +112,7 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
     }
 
     protected int flood(int h) {
-        while(last[h] != NONE) {
+        while (last[h] != NONE) {
 
             //propagation at level h
             //get point from queue
@@ -125,22 +124,23 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
 
             //get neighboures
             ArrayList<Integer> neighs = PixelsMentor.defineNeighboursIds(p, width, height);
-            for(Integer nid : neighs) {
+            for (Integer nid : neighs) {
                 if (DataCollection.INSTANCE.getStatus(nid) != NOT_ANALYZED) {
                     continue;
                 }
                 int m = DataCollection.INSTANCE.getLuminance(nid);
                 // set representative element if none
-                if(representative[m] == NONE) { representative[m] = nid; }
+                if (representative[m] == NONE) {
+                    representative[m] = nid;
+                }
                 //add to queue
                 DataCollection.INSTANCE.setStatus(nid, last[m]);
                 last[m] = nid;
-                if(type.equals("closing") || type.equals("equaling")) {
+                if (type.equals("closing") || type.equals("equaling")) {
                     while (m < h) {
                         m = flood(m);
                     }
-                }
-                else if(type.equals("opening")){
+                } else if (type.equals("opening")) {
                     while (m > h) {
                         m = flood(m);
                     }
@@ -150,42 +150,37 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
         }
         int m = h;
         //parent settings
-        if(type.equals("closing") || type.equals("equaling")){
-            m = h+1;
-            while(m <= 255 && representative[m] == NONE) {
+        if (type.equals("closing") || type.equals("equaling")) {
+            m = h + 1;
+            while (m <= 255 && representative[m] == NONE) {
                 ++m;
             }
-            if(m <= 255) {
-                if(area[h] < criteria) {
-                    DataCollection.INSTANCE.setStatus(representative[h],representative[m]);
+            if (m <= 255) {
+                if (area[h] < criteria) {
+                    DataCollection.INSTANCE.setStatus(representative[h], representative[m]);
                     area[m] += area[h];
-                }
-                else {
+                } else {
                     //area[m] = criteria;
-                    DataCollection.INSTANCE.setStatus(representative[h],-h-1);
+                    DataCollection.INSTANCE.setStatus(representative[h], -h - 1);
                 }
+            } else {
+                DataCollection.INSTANCE.setStatus(representative[h], -h - 1);
             }
-            else {
-                DataCollection.INSTANCE.setStatus(representative[h],-h-1);
-            }
-        }
-        else if(type.equals("opening")){
-            m = h-1;
-            while(m >= 0 && representative[m] == NONE) {
+        } else if (type.equals("opening")) {
+            m = h - 1;
+            while (m >= 0 && representative[m] == NONE) {
                 --m;
             }
-            if(m >= 0) {
-                if(area[h] < criteria) {
-                    DataCollection.INSTANCE.setStatus(representative[h],representative[m]);
+            if (m >= 0) {
+                if (area[h] < criteria) {
+                    DataCollection.INSTANCE.setStatus(representative[h], representative[m]);
                     area[m] += area[h];
-                }
-                else {
+                } else {
                     // area[m] = criteria;
-                    DataCollection.INSTANCE.setStatus(representative[h],-h-1);
+                    DataCollection.INSTANCE.setStatus(representative[h], -h - 1);
                 }
-            }
-            else {
-                DataCollection.INSTANCE.setStatus(representative[h],-h-1);
+            } else {
+                DataCollection.INSTANCE.setStatus(representative[h], -h - 1);
             }
         }
 
@@ -198,7 +193,7 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
 
     protected void showDialog(String name) {
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
-        gd.addSlider("Criterion", Math.min(1, width), width*height-1, 1);
+        gd.addSlider("Criterion", Math.min(1, width), width * height - 1, 1);
         gd.addDialogListener(this);
         gd.showDialog();
         if (gd.wasCanceled()) {

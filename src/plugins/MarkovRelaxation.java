@@ -3,7 +3,7 @@ package plugins;
 
 import ij.ImagePlus;
 import ij.ImageStack;
-import ij.process.ImageProcessor;
+import plugins.roadGraph.GACBuilder;
 import workers.*;
 
 import java.util.ArrayList;
@@ -17,10 +17,10 @@ import java.util.TreeMap;
  * Time: 15:41
  * To change this template use File | Settings | File Templates.
  */
-public class MarkovRelaxation extends MyAPlugin{
-   // ImageProcessor ip;
+public class MarkovRelaxation extends MyAPlugin {
+    // ImageProcessor ip;
     ImageStack stack;
-	int width, height;
+    int width, height;
     Integer[] luminance;
     TreeMap<Integer, Double> u_k, u_p, u_delta_p, u_sigma_k, u_mean_c, u_d;
 
@@ -36,32 +36,31 @@ public class MarkovRelaxation extends MyAPlugin{
         LuminanceCalculator lumCalc = new LuminanceCalculator();
         lumCalc.initProcessor(imageProcessor);
         lumCalc.run();
-        luminance =  DataCollection.INSTANCE.getLuminances();
+        luminance = DataCollection.INSTANCE.getLuminances();
 
         GACBuilder builder = new GACBuilder();
         builder.initProcessor(imageProcessor);
         builder.run();
 
-      //  watershed = DataCollection.INSTANCE.getWshPoints();//builder.getWatershed();
+        //  watershed = DataCollection.INSTANCE.getWshPoints();//builder.getWatershed();
         result = builder.getResult(false);
         stack = result.getStack();
-       // stack.addSlice(result.getTitle(), result.getProcessor().duplicate());
+        // stack.addSlice(result.getTitle(), result.getProcessor().duplicate());
 
         nodeCount();
         energyTerms();
         dataEnergy();
         Integer[] color = new Integer[luminance.length];
-        for(int i = 0; i < color.length; i++)
+        for (int i = 0; i < color.length; i++)
             color[i] = 0;
         double max = Collections.max(u_d.values());
         double min = Collections.min(u_d.values());
         NodeWorker nw = NodeWorker.getInstance();
-        for(NodeWorker.Node node : nw.getNodes().values()) {
+        for (NodeWorker.Node node : nw.getNodes().values()) {
             Integer label = node.getLabel();
             ArrayList<Integer> elements = node.getElements();
-            for(Integer element : elements)
-            {
-                color[element] = (int) ((u_d.get(label) - min)*255/(max - min));
+            for (Integer element : elements) {
+                color[element] = (int) ((u_d.get(label) - min) * 255 / (max - min));
             }
         }
 
@@ -74,7 +73,7 @@ public class MarkovRelaxation extends MyAPlugin{
         u_d = new TreeMap<Integer, Double>();
 
         NodeWorker nw = NodeWorker.getInstance();
-        for(NodeWorker.Node node : nw.getNodes().values()) {
+        for (NodeWorker.Node node : nw.getNodes().values()) {
             Integer label = node.getLabel();
             DataEnergy dataEnergy = new DataEnergy(40, 1, u_k.get(label), u_sigma_k.get(label), u_p.get(label), u_delta_p.get(label), u_mean_c.get(label));
             AnnealingOptimization optimization = new AnnealingOptimization();
@@ -99,7 +98,7 @@ public class MarkovRelaxation extends MyAPlugin{
         NodeWorker nw = NodeWorker.getInstance();
         CurvatureCalculator curvatureCalculator = CurvatureCalculator.getInstance();
         ContrastCalculator contrastCalculator = ContrastCalculator.getInstance();
-        for(NodeWorker.Node node : nw.getNodes().values()) {
+        for (NodeWorker.Node node : nw.getNodes().values()) {
             int label = node.getLabel();
            /* if(node.getElements().size() == 1) {
                 u_k.put(label, curvatureCalculator.getCurvature().get(0));
@@ -109,18 +108,18 @@ public class MarkovRelaxation extends MyAPlugin{
                 u_mean_c.put(label, contrastCalculator.getContrast().get(0));
             }
             else {*/
-                u_k.put(label, 1 - node.getMeanCurvature());//node.getMeanCurvature());
-                u_sigma_k.put(label, 1 - node.getVarianceCurvature());//node.getVarianceCurvature());
-                u_p.put(label, node.getMeanPotential());//1 - node.getMeanPotential());
-                u_delta_p.put(label,  node.getMeanVariationPotential());//1 - node.getMeanVariationPotential());
-                u_mean_c.put(label, node.getMeanContrast());
+            u_k.put(label, 1 - node.getMeanCurvature());//node.getMeanCurvature());
+            u_sigma_k.put(label, 1 - node.getVarianceCurvature());//node.getVarianceCurvature());
+            u_p.put(label, node.getMeanPotential());//1 - node.getMeanPotential());
+            u_delta_p.put(label, node.getMeanVariationPotential());//1 - node.getMeanVariationPotential());
+            u_mean_c.put(label, node.getMeanContrast());
             //}
         }
     }
 
     private void nodeCount() {
         NodeWorker nw = NodeWorker.getInstance();
-        for(NodeWorker.Node node : nw.getNodes().values()) {
+        for (NodeWorker.Node node : nw.getNodes().values()) {
             node.countElementsCurvature(width);
             node.countVarianceCurvature();
             node.countMeanAndMeanVariationPotential(luminance);
@@ -134,11 +133,11 @@ public class MarkovRelaxation extends MyAPlugin{
         node.setMeanContrast(0);
         GetterNeighboures getterN = new GetterNeighboures(DataCollection.INSTANCE.getWshPoints());
         double mc = 0;
-        for(Integer e : elements) {
+        for (Integer e : elements) {
             ArrayList<Integer> nids = getterN.getCorrectNeighbouresIds(e, width, height, DataCollection.INSTANCE.getWshPoints());
-            mc += node.countMeanContrast(e,nids, luminance);
+            mc += node.countMeanContrast(e, nids, luminance);
         }
-        mc/=n;
+        mc /= n;
         node.setMeanContrast(mc);
 
     }

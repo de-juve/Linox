@@ -13,8 +13,8 @@ public abstract class ImageOperation {
         defineValues(closing, opening);
         int max = Collections.max(values);
         int min = Collections.min(values);
-        for(int i = 0; i < closing.length; i++) {
-            result[i] = ((values.get(i) - min)*255/(max-min));
+        for (int i = 0; i < closing.length; i++) {
+            result[i] = ((values.get(i) - min) * 255 / (max - min));
         }
     }
 

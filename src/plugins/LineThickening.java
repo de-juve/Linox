@@ -19,7 +19,7 @@ public class LineThickening extends MyAPlugin {
     @Override
     public ImagePlus getResult(boolean addToStack) {
         result = new ImagePlus("line thickening " + DataCollection.INSTANCE.getImageOriginal().getTitle(), imageProcessor);
-        if(addToStack) {
+        if (addToStack) {
             DataCollection.INSTANCE.addtoHistory(result);
         }
 
@@ -35,7 +35,7 @@ public class LineThickening extends MyAPlugin {
         LinkedList<Integer> line = DataCollection.INSTANCE.getLine();
         ShowStaticstics.showHistogram(line, false);
         ListIterator<Integer> iterator = line.listIterator();
-        if(!iterator.hasNext()) {
+        if (!iterator.hasNext()) {
             return;
         }
         Road road = new Road();
@@ -48,8 +48,8 @@ public class LineThickening extends MyAPlugin {
             road.addPoint(roadPoint);
             current = next;
         }
-        for(RoadPoint roadPoint : road.getPoints()) {
-            for(Integer point : roadPoint.getPoints()) {
+        for (RoadPoint roadPoint : road.getPoints()) {
+            for (Integer point : roadPoint.getPoints()) {
                 imageProcessor.set(point, Color.RED.getRGB());
             }
         }
@@ -57,7 +57,7 @@ public class LineThickening extends MyAPlugin {
 
     private void thickening(int current, RoadPoint roadPoint, int type) {
         Integer neighboure = -1;
-        if(type == 1) {
+        if (type == 1) {
             neighboure = PixelsMentor.defineNeighbourId(current, roadPoint.getDirection().opposite1(), width, height);
         } else {
             neighboure = PixelsMentor.defineNeighbourId(current, roadPoint.getDirection().opposite2(), width, height);
@@ -66,7 +66,7 @@ public class LineThickening extends MyAPlugin {
     }
 
     private void dilating(RoadPoint roadPoint, Integer neighboure, int type) {
-        if(neighboure > 0 && Math.abs(DataCollection.INSTANCE.getLuminance(neighboure) - (int)ShowStaticstics.mean) <= 5/*ShowStaticstics.stdDev*/) {
+        if (neighboure > 0 && Math.abs(DataCollection.INSTANCE.getLuminance(neighboure) - (int) ShowStaticstics.mean) <= 5/*ShowStaticstics.stdDev*/) {
             roadPoint.addPoint(neighboure);
             thickening(neighboure, roadPoint, type);
         }
