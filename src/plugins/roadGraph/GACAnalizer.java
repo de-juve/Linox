@@ -3,10 +3,8 @@ package plugins.roadGraph;
 import ij.ImagePlus;
 import plugins.DataCollection;
 import plugins.MyAPlugin;
-import workers.EdgeWorker;
 import workers.NodeWorker;
 
-import java.awt.*;
 import java.util.TreeMap;
 
 public class GACAnalizer extends MyAPlugin {
@@ -48,13 +46,9 @@ public class GACAnalizer extends MyAPlugin {
         System.out.println(NodeWorker.getInstance().getNodes().size());
 
         for(NodeWorker.Node node : nodes.values()) {
-            for(EdgeWorker.Edge edge : EdgeWorker.getInstance().getEdges().values()) {
-                if(edge.getStart().equals(node) || edge.getEnd().equals(node)) {
-                    break;
-                }
+            if(node.isEmptyConnectedNodes()) {
                 NodeWorker.getInstance().removeNode(node.getLabel());
             }
-
         }
 
         System.out.println(NodeWorker.getInstance().getNodes().size());

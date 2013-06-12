@@ -110,7 +110,7 @@ public class GACBuilder extends MyAPlugin {
     }
 
     private void findCrossingPoints() {
-        int radiusOfNeighborhood = 1;
+        int radiusOfNeighborhood = 2;
         for (Integer i : DataCollection.INSTANCE.getWaterShedPoints()) {
             ArrayList<Integer> neigh = PixelsMentor.defineNeighboursIds(i, radiusOfNeighborhood, width, height);
             ArrayList<Integer> area = new ArrayList<>();
@@ -249,7 +249,7 @@ public class GACBuilder extends MyAPlugin {
                     if (!DataCollection.INSTANCE.getNodeLabel(n).equals(DataCollection.INSTANCE.getNodeLabel(i))
                             && !crossPoints[n]) {
                         if (NodeWorker.getInstance().containNodeLabel(DataCollection.INSTANCE.getNodeLabel(n))) {
-                            ArrayList<Integer> elms = NodeWorker.getInstance().getNode(DataCollection.INSTANCE.getNodeLabel(n)).getElements();
+                            ArrayList<Integer> elms = NodeWorker.getInstance().getNodeByLabel(DataCollection.INSTANCE.getNodeLabel(n)).getElements();
                             NodeWorker.getInstance().unionNodes(DataCollection.INSTANCE.getNodeLabel(i), DataCollection.INSTANCE.getNodeLabel(n));
                             for (Integer elm : elms) {
                                 DataCollection.INSTANCE.setNodeLabel(elm, DataCollection.INSTANCE.getNodeLabel(n));
@@ -271,8 +271,17 @@ public class GACBuilder extends MyAPlugin {
             ArrayList<Integer> wn = PixelsMentor.getWatershedNeighbouresIds(i, crpoints, width, height);//getterN.getWatershedIds(i, width, height, DataCollection.INSTANCE.getWshPoints(), crossPoints);
             for (Integer n : wn) {
                 for (Integer m : wn) {
-                    if (!DataCollection.INSTANCE.getNodeLabel(n).equals(DataCollection.INSTANCE.getNodeLabel(m))) {
-                        EdgeWorker.getInstance().addEdge(DataCollection.INSTANCE.getNodeLabel(n), DataCollection.INSTANCE.getNodeLabel(m));
+                    int nodeLabel1 = DataCollection.INSTANCE.getNodeLabel(n);
+                    int nodeLabel2 = DataCollection.INSTANCE.getNodeLabel(m);
+                    if (nodeLabel1 != nodeLabel2) {
+                        NodeWorker.Node node1 =   NodeWorker.getInstance().getNodeByLabel(nodeLabel1);
+                        NodeWorker.Node node2 =   NodeWorker.getInstance().getNodeByLabel(nodeLabel2);
+
+                        if(!node1.connectedTo(nodeLabel2)) {
+                            EdgeWorker.getInstance().addEdge(nodeLabel1, nodeLabel2);
+                            node1.connectTo(nodeLabel2);
+                            node2.connectTo(nodeLabel1);
+                        }
                     }
                 }
             }

@@ -48,10 +48,6 @@ public class NodeWorker {
         return nodes.get(label-1);
     }
 
-    public Node getNode(int label) {
-        return nodes.get(label);
-    }
-
     public boolean containNodeLabel(int label) {
         return nodes.containsKey(label);
     }
@@ -90,6 +86,7 @@ public class NodeWorker {
 
     public class Node {
         private ArrayList<Integer> elements;
+        private ArrayList<Integer> connectedNodes;
         private LinkedList<Integer> line;
         private int label;
         private Integer canonical;
@@ -101,6 +98,17 @@ public class NodeWorker {
         private double meanContrast;
         private Integer start = -1;
         private Integer end = -1;
+
+        public Node(int label) {
+            this.label = label;
+            Random rand;
+            rand = label > 0 ? new Random(255/ label) : new Random(255);
+            color =  new Color(label*rand.nextInt());
+            elements = new ArrayList<>();
+            canonical = -1;
+            connectedNodes = new ArrayList<>();
+        }
+
 
         public void setMeanContrast(double meanContrast) {
             this.meanContrast = meanContrast;
@@ -121,15 +129,6 @@ public class NodeWorker {
 
         public void setEnd(Integer end) {
             this.end = end;
-        }
-
-        public Node(int label) {
-            this.label = label;
-            Random rand;
-            rand = label > 0 ? new Random(255/ label) : new Random(255);
-            color =  new Color(label*rand.nextInt());
-            elements = new ArrayList<>();
-            canonical = -1;
         }
 
         public void addElement(Integer pixel) {
@@ -296,6 +295,18 @@ public class NodeWorker {
         public double countMeanContrast(int p, ArrayList<Integer> neigh, Integer[] luminance) {
             ContrastCalculator calc = ContrastCalculator.getInstance();
             return calc.countContrast(p, neigh, luminance);
+        }
+
+        public boolean connectedTo(int nodeLabel) {
+            return connectedNodes.contains(nodeLabel);
+        }
+
+        public void connectTo(int nodeLabel) {
+            connectedNodes.add(nodeLabel);
+        }
+
+        public boolean isEmptyConnectedNodes() {
+            return connectedNodes.isEmpty();
         }
     }
 }

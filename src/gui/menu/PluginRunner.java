@@ -25,7 +25,7 @@ public class PluginRunner implements Runnable {
             plugin.initProcessor(DataCollection.INSTANCE.getImageOriginal().getProcessor().convertToRGB().duplicate());
             plugin.run();
             if(plugin.exit()) {
-                JOptionPane.showMessageDialog(Linox.getInstance(), "plugin " + plugin.getTitle() + " stoped. Because: " + plugin.getErrMessage());
+                JOptionPane.showMessageDialog(Linox.getInstance(), "plugin " + plugin.getTitle() + " stoped. Becouse: " + plugin.getErrMessage());
                 return;
             }
             DataCollection.INSTANCE.setImageResult(plugin.getResult(true));
