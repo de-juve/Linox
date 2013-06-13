@@ -122,7 +122,7 @@ public class MarkovRelaxation extends MyAPlugin {
         for (NodeWorker.Node node : nw.getNodes().values()) {
             node.countElementsCurvature(width);
             node.countVarianceCurvature();
-            node.countMeanAndMeanVariationPotential(luminance);
+            node.countMeanAndMeanVariationPotential();
             countMeanContrast(node);
         }
     }

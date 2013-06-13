@@ -13,9 +13,9 @@ public class EdgeWorker {
     }
 
     public static EdgeWorker getInstance() {
-        if(worker == null) {
+        if (worker == null) {
             synchronized (EdgeWorker.class) {
-                if(worker == null) {
+                if (worker == null) {
                     worker = new EdgeWorker();
                 }
             }
@@ -53,8 +53,7 @@ public class EdgeWorker {
             return nodeLabel2;
         }
 
-        public Edge(int nodeLabel1, int nodeLabel2)
-        {
+        public Edge(int nodeLabel1, int nodeLabel2) {
             this.nodeLabel1 = nodeLabel1;
             this.nodeLabel2 = nodeLabel2;
         }

@@ -1,7 +1,10 @@
 package gui.menu;
 
 import gui.Linox;
+import ij.IJ;
 import ij.ImagePlus;
+import ij.ImageStack;
+import ij.process.ImageProcessor;
 import plugins.DataCollection;
 
 import javax.swing.*;
@@ -48,6 +51,24 @@ public class LinoxFileMenuFactory {
             }
         };
 
+        final Action saveStackHistory = new AbstractAction("Save Images Of Stack History") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Linox.getInstance().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                try {
+                    String dir_r =   System.getProperty("user.dir") + "/resource/stackHistory/";
+                    ImageStack stack =  DataCollection.INSTANCE.getHistoryStack();
+
+                    for(int i = 1; i <=  stack.getSize(); i++) {
+                        IJ.save(new ImagePlus("1.jpg", stack.getProcessor(i)), dir_r + stack.getSliceLabel(i));
+
+                    }
+                } finally {
+                    Linox.getInstance().setCursor(Cursor.getDefaultCursor());
+                }
+            }
+        };
+
         final Action closeImage = new AbstractAction("Close Image") {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,6 +95,7 @@ public class LinoxFileMenuFactory {
 
         items.add(new JMenuItem(openImage));
         items.add(new JMenuItem(saveImage));
+        items.add(new JMenuItem(saveStackHistory));
         items.add(new JMenuItem(closeImage));
         items.add(new JMenuItem(exit));
         // items.add(new JMenuItem(test));

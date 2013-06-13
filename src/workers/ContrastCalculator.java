@@ -11,7 +11,7 @@ import java.util.TreeMap;
  * To change this template use File | Settings | File Templates.
  */
 public class ContrastCalculator {
-    TreeMap<Integer,Double> contrast;
+    TreeMap<Integer, Double> contrast;
     private volatile static ContrastCalculator calculator;
 
 
@@ -20,9 +20,9 @@ public class ContrastCalculator {
     }
 
     public static ContrastCalculator getInstance() {
-        if(calculator == null) {
+        if (calculator == null) {
             synchronized (ContrastCalculator.class) {
-                if(calculator == null) {
+                if (calculator == null) {
                     calculator = new ContrastCalculator();
                 }
             }
@@ -35,10 +35,9 @@ public class ContrastCalculator {
     }
 
 
-
     public double countContrast(int p, ArrayList<Integer> neigh, Integer[] luminance) {
         double contr = 0;
-        for(Integer i : neigh) {
+        for (Integer i : neigh) {
             contr += luminance[p] - luminance[i];
         }
         contr /= neigh.size();

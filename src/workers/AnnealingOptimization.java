@@ -4,23 +4,20 @@ import java.util.Random;
 
 public class AnnealingOptimization {
 
-    public double optimize(double T0, double Tend, double decrement, DataEnergy energy)
-    {
-        Random r ;
+    public double optimize(double T0, double Tend, double decrement, DataEnergy energy) {
+        Random r;
         double minEnergy = 10000;
         double T = T0;
         double h;
         DataEnergy dataEnergy = new DataEnergy(energy);
         DataEnergy minDataEnergy = new DataEnergy(energy);
         boolean doIt = true;
-        while (doIt)
-        {
-            for (int j = 0; j < 4; ++j)
-            {
+        while (doIt) {
+            for (int j = 0; j < 4; ++j) {
                 r = new Random();
                 double min = dataEnergy.getBorderDown();
                 double max = dataEnergy.getBorderUp();
-                double rand = min + (int)(r.nextDouble() * ((max - min) + 1));
+                double rand = min + (int) (r.nextDouble() * ((max - min) + 1));
                 dataEnergy.setCoefficient(j, rand);
             }
             if (dataEnergy.checkCoefficients())
@@ -30,18 +27,14 @@ public class AnnealingOptimization {
         doIt = true;
         int i = 1;
 
-        while (T > Tend)
-        {
-            if(dataEnergy.getEnergyValue() < minEnergy)
-            {
+        while (T > Tend) {
+            if (dataEnergy.getEnergyValue() < minEnergy) {
                 minDataEnergy = new DataEnergy(dataEnergy);
                 minEnergy = minDataEnergy.getEnergyValue();
             }
             DataEnergy auxdata = new DataEnergy(dataEnergy);
-            while(doIt)
-            { //new point (coef)
-                for (int coefId = 0; coefId < auxdata.getCoefficients().length; coefId++)
-                {
+            while (doIt) { //new point (coef)
+                for (int coefId = 0; coefId < auxdata.getCoefficients().length; coefId++) {
                     newCoefficient(auxdata, coefId, T, i);
                 }
                 if (auxdata.checkCoefficients() && auxdata.compareCoefficients(dataEnergy.getCoefficients()))
@@ -52,13 +45,10 @@ public class AnnealingOptimization {
 
             h = 1 / (1 + Math.exp((auxdata.getEnergyValue() - minEnergy) / T));
             r = new Random();
-            if(r.nextDouble() < h)
-            {
+            if (r.nextDouble() < h) {
                 dataEnergy = new DataEnergy(auxdata);
-            }
-            else
-            {
-                T = T0*Math.exp(-decrement*Math.pow(i, (double) (1)/((double) dataEnergy.getCoefficients().length)));
+            } else {
+                T = T0 * Math.exp(-decrement * Math.pow(i, (double) (1) / ((double) dataEnergy.getCoefficients().length)));
             }
             i++;
 
@@ -89,22 +79,19 @@ public class AnnealingOptimization {
         return minDataEnergy.getEnergyValue();
     }
 
-    private void newCoefficient(DataEnergy dataEnergy, int id, double T, int i)
-    {
+    private void newCoefficient(DataEnergy dataEnergy, int id, double T, int i) {
         double z;
         int coef;
         boolean doIt = true;
-        while (doIt)
-        {
+        while (doIt) {
             Random r = new Random();
             double alpha = r.nextDouble();
 
             z = (Math.pow((1 + i / T), (2 * alpha - 1)) - 1) * T * Math.signum(alpha - 1 / 2);
 
-            coef = (int) (dataEnergy.getCoefficient(id) + (int)((dataEnergy.getBorderUp() - dataEnergy.getBorderDown()) * z));
+            coef = (int) (dataEnergy.getCoefficient(id) + (int) ((dataEnergy.getBorderUp() - dataEnergy.getBorderDown()) * z));
 
-            if (coef <= dataEnergy.getBorderUp() && coef >= dataEnergy.getBorderDown())
-            {
+            if (coef <= dataEnergy.getBorderUp() && coef >= dataEnergy.getBorderDown()) {
                 dataEnergy.move(id, (int) ((dataEnergy.getBorderUp() - dataEnergy.getBorderDown()) * z));
                 doIt = false;
             }

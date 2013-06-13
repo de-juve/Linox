@@ -14,9 +14,9 @@ public class ShedWorker {
     }
 
     public static ShedWorker getInstance() {
-        if(worker == null) {
+        if (worker == null) {
             synchronized (ShedWorker.class) {
-                if(worker == null) {
+                if (worker == null) {
                     worker = new ShedWorker();
                 }
             }
@@ -25,7 +25,7 @@ public class ShedWorker {
     }
 
     public void addShed(int label, int level, Color color) {
-        if(sheds.containsKey(label))
+        if (sheds.containsKey(label))
             return;
         sheds.put(label, new Shed(label, level, color));
         if (biggestLabel <= label)
@@ -39,7 +39,7 @@ public class ShedWorker {
 
     public boolean contain(int label, Integer pixel) {
 
-        if(sheds.containsKey(label)) {
+        if (sheds.containsKey(label)) {
             Shed s = sheds.get(label);
             return s.contain(pixel);
         }
@@ -47,7 +47,7 @@ public class ShedWorker {
     }
 
     public int getCanonical(int label) {
-        if(sheds.containsKey(label)) {
+        if (sheds.containsKey(label)) {
             Shed s = sheds.get(label);
             return s.getCanonicalElement();
         }
@@ -55,21 +55,21 @@ public class ShedWorker {
     }
 
     public void setCanonical(int label, int canonical) {
-        if(sheds.containsKey(label)) {
+        if (sheds.containsKey(label)) {
             Shed s = sheds.get(label);
             s.setCanonicalElement(canonical);
         }
     }
 
     public Color getShedColor(int label) {
-        if(sheds.containsKey(label)) {
+        if (sheds.containsKey(label)) {
             return sheds.get(label).getColor();
         }
         return Color.black;
     }
 
     public ArrayList<Integer> getShedElements(int label) {
-        if(sheds.containsKey(label)) {
+        if (sheds.containsKey(label)) {
             return sheds.get(label).getElements();
         }
         return null;
@@ -85,8 +85,8 @@ public class ShedWorker {
     }
 
     public boolean containShedWithLevel(int level) {
-        for(Shed s : sheds.values()) {
-            if(s.getLevel() == level)
+        for (Shed s : sheds.values()) {
+            if (s.getLevel() == level)
                 return true;
         }
         return false;
@@ -94,16 +94,16 @@ public class ShedWorker {
 
     public ArrayList<Shed> getShedWithLevel(int level) {
         ArrayList<Shed> res = new ArrayList<Shed>();
-        for(Shed s : sheds.values()) {
-            if(s.getLevel() == level)
+        for (Shed s : sheds.values()) {
+            if (s.getLevel() == level)
                 res.add(s);
         }
         return res;
     }
 
     public void unionSheds(int label1, int label2) {
-        if(sheds.containsKey(label1) && sheds.containsKey(label2)) {
-            if(label1 == label2)
+        if (sheds.containsKey(label1) && sheds.containsKey(label2)) {
+            if (label1 == label2)
                 return;
             sheds.get(label1).addElements(sheds.get(label2).getElements());
             sheds.get(label2).clear();
@@ -135,7 +135,7 @@ public class ShedWorker {
 
         public Shed() {
             elements = new ArrayList<>();
-           // color = new HSLColor(Color.BLACK);
+            // color = new HSLColor(Color.BLACK);
             canonical = -1;
         }
 
@@ -155,7 +155,7 @@ public class ShedWorker {
             this.level = level;
 
             //Random rand = new Random();
-           // float hue = 360 * label / DataCollection.INSTANCE.getLuminances().length;
+            // float hue = 360 * label / DataCollection.INSTANCE.getLuminances().length;
             //float saturation, lightness;
             //saturation = lightness = 100 * label / DataCollection.INSTANCE.getLuminances().length;
 
@@ -202,7 +202,7 @@ public class ShedWorker {
 
         public void addElements(ArrayList<Integer> elements) {
             this.elements.addAll(elements);
-            if(this.elements.size() > 1) {
+            if (this.elements.size() > 1) {
                 HashSet<Integer> hs = new HashSet<Integer>();
                 hs.addAll(this.elements);
                 this.elements.clear();

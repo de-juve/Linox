@@ -8,9 +8,7 @@ public class DataEnergy {
     private double energyValue;
 
 
-
-    public DataEnergy(int _borderUp, int _borderDown, double U_k, double U_sk, double U_p, double U_dp, double U_c)
-    {
+    public DataEnergy(int _borderUp, int _borderDown, double U_k, double U_sk, double U_p, double U_dp, double U_c) {
         coefficients = new double[4];
         borderUp = _borderUp;
         borderDown = _borderDown;
@@ -21,8 +19,7 @@ public class DataEnergy {
         u_c = U_c;
     }
 
-    public DataEnergy(DataEnergy data)
-    {
+    public DataEnergy(DataEnergy data) {
         coefficients = new double[data.getCoefficients().length];
         System.arraycopy(data.getCoefficients(), 0, coefficients, 0, data.getCoefficients().length);
         u_k = data.getU_k();
@@ -49,16 +46,17 @@ public class DataEnergy {
     }
 
 
-    public boolean compareCoefficients(double [] b) {
+    public boolean compareCoefficients(double[] b) {
         return coefficients[0] != b[0] || coefficients[1] != b[1] || coefficients[2] != b[2] || coefficients[3] != b[3];
     }
+
     public boolean checkCoefficients() {
         return coefficients[2] > coefficients[0] && coefficients[2] > coefficients[1] && coefficients[3] > coefficients[0] && coefficients[3] > coefficients[1];
     }
 
 
     public double getEnergyValue() {
-        energyValue =  coefficients[0]*u_p + coefficients[1]*u_dp + coefficients[2]*u_k + coefficients[2]*u_sk + coefficients[3]*u_c;
+        energyValue = coefficients[0] * u_p + coefficients[1] * u_dp + coefficients[2] * u_k + coefficients[2] * u_sk + coefficients[3] * u_c;
         return energyValue;
     }
 

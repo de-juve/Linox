@@ -17,36 +17,35 @@ public class Clustering {
         ShedWorker sh = ShedWorker.getInstance();
         sh.clear();
 
-        boolean[] create = new boolean[width*height];
+        boolean[] create = new boolean[width * height];
         Queue<Integer> queue = new LinkedList<>();
-        boolean[] analyzed = new boolean[width*height];
+        boolean[] analyzed = new boolean[width * height];
         Random rand = new Random(1);
 
-        for(int i = 0; i < width*height; i++) {
-            if(analyzed[i])
+        for (int i = 0; i < width * height; i++) {
+            if (analyzed[i])
                 continue;
             create[i] = true;
             queue.add(i);
             int label = i;
-            while(!queue.isEmpty()) {
+            while (!queue.isEmpty()) {
                 int p = queue.remove();
-                if(analyzed[p])
+                if (analyzed[p])
                     continue;
                 analyzed[p] = true;
 
                 //ArrayList<Integer> nids = PixelsMentor.defineNeighboursIdsWithSameValueDeviation(p, 10, DataCollection.INSTANCE.getStatuses(), width, height);
                 ArrayList<Integer> nids = PixelsMentor.defineNeighboursIdsWithSameValue(p, DataCollection.INSTANCE.getStatuses(), width, height);
 
-                if(create[p]) {
+                if (create[p]) {
                     createNewShed(rand, p);
                     label = p;
                     create[p] = false;
-                }
-                else {
+                } else {
                     DataCollection.INSTANCE.setShedLabel(p, label);
                     sh.addElementToShed(label, p);
                 }
-                for(Integer nid : nids) {
+                for (Integer nid : nids) {
                     create[nid] = false;
                     queue.add(nid);
                 }
@@ -65,35 +64,34 @@ public class Clustering {
         ShedWorker sh = ShedWorker.getInstance();
         sh.clear();
 
-        boolean[] create = new boolean[width*height];
+        boolean[] create = new boolean[width * height];
         Queue<Integer> queue = new LinkedList<>();
-        boolean[] analyzed = new boolean[width*height];
+        boolean[] analyzed = new boolean[width * height];
         Random rand = new Random(1);
 
-        for(int i = 0; i < width*height; i++) {
-            if(analyzed[i])
+        for (int i = 0; i < width * height; i++) {
+            if (analyzed[i])
                 continue;
             create[i] = true;
             queue.add(i);
             int label = i;
-            while(!queue.isEmpty()) {
+            while (!queue.isEmpty()) {
                 int p = queue.remove();
-                if(analyzed[p])
+                if (analyzed[p])
                     continue;
                 analyzed[p] = true;
 
                 ArrayList<Integer> nids = PixelsMentor.defineNeighboursIdsWidthDiagonalCondition(p, DataCollection.INSTANCE.getStatuses(), width, height);
 
-                if(create[p]) {
+                if (create[p]) {
                     createNewShed(rand, p);
                     label = p;
                     create[p] = false;
-                }
-                else {
+                } else {
                     DataCollection.INSTANCE.setShedLabel(p, label);
                     sh.addElementToShed(label, p);
                 }
-                for(Integer nid : nids) {
+                for (Integer nid : nids) {
                     create[nid] = false;
                     queue.add(nid);
                 }

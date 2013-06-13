@@ -259,5 +259,9 @@ public enum DataCollection {
         return line;
     }
 
+    public void removeWatershedPoint(Integer id) {
+        wshPoints[id] = 0;
+        waterShedPoints.remove(id);
+    }
 }
 

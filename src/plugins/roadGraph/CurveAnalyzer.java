@@ -64,7 +64,7 @@ public class CurveAnalyzer extends MyAPlugin {
 
         for (NodeWorker.Node node : NodeWorker.getInstance().getNodes().values()) {
             node.countElementsCurvature(width);
-            node.countMeanAndMeanVariationPotential(DataCollection.INSTANCE.getLuminances());
+            node.countMeanAndMeanVariationPotential();
             countMeanContrast(node);
             //ShowStaticstics.showHistogram(node.getLine());
         }

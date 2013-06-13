@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 
 
 public class GACBuilder extends MyAPlugin {
@@ -110,18 +111,99 @@ public class GACBuilder extends MyAPlugin {
     }
 
     private void findCrossingPoints() {
-        int radiusOfNeighborhood = 2;
+        int radiusOfNeighborhood = 1;
         for (Integer i : DataCollection.INSTANCE.getWaterShedPoints()) {
             ArrayList<Integer> neigh = PixelsMentor.defineNeighboursIds(i, radiusOfNeighborhood, width, height);
             ArrayList<Integer> area = new ArrayList<>();
 
             for (Integer n : neigh) {
-                if (!area.contains(DataCollection.INSTANCE.getShedLabel(n)) && DataCollection.INSTANCE.getWshPoint(n) == 0)
-                    area.add(DataCollection.INSTANCE.getShedLabel(n));
+                int shedLabel =  DataCollection.INSTANCE.getShedLabel(n);
+
+                if (DataCollection.INSTANCE.getWshPoint(n) != 255 && !area.contains(shedLabel))  {
+                    area.add(shedLabel);
+
+                }
             }
 
-            crossPoints[i] = area.size() > 2;
-            if (crossPoints[i]) {
+            neigh = PixelsMentor.defineAllNeighboursIds(i, radiusOfNeighborhood, width, height);
+            int[] wsh = new int[neigh.size()];
+            for(int j = 0; j < neigh.size(); j++) {
+                wsh[j] = DataCollection.INSTANCE.getWshPoint(neigh.get(j));
+            }
+            if(i == (215 + 99 * 1262))       {
+                i++;
+                i--;
+            }
+            boolean isCrossPoint = false;
+            if(area.size() < 3) {
+                CrossMasks masks = new CrossMasks(new int[] {1, 0, 1, 0, 1, 0, 1, 0, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {1, 0, 0, 0, 1, 1, 1, 0, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {1, 0, 0, 0, 1, 0, 1, 0, 1});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {1, 0, 1, 0, 1, 0, 0, 0, 1});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {1, 0, 1, 0, 1, 0, 0, 1, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {1, 0, 0, 0, 1, 1, 0, 1, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 0, 1, 1, 1, 0, 0, 0, 1});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 0, 0, 1, 1, 1, 0, 1, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 1, 0, 1, 1, 1, 0, 0, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 1, 0, 1, 1, 0, 0, 1, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 0, 1, 1, 1, 0, 0, 1, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 1, 0, 1, 1, 0, 0, 0, 1});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 0, 1, 0, 1, 0, 1, 0, 1});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 1, 0, 0, 1, 0, 1, 0, 1});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 1, 0, 0, 1, 1, 1, 0, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+                masks = new CrossMasks(new int[] {0, 1, 0, 0, 1, 1, 0, 1, 0});
+                if(masks.R(wsh) >= 255) {
+                    isCrossPoint = true;
+                }
+            }
+
+            if(area.size() > 2 || isCrossPoint) {
+                crossPoints[i] = true;
                 crpoints.add(i);
             }
         }
@@ -143,6 +225,7 @@ public class GACBuilder extends MyAPlugin {
         }
         createNewNode[p] = true;
         queue.add(p);
+        Random random = new Random(1);
         while (true) {
             while (queue.size() > 0) {
                 p = queue.remove();
@@ -154,7 +237,7 @@ public class GACBuilder extends MyAPlugin {
                 ArrayList<Integer> wneigh = PixelsMentor.getWatershedNeighbouresIds(p, crpoints, width, height);
 
                 if (createNewNode[p]) {
-                    node = nw.newNode();
+                    node = nw.newNode(random);
                     createNewNode[p] = false;
                     node.setStart(p);
                 } else {
