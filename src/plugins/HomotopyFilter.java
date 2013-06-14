@@ -188,12 +188,12 @@ public class HomotopyFilter extends MyAPlugin implements DialogListener {
     protected void showDialog(String name) {
 
         GenericDialog gd = new GenericDialog(name, IJ.getInstance());
-        gd.addSlider("Area size x", Math.min(3, width), width, 3);
-        areaSizeX = 3;
-        gd.addSlider("Area size y", Math.min(3, height), height, 3);
-        areaSizeY = 3;
-        gd.addSlider("Deviation", 1, 50, 1);
-        deviation = 1;
+        gd.addSlider("Area size x", Math.min(3, width), width, 50);
+        areaSizeX = 50;
+        gd.addSlider("Area size y", Math.min(3, height), height, 50);
+        areaSizeY = 50;
+        gd.addSlider("Deviation", 1, 50, 25);
+        deviation = 25;
         gd.addDialogListener(this);
         gd.showDialog();
         if (gd.wasCanceled()) {

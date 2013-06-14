@@ -45,7 +45,7 @@ public class GACAnalizer extends MyAPlugin {
 
         destroySinuousNodes();
 
-        destroyDarkNodes();
+        //destroyDarkNodes();
 
         paintNodes();
     }
@@ -106,7 +106,7 @@ public class GACAnalizer extends MyAPlugin {
         TreeMap<Integer, NodeWorker.Node> nodes  = (TreeMap<Integer, NodeWorker.Node>) NodeWorker.getInstance().getNodes().clone();
         System.out.println("before destroy dark nodes " + NodeWorker.getInstance().getNodes().size());
         for(NodeWorker.Node node : nodes.values()) {
-            if(node.getMeanPotential() < 100) {
+            if(node.getMeanPotential() < 110) {
                 for(Integer el : node.getElements()) {
                     DataCollection.INSTANCE.removeWatershedPoint(el);
                 }

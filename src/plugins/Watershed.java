@@ -50,11 +50,11 @@ public class Watershed extends MyAPlugin implements DialogListener {
     @Override
     public void run() {
 
-        showDialog("watershed2");
+       /* showDialog("watershed");
 
         if (exit) {
             return;
-        }
+        }*/
 
         Linox.getInstance().getStatusBar().setProgress("watershed", 0, 100);
 

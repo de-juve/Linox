@@ -37,20 +37,5 @@ public class AreaOpening extends MorfologyOperation {
         type = "opening";
         morfRun();
 
-
-        /*
-        stack.addSlice("status opening", ipDuplicate);
-
-		ShedWorker sh = ShedWorker.getInstance();
-		Color[] colors = new Color[status.length];
-		for(int i = 0; i < status.length; i++) {
-			colors[i] = sh.getShedColor(DataCollection.INSTANCE.getShedLabel(i));
-		}
-		ipDuplicate = ip.duplicate();
-		create(ipDuplicate, colors);
-		stack.addSlice("colors", ipDuplicate);
-		result = new MyImagePlus("area opening", stack);
-
-		*/
     }
 }

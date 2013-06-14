@@ -201,6 +201,10 @@ public class NodeWorker {
             return connectedNodes.isEmpty();
         }
 
+        public boolean isSourceNode() {
+            return connectedNodes.size() == 1;
+        }
+
         public void sort(int width, int height) {
             int countNeighboures;
             C:

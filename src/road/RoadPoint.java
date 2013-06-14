@@ -1,27 +1,18 @@
 package road;
 
-import java.util.ArrayList;
-
 public class RoadPoint {
-    ArrayList<Integer> points;
-    Direction direction;
-  //  RoadPoint nextPoint, previousPoint;
+    private int position;
+    private Direction direction;
+    private RoadPoint nextPoint, previousPoint;
+    private int roadWidth;
 
-    public RoadPoint(Integer point, Direction d) {
-        points = new ArrayList<>();
-        points.add(point);
-        direction = d;
-    }
-
-    public void addPoint(Integer point) {
-        points.add(point);
+    public RoadPoint(Integer pixelId, Direction d, int _roadWidth) {
+       position = pixelId;
+       direction = d;
+       roadWidth = _roadWidth;
     }
 
     public Direction getDirection() {
         return direction;
-    }
-
-    public ArrayList<Integer> getPoints() {
-        return points;
     }
 }

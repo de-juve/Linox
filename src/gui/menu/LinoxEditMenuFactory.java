@@ -19,6 +19,7 @@ import plugins.nonlinearRegression.OLS;
 import plugins.roadGraph.CurveAnalyzer;
 import plugins.roadGraph.GACAnalizer;
 import plugins.roadGraph.GACBuilder;
+import plugins.roadGraph.RoadBuilder;
 import plugins.snake.MovementOfSnake;
 
 import javax.swing.*;
@@ -194,6 +195,15 @@ public class LinoxEditMenuFactory {
             }
         };
 
+        final Action roadBuilder = new AbstractAction("Build Road") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new RoadBuilder());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
 
         final Action homotopy = new AbstractAction("Homotopy") {
             @Override
@@ -235,6 +245,12 @@ public class LinoxEditMenuFactory {
 
         final Action snakeMove = new AbstractAction("Movement of a  Snake") {
             @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new MovementOfSnake());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+           /* @Override
             public void actionPerformed(ActionEvent e) {
                 final ImageJPanel panel = Linox.getInstance().getImageStore().getSelectedTab();
                 final ImagePlus image = panel.image.duplicate();
@@ -281,7 +297,7 @@ public class LinoxEditMenuFactory {
                     }
                 }, true);
 
-            }
+            }*/
         };
 
         final Action ols = new AbstractAction("Ordinary Least Squares") {
@@ -565,13 +581,15 @@ public class LinoxEditMenuFactory {
 
         items.add(new JMenuItem(gradientCalculator));
         items.add(new JMenuItem(laplasianCalculator));
+        items.add(new JMenuItem(luminance));
+        items.add(new JMenuItem(luminaceRedirector));
+        items.add(new JMenuItem(luminaceDiscretizator));
+
         items.add(new JMenuItem(lowerCompletion));
         items.add(new JMenuItem(gradationCoversion));
         items.add(new JMenuItem(histChanger));
         items.add(new JMenuItem(imageOperator));
-        items.add(new JMenuItem(luminance));
-        items.add(new JMenuItem(luminaceRedirector));
-        items.add(new JMenuItem(luminaceDiscretizator));
+
         items.add(new JMenuItem(opening));
         items.add(new JMenuItem(closing));
         items.add(new JMenuItem(equaling));
@@ -580,18 +598,25 @@ public class LinoxEditMenuFactory {
 
         items.add(new JMenuItem(watershed));
         items.add(new JMenuItem(edgeDetector));
+
         items.add(new JMenuItem(gac));
         items.add(new JMenuItem(gacAnalizer));
+        items.add(new JMenuItem(roadBuilder));
+
+        items.add(new JMenuItem(snakeMove));
+
         items.add(new JMenuItem(curveAnalizer));
         items.add(new JMenuItem(homotopy));
-        items.add(new JMenuItem(scaler));
-        items.add(new JMenuItem(fft));
+
         items.add(new JMenuItem(histogram));
-        items.add(new JMenuItem(color_deconvolution));
-        items.add(new JMenuItem(snakeMove));
+
         items.add(new JMenuItem(ols));
         items.add(new JMenuItem(thickening));
         items.add(new JMenuItem(medianFilter));
+        items.add(new JMenuItem(scaler));
+        items.add(new JMenuItem(fft));
+
+        items.add(new JMenuItem(color_deconvolution));
 
         for(JMenuItem item : items) {
             item.setEnabled(false);

@@ -7,6 +7,7 @@ import ij.ImagePlus;
 import plugins.*;
 import plugins.nonlinearRegression.Regression;
 import road.Direction;
+import workers.NodeWorker;
 import workers.PixelsMentor;
 
 import java.awt.*;
@@ -44,6 +45,15 @@ public class MovementOfSnake extends MyAPlugin {
             return;
         }
 
+        if(NodeWorker.getInstance().isEmpty()) {
+            setErrMessage("Empty GAC");
+            exit = true;
+            if (exit) {
+                return;
+            }
+        }
+
+
         LuminanceCalculator luminanceCalculator = new LuminanceCalculator();
         luminanceCalculator.initProcessor(imageProcessor);
         luminanceCalculator.run();
@@ -61,7 +71,11 @@ public class MovementOfSnake extends MyAPlugin {
 
         penalty = new Penalty(penaltyThreshold);
 
-        LinkedList<Integer> line = DataCollection.INSTANCE.getLine();
+        for(NodeWorker.Node node : NodeWorker.getInstance().getNodes().values()) {
+            LinkedList<Integer> line = node.getLine();
+            //LinkedList<Integer> line = DataCollection.INSTANCE.getLine();
+
+
         //в 0 точка, с которой начали рисовать
         for(int i = 0; i < line.size(); i++) {
             int id = line.get(i);
@@ -83,6 +97,7 @@ public class MovementOfSnake extends MyAPlugin {
 
         for(LinePoint id : snake.getLine()) {
             imageProcessor.set(id.getY(), Color.RED.getRGB());
+        }
         }
 
         //    ShowStaticstics.showLuminanceChanging(snake.getLineValues(), true);
@@ -481,7 +496,7 @@ public class MovementOfSnake extends MyAPlugin {
         ParameterSlider polynomDegreeSlider = new ParameterSlider("Polynom degree", 1, 7, 3);
         ParameterSlider penaltySlider = new ParameterSlider("Count of penaltys", 0, 1000, 100);
         ParameterSlider lyminanceSlider = new ParameterSlider("Luminance deviation", 0, 100, 10);
-        ParameterSlider baseSetPointSizeSlider = new ParameterSlider("Size of set base points", 3, Math.min(30, DataCollection.INSTANCE.getLine().size()),  Math.min(15,DataCollection.INSTANCE.getLine().size()-1));
+        ParameterSlider baseSetPointSizeSlider = new ParameterSlider("Size of set base points", 3, Math.min(30, 50/*DataCollection.INSTANCE.getLine().size()*/),  Math.min(15,50/*DataCollection.INSTANCE.getLine().size()-1*/));
 
         ChoiceDialog cd = new ChoiceDialog();
         cd.setTitle(name);
