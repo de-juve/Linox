@@ -7,7 +7,7 @@ import workers.ShedWorker;
 
 import java.awt.*;
 
-public class AreaClosing extends MorfologyOperation {
+public class AreaClosing extends MorphologyOperation {
     public AreaClosing() {
         title = "Morphological area closing";
     }

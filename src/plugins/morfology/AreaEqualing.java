@@ -3,14 +3,12 @@ package plugins.morfology;
 import ij.ImagePlus;
 import ij.process.ImageProcessor;
 import plugins.DataCollection;
-import workers.PixelsMentor;
 import workers.ShedWorker;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 
-public class AreaEqualing extends MorfologyOperation {
+public class AreaEqualing extends MorphologyOperation {
     public AreaEqualing() {
         title = "Morphological area equaling";
     }

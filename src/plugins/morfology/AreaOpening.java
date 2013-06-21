@@ -4,7 +4,7 @@ import ij.ImagePlus;
 import ij.process.ImageProcessor;
 import plugins.DataCollection;
 
-public class AreaOpening extends MorfologyOperation {
+public class AreaOpening extends MorphologyOperation {
     public AreaOpening() {
         title = "Morphological area opening";
     }

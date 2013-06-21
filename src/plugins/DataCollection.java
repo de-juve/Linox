@@ -16,7 +16,7 @@ public enum DataCollection {
     private TreeMap<String, ImageProcessor> imageProcessorTreeMap;
     private ImagePlus imageOriginal, imageResult;
     private ImageStack stack;
-    private Integer[] luminances, gradients, laplasians, lowerCompletions, status, shedLabels, wshPoints, nodeLabels;
+    private Integer[] luminances, gradients, laplasians, lowerCompletions, status, shedLabels, prevShedLabels, wshPoints, nodeLabels;
     private ArrayList<Integer> waterShedPoints;
     private int maxLuminance = 255;
 
@@ -108,6 +108,10 @@ public enum DataCollection {
         for (int i = 0; i < length; i++) {
             shedLabels[i] = -1;
         }
+    }
+
+    public void newPrevShedLabels() {
+        prevShedLabels = shedLabels.clone();
     }
 
     public void newWshPoints(int length) {
@@ -202,8 +206,11 @@ public enum DataCollection {
     }
 
     public Integer getShedLabel(int id) {
-
         return shedLabels[id];
+    }
+
+    public Integer getPrevShedLabel(int id) {
+        return prevShedLabels[id];
     }
 
     public Integer getWshPoint(int id) {

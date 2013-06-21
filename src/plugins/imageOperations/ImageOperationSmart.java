@@ -1,19 +1,24 @@
 package plugins.imageOperations;
 
-import workers.PixelsMentor;
+import plugins.DataCollection;
+import workers.ShedWorker;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class ImageOperationSmart extends ImageOperation {
 
     @Override
     protected void defineValues(Integer[] closing, Integer[] opening) {
+    }
+
+    @Override
+    protected void defineValues(Integer[] closing, Integer[] opening,  TreeMap<Integer, ShedWorker.Shed> closingSheds, TreeMap<Integer, ShedWorker.Shed> openingSheds) {
+
         for (int i = 0; i < closing.length; i++) {
-            ArrayList<Integer> neighbours = PixelsMentor.defineNeighboursIds(i, width, height);
-            Collections.sort(neighbours);
-            int areaCls = homogenAreaSize(i, neighbours, closing);
-            int areaOpn = homogenAreaSize(i, neighbours, opening);
+            int areaCls, areaOpn;
+
+            areaCls = countHomogenAreaSize(i, closingSheds, true);
+            areaOpn = countHomogenAreaSize(i, openingSheds, false);
             if (areaOpn > 0 && areaCls >= areaOpn) {
                 values.add(i, closing[i]);
             } else if (areaOpn > 0) {
@@ -26,13 +31,18 @@ public class ImageOperationSmart extends ImageOperation {
         }
     }
 
-    private int homogenAreaSize(Integer p, ArrayList<Integer> neighbours, Integer[] values) {
-        int count = 0;
-        for (Integer n : neighbours) {
-            if (values[p].equals(values[n])) {
-                count++;
-            }
+    private int countHomogenAreaSize(Integer p, TreeMap<Integer, ShedWorker.Shed> sheds, boolean prev) {
+        int count;
+        Integer label;
+        if(prev) {
+            label = DataCollection.INSTANCE.getPrevShedLabel(p);
+        } else {
+            label = DataCollection.INSTANCE.getShedLabel(p);
         }
+
+        count =  sheds.get(label).size();
         return count;
     }
+
+
 }

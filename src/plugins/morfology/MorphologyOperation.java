@@ -13,7 +13,7 @@ import workers.PixelsMentor;
 import java.awt.*;
 import java.util.*;
 
-public abstract class MorfologyOperation extends MyAPlugin implements DialogListener {
+public abstract class MorphologyOperation extends MyAPlugin implements DialogListener {
     MassiveWorker worker;
     String type = "undefined";
     String typeCompilation;
@@ -28,12 +28,15 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
         criteria = value;
     }
 
+    public void setTypeCompilation(String typeCompilation) {
+        this.typeCompilation = typeCompilation;
+    }
+
     protected void initialization() {
         DataCollection.INSTANCE.newStatus(width * height);
         for (int i = 0; i < width * height; i++) {
             DataCollection.INSTANCE.setStatus(i, NOT_ANALYZED);
         }
-        DataCollection.INSTANCE.newShedLabels(width * height);
 
         area = new int[256];
         last = new int[256];
@@ -88,10 +91,10 @@ public abstract class MorfologyOperation extends MyAPlugin implements DialogList
         for (int i = 0; i < width * height; i++) {
             int bright = -DataCollection.INSTANCE.getStatus(i) - 1;
             DataCollection.INSTANCE.setStatus(i, bright);
-
         }
 
-        Clustering.fillSheds(width, height);
+        //Clustering.fillSheds(width, height);
+        Clustering.fillShedsWithDiagonalNeighboureCondition(width, height);
     }
 
     private void preflood(int brightnesLevel) {

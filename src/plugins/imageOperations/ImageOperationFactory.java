@@ -31,4 +31,8 @@ public class ImageOperationFactory {
         }
         return imageOperation;
     }
+
+    public boolean contain(String typeCompilation) {
+        return operationMap.containsKey(typeCompilation);
+    }
 }

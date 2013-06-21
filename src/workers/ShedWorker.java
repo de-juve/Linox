@@ -1,5 +1,7 @@
 package workers;
 
+import plugins.DataCollection;
+
 import java.awt.*;
 import java.util.*;
 
@@ -75,6 +77,13 @@ public class ShedWorker {
         return null;
     }
 
+    public int getShedSize(int label) {
+        if (sheds.containsKey(label)) {
+            return sheds.get(label).size();
+        }
+        return -1;
+    }
+
     public Set<Integer> getLabels() {
         return sheds.keySet();
     }
@@ -109,6 +118,31 @@ public class ShedWorker {
             sheds.get(label2).clear();
             sheds.remove(label2);
         }
+    }
+
+    public Integer getLabelOfBiggestShed() {
+        Integer label = biggestLabel;
+        int max = sheds.get(biggestLabel).size();
+        for(Shed shed : sheds.values()) {
+            if(shed.size() > max) {
+                max = shed.size();
+                label = shed.getLabel();
+            }
+        }
+        return label;
+    }
+
+    public void removeShed(Integer label) {
+        if(sheds.containsKey(label)) {
+            for(Integer element : sheds.get(label).getElements()) {
+                DataCollection.INSTANCE.setShedLabel(element, -1);
+            }
+            sheds.remove(label);
+        }
+    }
+
+    public TreeMap<Integer, Shed> getSheds() {
+        return sheds;
     }
 
     /* public TreeMap<Integer, Shed> getSheds() {
@@ -163,6 +197,10 @@ public class ShedWorker {
 
             elements = new ArrayList<>();
             canonical = -1;
+        }
+
+        public int size() {
+            return elements.size();
         }
 
         public void addElement(int pixel) {

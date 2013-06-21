@@ -53,10 +53,6 @@ public abstract class MyAPlugin implements MyPlugInFilter {
         this.criteria = criteria;
     }
 
-    protected int getCriteria() {
-        return criteria;
-    }
-
     protected void create(ImageProcessor ip, Integer[] array) {
         for (int i = 0; i < array.length; i++) {
             int value = (((array[i] & 0xff) << 16) +
@@ -86,6 +82,4 @@ public abstract class MyAPlugin implements MyPlugInFilter {
             }
         }
     }
-
-
 }

@@ -14,12 +14,13 @@ import plugins.imageOperations.ImageOperator;
 import plugins.morfology.AreaClosing;
 import plugins.morfology.AreaEqualing;
 import plugins.morfology.AreaOpening;
-import plugins.morfology.MorfologyCompilation;
+import plugins.morfology.MorphologyCompilation;
 import plugins.nonlinearRegression.OLS;
 import plugins.roadGraph.CurveAnalyzer;
 import plugins.roadGraph.GACAnalizer;
 import plugins.roadGraph.GACBuilder;
 import plugins.roadGraph.RoadBuilder;
+import plugins.smartShedding.SmartShedding;
 import plugins.snake.MovementOfSnake;
 
 import javax.swing.*;
@@ -125,7 +126,7 @@ public class LinoxEditMenuFactory {
         final Action morfologyCompilation = new AbstractAction("Morfology compilation") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pluginRunner.setPlugin(new MorfologyCompilation());
+                pluginRunner.setPlugin(new MorphologyCompilation());
                 Thread myThready = new Thread(pluginRunner);
                 myThready.start();
             }
@@ -145,6 +146,15 @@ public class LinoxEditMenuFactory {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pluginRunner.setPlugin(new LuminanceCalculator());
+                Thread myThready = new Thread(pluginRunner);
+                myThready.start();
+            }
+        };
+
+        final Action smartShedding = new AbstractAction("Smart Shedding") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pluginRunner.setPlugin(new SmartShedding());
                 Thread myThready = new Thread(pluginRunner);
                 myThready.start();
             }
@@ -595,6 +605,7 @@ public class LinoxEditMenuFactory {
         items.add(new JMenuItem(equaling));
         items.add(new JMenuItem(morfologyCompilation));
         items.add(new JMenuItem(shedColoring));
+        items.add(new JMenuItem(smartShedding));
 
         items.add(new JMenuItem(watershed));
         items.add(new JMenuItem(edgeDetector));
