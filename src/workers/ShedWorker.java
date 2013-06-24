@@ -160,6 +160,7 @@ public class ShedWorker {
         private ArrayList<Integer> elements;
         private int label;
         private Integer canonical;
+        private int meanPotential;
         private Color color;
         private int level;
 
@@ -224,6 +225,10 @@ public class ShedWorker {
             return color;
         }
 
+        public int getMeanPotential() {
+            return meanPotential;
+        }
+
         public void setCanonicalElement(int c) {
             if (elements.contains(c))
                 canonical = c;
@@ -246,6 +251,13 @@ public class ShedWorker {
                 this.elements.clear();
                 this.elements.addAll(hs);
             }
+        }
+
+        public void countMeanPotential() {
+            for (Integer i : elements) {
+                meanPotential += DataCollection.INSTANCE.getLuminance(i);
+            }
+            meanPotential /= elements.size();
         }
 
         public void clear() {

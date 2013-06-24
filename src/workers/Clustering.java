@@ -60,16 +60,21 @@ public class Clustering {
         Random rand = new Random(1);
 
         for (int i = 0; i < width * height; i++) {
-            if (analyzed[i])
+            if (analyzed[i]) {
                 continue;
+            }
+
             create[i] = true;
             queue.add(i);
             int label = i;
+
             while (!queue.isEmpty()) {
                 int p = queue.remove();
+
                 if (analyzed[p]) {
                     continue;
                 }
+
                 analyzed[p] = true;
 
                 if (create[p]) {
@@ -82,6 +87,7 @@ public class Clustering {
                 }
 
                 ArrayList<Integer> nids = PixelsMentor.defineNeighboursIdsWidthDiagonalCondition(p, DataCollection.INSTANCE.getStatuses(), width, height);
+
                 for (Integer nid : nids) {
                     if(!analyzed[nid])  {
                         create[nid] = false;

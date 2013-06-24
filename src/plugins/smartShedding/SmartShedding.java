@@ -42,50 +42,34 @@ public class SmartShedding extends MyAPlugin {
         lumCalculator.initProcessor(imageProcessor);
         lumCalculator.run();
 
+
         MorphologyCompilation mCompilation = new MorphologyCompilation();
         mCompilation.initProcessor(imageProcessor.duplicate());
-
         mCompilation.run();
+         imageProcessor = mCompilation.getResult(false).getProcessor();
 
-        // imageProcessor = mCompilation.getResult(false).getProcessor();
-
-        ShedColoring shedColoring = new ShedColoring();
+        /*ShedColoring shedColoring = new ShedColoring();
         shedColoring.initProcessor(mCompilation.getResult(false).getProcessor());
-        shedColoring.run();
+        shedColoring.run();*/
+
         Color[] colors = new Color[width * height];
         for(ShedWorker.Shed shed : ShedWorker.getInstance().getSheds().values()) {
-            for(Integer el : shed.getElements()) {
-                if(shed.size() > 10) {
-                    colors[el] = shed.getColor();
-                } else {
-                    colors[el] = Color.white;
+            shed.countMeanPotential();
+        }
+        int deviation = 20;
+        for(ShedWorker.Shed shed : ShedWorker.getInstance().getSheds().values()) {
+            int mp = shed.getMeanPotential();
+            for(ShedWorker.Shed shed2 : ShedWorker.getInstance().getSheds().values()) {
+                if(!shed2.equals(shed) && Math.abs(mp - shed2.getMeanPotential()) <= deviation) {
+                    for(Integer el : shed2.getElements()) {
+                        colors[el] = shed.getColor();
+                    }
                 }
             }
         }
-
 
         create(imageProcessor, colors);
 
-        //imageProcessor = shedColoring.getResult(false).getProcessor();
 
-      /*  Integer biggestShedLabel = ShedWorker.getInstance().getLabelOfBiggestShed();
-        Integer[] colors = new Integer[width*height];
-        for(int i = 0; i < colors.length; i++) {
-            colors[i] = 255;
-        }
-        for(Integer el : ShedWorker.getInstance().getShedElements(biggestShedLabel)) {
-            colors[el] = 0;
-        }
-        for(ShedWorker.Shed shed : ShedWorker.getInstance().getSheds().values()) {
-            if(shed.size() > 50) {
-                for(Integer el : shed.getElements()) {
-                    colors[el] = 0;
-                }
-            }
-        }
-
-        ShedWorker.getInstance().removeShed(biggestShedLabel);
-
-        create(imageProcessor, colors);*/
     }
 }

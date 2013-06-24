@@ -36,7 +36,7 @@ public class PixelsMentor {
         ArrayList<Integer> resultArray = new ArrayList<>();
         ArrayList<Integer> neighbouresIds = defineNeighboursIds(id, width, height);
         for (Integer nid : neighbouresIds) {
-            if (values[id] > values[nid] + deviation) {
+            if (Math.abs(values[id] - values[nid]) <= deviation) {
                 resultArray.add(nid);
             }
         }

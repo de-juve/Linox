@@ -93,8 +93,8 @@ public abstract class MorphologyOperation extends MyAPlugin implements DialogLis
             DataCollection.INSTANCE.setStatus(i, bright);
         }
 
-        //Clustering.fillSheds(width, height);
-        Clustering.fillShedsWithDiagonalNeighboureCondition(width, height);
+        Clustering.fillSheds(width, height);
+        //Clustering.fillShedsWithDiagonalNeighboureCondition(width, height);
     }
 
     private void preflood(int brightnesLevel) {
