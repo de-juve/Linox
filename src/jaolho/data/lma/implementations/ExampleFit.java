@@ -21,14 +21,14 @@ public class ExampleFit {
 			throw new RuntimeException("No such parameter index: " + parameterIndex);
 		}
 	}
-	
+
 	/** Does the actual fitting by using the above ExampleFunction (a line) */
 	public static void main(String[] args) {
 		LMA lma = new LMA(
 			new ExampleFunction(),
 			new double[] {1, 1},
 			new double[][] {
-				{0, 2, 6, 8, 9}, 
+				{0, 2, 6, 8, 9},
 				{5, 10, 23, 33, 40}}
 		);
 		lma.fit();

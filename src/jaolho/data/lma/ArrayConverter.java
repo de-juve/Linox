@@ -4,10 +4,10 @@ package jaolho.data.lma;
 public class ArrayConverter {
 	public static class SeparatedData {
 		public double[] yDataPoints;
-		public double[][] xDataPoints;	
+		public double[][] xDataPoints;
 	}
-	
-	
+
+
 	public static double[][] asDoubleArray(float[][] a) {
 		double[][] result = new double[a.length][];
 		for (int i = 0; i < a.length; i++) {
@@ -20,12 +20,12 @@ public class ArrayConverter {
 		}
 		return result;
 	}
-	
+
 	public static double[] asDoubleArray(float[] a) {
 		if (a == null) return null;
 		return asDoubleArray(new float[][] {a})[0];
 	}
-	
+
 	public static float[] asFloatArray(double[] a) {
 		float[] result = new float[a.length];
 		for (int i = 0; i < a.length; i++) {
@@ -33,7 +33,7 @@ public class ArrayConverter {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * Separates data from dataPoints[N][K+1] to yDataPoints[N] and xDatapoints[N][K].
 	 * <p>
@@ -49,12 +49,12 @@ public class ArrayConverter {
 		for (int i = 0; i < dataPoints.length; i++) {
 			result.yDataPoints[i] = dataPoints[i][0];
 			for (int j = 1; j < dataPoints[i].length; j++) {
-				result.xDataPoints[i][j - 1] = dataPoints[i][j]; 
+				result.xDataPoints[i][j - 1] = dataPoints[i][j];
 			}
 		}
 		return result;
 	}
-	
+
 	/**
 	 * Combines K-dimensional input data into one 2d-array:
 	 * <p>
@@ -73,7 +73,7 @@ public class ArrayConverter {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * Combines K-dimensional input data into one 2d-array:
 	 * <p>
@@ -92,7 +92,7 @@ public class ArrayConverter {
 		}
 		return result;
 	}
-	
+
 	public static double[][] transpose(double[] a) {
 		double[][] result = new double[a.length][1];
 		for (int i = 0; i < a.length; i++) {

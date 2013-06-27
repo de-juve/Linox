@@ -6,10 +6,378 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" name="Default" comment="" />
+    <list default="true" id="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/0_test_.png" afterPath="$PROJECT_DIR$/resource/0_test_.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/AbstractFieldMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/AbstractFieldMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/AbstractIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/AbstractIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizerAbstractTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizerAbstractTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizerAbstractTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizerAbstractTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/AbstractRandomGeneratorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/AbstractRandomGeneratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/AbstractRealMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/AbstractRealMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/AbstractWell.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/AbstractWell.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/AllowedSolution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/AllowedSolution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/util/ArgUtilsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/util/ArgUtilsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/Array2DRowFieldMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/Array2DRowFieldMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/Array2DRowRealMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/Array2DRowRealMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/Array2DRowRealMatrixTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/Array2DRowRealMatrixTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/ArrayConverter.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/ArrayConverter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/ArrayFieldVector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/ArrayFieldVector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/ArrayRealVector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/ArrayRealVector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/ArrayRealVector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/ArrayRealVector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/BSPTreeVisitor.Order.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/BSPTreeVisitor.Order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/BSPTreeVisitor.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/BSPTreeVisitor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/BaseSecantSolver.Method.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/BaseSecantSolver.Method.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/BaseUnivariateSolver.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/BaseUnivariateSolver.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/BetaDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/BetaDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatingFunctionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatingFunctionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/fraction/BigFractionField.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/fraction/BigFractionField.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/BigRealField.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/BigRealField.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/BinomialDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/BinomialDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/BitsStreamGeneratorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/BitsStreamGeneratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/BlockFieldMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/BlockFieldMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/BlockRealMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/BlockRealMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/univariate/BrentOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/univariate/BrentOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/univariate/BrentOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/univariate/BrentOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/direct/CMAESOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/direct/CMAESOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/CauchyDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/CauchyDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/ChiSquaredDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/ChiSquaredDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/CholeskyDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/CholeskyDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/ClassicalRungeKuttaIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/ClassicalRungeKuttaIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/colour_deconvolution/Colour_Deconvolution.java" afterPath="$PROJECT_DIR$/lib/colour_deconvolution/Colour_Deconvolution.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/complex/ComplexField.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/complex/ComplexField.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/general/ConjugateGradientFormula.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/general/ConjugateGradientFormula.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/ContinuousOutputModel.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/ContinuousOutputModel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/ConvergenceChecker.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/ConvergenceChecker.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/ConvergenceChecker.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/ConvergenceChecker.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/CorrelatedRandomVectorGeneratorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/CorrelatedRandomVectorGeneratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/fitting/CurveFitter.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/fitting/CurveFitter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/fitting/CurveFitter.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/fitting/CurveFitter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/CycleCrossoverTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/CycleCrossoverTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ml/clustering/DBSCANClusterer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ml/clustering/DBSCANClusterer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ml/clustering/DBSCANClustererTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ml/clustering/DBSCANClustererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/clustering/DBSCANClustererTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/clustering/DBSCANClustererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/DctNormalization.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/DctNormalization.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/Decimal64.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/Decimal64.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/DefaultMeasurementModel.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/DefaultMeasurementModel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/DefaultProcessModel.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/DefaultProcessModel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructureTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructureTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/DescriptiveStatisticsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/DescriptiveStatisticsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/dfp/Dfp.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/dfp/Dfp.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/dfp/DfpDecTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/dfp/DfpDecTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/dfp/DfpField.RoundingMode.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/dfp/DfpField.RoundingMode.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/dfp/DfpField.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/dfp/DfpField.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/dfp/DfpMathTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/dfp/DfpMathTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/DftNormalization.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/DftNormalization.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/DiagonalMatrixTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/DiagonalMatrixTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/DifferentiableMultivariateOptimizer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/DifferentiableMultivariateOptimizer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/DimensionMismatchException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/DimensionMismatchException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/DimensionMismatchExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/DimensionMismatchExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/DstNormalization.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/DstNormalization.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/EigenDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/EigenDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/EigenDecompositionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/EigenDecompositionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/ElitisticListPopulationTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/ElitisticListPopulationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/EmpiricalDistributionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/EmpiricalDistributionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/EnumeratedRealDistributionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/EnumeratedRealDistributionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/EquationsMapper.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/EquationsMapper.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/special/ErfTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/special/ErfTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/EulerIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/EulerIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/events/EventHandler.Action.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/events/EventHandler.Action.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/events/EventStateTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/events/EventStateTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/ExampleFit.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/ExampleFit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/util/ExceptionContextTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/util/ExceptionContextTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/ExpandableStatefulODE.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/ExpandableStatefulODE.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/ExponentialDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/ExponentialDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/FDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/FDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/FastFourierTransformer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/FastFourierTransformer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/FastMathTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/FastMathTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/FastMathTestPerformance.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/FastMathTestPerformance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/class-use/Field.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/class-use/Field.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/class-use/FieldElement.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/class-use/FieldElement.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/FieldLUDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/FieldLUDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/FieldMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/FieldMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/FieldMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/FieldMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/FieldRotation.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/FieldRotation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/FieldVector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/FieldVector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/FieldVector3D.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/FieldVector3D.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3DTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3DTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/events/FilterType.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/events/FilterType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiatorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/FirstOrderConverter.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/FirstOrderConverter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/FirstOrderDifferentialEquations.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/FirstOrderDifferentialEquations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/FirstOrderIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/FirstOrderIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/FixedStepHandler.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/FixedStepHandler.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/fraction/FractionField.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/fraction/FractionField.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/FrequencyTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/FrequencyTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/FunctionUtilsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/FunctionUtilsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegression.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegression.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegressionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegressionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/inference/GTestTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/inference/GTestTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/special/Gamma.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/special/Gamma.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/GammaDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/GammaDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Gaussian.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Gaussian.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/fitting/GaussianFitterTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/fitting/GaussianFitterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/fitting/GaussianFitterTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/fitting/GaussianFitterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/GaussianTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/GaussianTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/GillIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/GillIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/nonlinear/scalar/GoalType.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/nonlinear/scalar/GoalType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/GoalType.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/GoalType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/GradientFunctionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/GradientFunctionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/HarmonicOscillator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/HarmonicOscillator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/HessenbergTransformerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/HessenbergTransformerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/nonstiff/HighamHall54IntegratorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/nonstiff/HighamHall54IntegratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/HypergeometricDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/HypergeometricDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/HypergeometricDistributionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/HypergeometricDistributionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/JAMAMatrix.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/JAMAMatrix.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/JacobianFunctionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/differentiation/JacobianFunctionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/JacobianMatrices.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/JacobianMatrices.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/JacobianMatricesTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/JacobianMatricesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClusterer.EmptyClusterStrategy.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClusterer.EmptyClusterStrategy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer.EmptyClusterStrategy.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer.EmptyClusterStrategy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClustererTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClustererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClustererTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClustererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/KalmanFilter.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/KalmanFilter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/filter/KalmanFilterTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/filter/KalmanFilterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/KolmogorovSmirnovDistributionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/KolmogorovSmirnovDistributionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/LMA.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/LMA.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/LMAFunction.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/LMAFunction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/LMAMatrix.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/LMAMatrix.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/LMAMultiDimFunction.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/LMAMultiDimFunction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/LUDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/LUDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/nonlinear/scalar/LeastSquaresConverter.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/nonlinear/scalar/LeastSquaresConverter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/LeastSquaresConverter.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/LeastSquaresConverter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/LineTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/LineTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/ListPopulationTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/ListPopulationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/util/LocalizedFormats.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/util/LocalizedFormats.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/LogNormalDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/LogNormalDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Logistic.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Logistic.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/LogisticTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/LogisticTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Logit.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Logit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/inference/MannWhitneyUTestTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/inference/MannWhitneyUTestTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/MathArithmeticException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/MathArithmeticException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/MathArrays.OrderDirection.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/MathArrays.OrderDirection.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/class-use/MathArrays.OrderDirection.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/class-use/MathArrays.OrderDirection.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/MathArrays.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/MathArrays.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/MathArraysTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/MathArraysTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/MathIllegalArgumentException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/MathIllegalArgumentException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/MathUtils.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/MathUtils.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/MatrixDimensionMismatchExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/MatrixDimensionMismatchExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/MatrixUtils.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/MatrixUtils.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/MatrixUtilsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/MatrixUtilsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/MaxCountExceededExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/MaxCountExceededExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/MeasurementModel.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/MeasurementModel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/MersenneTwisterTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/MersenneTwisterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/MidpointIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/MidpointIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegressionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegressionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/MinpackTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/MinpackTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/plugins/morfology/MorphologyOperation.java" afterPath="$PROJECT_DIR$/src/plugins/morfology/MorphologyOperation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/MultiDimExampleFit.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/MultiDimExampleFit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ml/clustering/MultiKMeansPlusPlusClustererTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ml/clustering/MultiKMeansPlusPlusClustererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/univariate/MultiStartUnivariateOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/univariate/MultiStartUnivariateOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/MultipleLinearRegressionAbstractTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/MultipleLinearRegressionAbstractTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/MultistepIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/MultistepIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/MultivariateDifferentiableOptimizer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/MultivariateDifferentiableOptimizer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/MultivariateNormalDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/MultivariateNormalDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/MultivariateNormalDistributionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/MultivariateNormalDistributionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximizationTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximizationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/MultivariateOptimizer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/MultivariateOptimizer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/NPointCrossoverTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/NPointCrossoverTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/ranking/NaNStrategy.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/ranking/NaNStrategy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/ranking/NaturalRankingTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/ranking/NaturalRankingTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NoBracketingException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NoBracketingException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NoDataException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NoDataException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.Formula.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.Formula.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NonMonotonicSequenceExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NonMonotonicSequenceExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/NordsieckStepInterpolator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/NordsieckStepInterpolator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/NormalDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/NormalDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NotPositiveExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NotPositiveExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NotStrictlyPositiveException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NotStrictlyPositiveException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NotStrictlyPositiveExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NotStrictlyPositiveExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NullArgumentException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/NullArgumentException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NumberIsTooLargeExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NumberIsTooLargeExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NumberIsTooSmallExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/NumberIsTooSmallExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/ODEIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/ODEIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/regression/OLSMultipleLinearRegression.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/regression/OLSMultipleLinearRegression.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/OLSMultipleLinearRegressionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/OLSMultipleLinearRegressionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/OpenMapRealVector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/OpenMapRealVector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/OrderedCrossoverTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/OrderedCrossoverTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/OutOfRangeExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/OutOfRangeExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/class-use/ParametricUnivariateFunction.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/class-use/ParametricUnivariateFunction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/PascalDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/PascalDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/rank/PercentileTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/rank/PercentileTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/workers/PixelsMentor.java" afterPath="$PROJECT_DIR$/src/workers/PixelsMentor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/Plane.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/Plane.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/PointValuePair.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/PointValuePair.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/PointValuePair.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/PointValuePair.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/PointVectorValuePair.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/PointVectorValuePair.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/PointVectorValuePair.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/PointVectorValuePair.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/PoissonDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/PoissonDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSetTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSetTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/Polynomial.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/Polynomial.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtilsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtilsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/ProcessModel.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/ProcessModel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/ProductTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/ProductTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/QRDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/QRDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/complex/Quaternion.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/complex/Quaternion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/complex/QuaternionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/complex/QuaternionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/thresholdcolour/src/RGBtoYUV_.java" afterPath="$PROJECT_DIR$/lib/thresholdcolour/src/RGBtoYUV_.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RRQRDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RRQRDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/RRQRSolverTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/RRQRSolverTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/RandomAdaptorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/RandomAdaptorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/RandomDataGeneratorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/RandomDataGeneratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/RandomGeneratorAbstractTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/RandomGeneratorAbstractTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/RandomKeyTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/RandomKeyTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/RealDistributionAbstractTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/RealDistributionAbstractTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/RealFieldElement.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/RealFieldElement.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/class-use/RealFieldElement.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/class-use/RealFieldElement.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RealMatrix.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RealMatrix.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RealVector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RealVector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/RealVector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/class-use/RealVector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/RectangularCholeskyDecompositionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/RectangularCholeskyDecompositionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/Region.Location.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/Region.Location.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/regression/RegressionResults.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/regression/RegressionResults.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/linear/Relationship.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optim/linear/Relationship.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/linear/Relationship.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/linear/Relationship.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/ResizableDoubleArray.ExpansionMode.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/util/ResizableDoubleArray.ExpansionMode.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/ResizableDoubleArrayTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/util/ResizableDoubleArrayTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/Rotation.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/Rotation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/Rotation.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/Rotation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/RotationTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/RotationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/RungeKuttaIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/RungeKuttaIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/SchurTransformerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/linear/SchurTransformerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/SecondOrderDifferentialEquations.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/SecondOrderDifferentialEquations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/descriptive/moment/SemiVariance.Direction.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/descriptive/moment/SemiVariance.Direction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/workers/ShedWorker.java" afterPath="$PROJECT_DIR$/src/workers/ShedWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/Side.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/partitioning/Side.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Sigmoid.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/Sigmoid.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/SigmoidTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/SigmoidTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/SimplePointCheckerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/SimplePointCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/SimplePointCheckerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/SimplePointCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/SimpleRegressionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/regression/SimpleRegressionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/univariate/SimpleUnivariateValueCheckerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/univariate/SimpleUnivariateValueCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/univariate/SimpleUnivariateValueCheckerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/univariate/SimpleUnivariateValueCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/SimpleValueCheckerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/SimpleValueCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/SimpleValueCheckerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/SimpleValueCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/direct/SimplexOptimizer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/optimization/direct/SimplexOptimizer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/linear/SimplexSolverTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optim/linear/SimplexSolverTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/linear/SimplexSolverTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/linear/SimplexSolverTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/SingularValueDecomposition.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/linear/SingularValueDecomposition.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/SmoothingPolynomialBicubicSplineInterpolatorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/SmoothingPolynomialBicubicSplineInterpolatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/correlation/SpearmansRankCorrelationTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/correlation/SpearmansRankCorrelationTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinatesTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinatesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/StableRandomGeneratorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/StableRandomGeneratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/StatUtilsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/StatUtilsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/StatisticalSummaryValuesTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/StatisticalSummaryValuesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/StepFunctionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/function/StepFunctionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepHandler.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepHandler.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepInterpolator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepInterpolator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepNormalizer.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepNormalizer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepNormalizerBounds.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepNormalizerBounds.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepNormalizerMode.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/sampling/StepNormalizerMode.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/sampling/StepNormalizerOutputTestBase.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/ode/sampling/StepNormalizerOutputTestBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/correlation/StorelessCovarianceTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/correlation/StorelessCovarianceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/StorelessUnivariateStatisticAbstractTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/StorelessUnivariateStatisticAbstractTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/SumLogTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/SumLogTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/SumSqTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/SumSqTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/SumTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/summary/SumTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/SummaryStatisticsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/SummaryStatisticsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/TDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/TDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/TestFunctions.java" afterPath="$PROJECT_DIR$/src/jaolho/data/lma/implementations/TestFunctions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/ThreeEighthesIntegrator.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/ode/nonstiff/ThreeEighthesIntegrator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/ranking/TiesStrategy.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/stat/ranking/TiesStrategy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/TooManyEvaluationsExceptionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/exception/TooManyEvaluationsExceptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/TransformType.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/transform/TransformType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/TriangularDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/TriangularDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatingFunctionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatingFunctionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/genetics/UniformCrossover.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/genetics/UniformCrossover.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/UniformCrossoverTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/genetics/UniformCrossoverTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/UniformIntegerDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/UniformIntegerDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/UniformRealDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/UniformRealDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/UniformRealDistributionTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/distribution/UniformRealDistributionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/UnitSphereRandomVectorGeneratorTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/UnitSphereRandomVectorGeneratorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/differentiation/UnivariateDifferentiableFunction.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/differentiation/UnivariateDifferentiableFunction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/class-use/UnivariateFunction.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/class-use/UnivariateFunction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/univariate/UnivariateMultiStartOptimizerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/optimization/univariate/UnivariateMultiStartOptimizerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/UnivariateSolverUtils.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/solvers/UnivariateSolverUtils.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/solvers/UnivariateSolverUtilsTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/analysis/solvers/UnivariateSolverUtilsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/UnivariateStatisticAbstractTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/descriptive/UnivariateStatisticAbstractTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/ValueServerTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/ValueServerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/Vector.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/Vector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/twod/Vector2D.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/twod/Vector2D.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/Vector3D.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/Vector3D.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/Vector3D.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/geometry/euclidean/threed/class-use/Vector3D.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/Vector3DTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/Vector3DTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/WeibullDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/WeibullDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well1024a.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well1024a.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well19937a.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well19937a.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well19937aTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well19937aTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well19937c.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well19937c.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well19937cTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well19937cTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well44497a.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well44497a.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well44497aTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well44497aTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well44497b.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well44497b.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well44497bTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well44497bTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well512a.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/random/Well512a.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well512aTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/random/Well512aTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/inference/WilcoxonSignedRankTestTest.java" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/test/java/org/apache/commons/math3/stat/inference/WilcoxonSignedRankTestTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/ZeroException.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/exception/class-use/ZeroException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/ZipfDistribution.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/distribution/ZipfDistribution.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/analysis.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/analysis.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/build.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/changes/changes.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/changes/changes.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/checkstyle.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/checkstyle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/complex.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/complex.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/developers.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/developers.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/distribution.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/distribution.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/exceptions.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/exceptions.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/filter.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/filter.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/findbugs-exclude-filter.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/findbugs-exclude-filter.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/fraction.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/fraction.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/genetics.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/genetics.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/geometry.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/geometry.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/index.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/index.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/index.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/index.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/linear.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/linear.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/mail-lists.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/mail-lists.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/ode.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/ode.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/optimization.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/optimization.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/overview.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/overview.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/package-summary.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/analysis/function/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/package-summary.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/filter/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/primes/package-summary.html" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2/docs/apidocs/org/apache/commons/math3/primes/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/pom.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/proposal.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/proposal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/random.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/random.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/changes/release-notes.vm" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/changes/release-notes.vm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/site.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/site.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/main/assembly/src.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/main/assembly/src.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/stat.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/stat.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/test-jar.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/test-jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/transform.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/transform.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/utilities.xml" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/utilities.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/xdoc.xsl" afterPath="$PROJECT_DIR$/lib/commons-math3-3.2-src/src/site/xdoc/userguide/xdoc.xsl" />
+    </list>
     <ignored path="Linox.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1372053946334" ignored="false" />
+    <file path="/Dummy.txt" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1372329845096" ignored="false" />
     <file path="/fragment.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371792620775" ignored="false" />
     <file path="/GACBuilder.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371115278116" ignored="false" />
     <file path="/DataCollection.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371797713352" ignored="false" />
@@ -32,7 +400,7 @@
     <file path="/HistogramChangingFactory.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1366172079819" ignored="false" />
     <file path="/HistogramChanger.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1366348740063" ignored="false" />
     <file path="/MedianFilter.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371190811067" ignored="false" />
-    <file path="/PixelsMentor.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371805730901" ignored="false" />
+    <file path="/PixelsMentor.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1372333292414" ignored="false" />
     <file path="/Laplasian.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1366348789643" ignored="false" />
     <file path="/GradientCalculator.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1366348674253" ignored="false" />
     <file path="/ImageOperationFactory.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371717850645" ignored="false" />
@@ -84,14 +452,14 @@
     <file path="/a.dummy" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371190940620" ignored="false" />
     <file path="/SmartSheding.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371720010902" ignored="false" />
     <file path="/SmartShedding.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371807393520" ignored="false" />
-    <file path="/ShedWorker.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371807053583" ignored="false" />
+    <file path="/ShedWorker.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1372331713692" ignored="false" />
     <file path="/MorphologyCompilation.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371798548097" ignored="false" />
     <file path="/Clustering.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371809908832" ignored="false" />
     <file path="/ImageOperationSmart.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371798328558" ignored="false" />
     <file path="/ImageOperation.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371794018799" ignored="false" />
     <file path="/ImageOperationMaxMinusSmart.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371792175564" ignored="false" />
     <file path="/ImageOperationXor.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371794053124" ignored="false" />
-    <file path="/MorphologyOperation.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1371809621610" ignored="false" />
+    <file path="/MorphologyOperation.java" changelist="22ee2231-cc1c-4041-a3bd-91a76e5f91e7" time="1372332921842" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,38 +484,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/gui/menu/LinoxImageStore.java" line="31" class="gui.menu.LinoxImageStore" package="gui.menu">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/gui/menu/LinoxFileMenuFactory.java" line="59" class="gui.menu.LinoxFileMenuFactory$3" package="gui.menu">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -185,6 +521,38 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/gui/menu/LinoxImageStore.java" line="31" class="gui.menu.LinoxImageStore" package="gui.menu">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/gui/menu/LinoxFileMenuFactory.java" line="59" class="gui.menu.LinoxFileMenuFactory$3" package="gui.menu">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -194,37 +562,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SmartShedding.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SmartShedding.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/plugins/smartShedding/SmartShedding.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="118" selection-start="1784" selection-end="1784" vertical-scroll-proportion="0.8490566">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeWorker.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/workers/NodeWorker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="73" selection-start="7795" selection-end="7795" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShedWorker.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/workers/ShedWorker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="33" selection-start="5897" selection-end="5897" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShedColoring.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/plugins/ShedColoring.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="52" selection-start="1176" selection-end="1176" vertical-scroll-proportion="0.0">
+            <state line="37" column="0" selection-start="1137" selection-end="1137" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -233,7 +574,16 @@
       <file leaf-file-name="Clustering.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/workers/Clustering.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="21" selection-start="2361" selection-end="2361" vertical-scroll-proportion="0.0">
+            <state line="88" column="96" selection-start="2943" selection-end="2997" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShedWorker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/workers/ShedWorker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="189" column="15" selection-start="4803" selection-end="4803" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -242,16 +592,43 @@
       <file leaf-file-name="MorphologyOperation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/plugins/morfology/MorphologyOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="8" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.0">
+            <state line="155" column="74" selection-start="5109" selection-end="5128" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageOperation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/plugins/imageOperations/ImageOperation.java">
+      <file leaf-file-name="PixelsMentor.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/workers/PixelsMentor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="114" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
+            <state line="74" column="27" selection-start="3083" selection-end="3083" vertical-scroll-proportion="0.8579767">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataCollection.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/plugins/DataCollection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="158" column="16" selection-start="4206" selection-end="4206" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AreaClosing.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/plugins/morfology/AreaClosing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="13" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AreaEqualing.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/plugins/morfology/AreaEqualing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="13" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -272,6 +649,7 @@
         <option value="de-juve" />
       </list>
     </option>
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -287,7 +665,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/plugins/roadGraph/RoadBuilder.java" />
         <option value="$PROJECT_DIR$/src/plugins/imageOperations/ImageOperation.java" />
         <option value="$PROJECT_DIR$/src/plugins/imageOperations/ImageOperationXor.java" />
         <option value="$PROJECT_DIR$/src/plugins/imageOperations/ImageOperationMinus.java" />
@@ -298,11 +675,12 @@
         <option value="$PROJECT_DIR$/src/plugins/DataCollection.java" />
         <option value="$PROJECT_DIR$/src/plugins/morfology/MorphologyCompilation.java" />
         <option value="$PROJECT_DIR$/src/plugins/imageOperations/ImageOperationSmart.java" />
-        <option value="$PROJECT_DIR$/src/workers/PixelsMentor.java" />
-        <option value="$PROJECT_DIR$/src/workers/ShedWorker.java" />
         <option value="$PROJECT_DIR$/src/workers/Clustering.java" />
-        <option value="$PROJECT_DIR$/src/plugins/morfology/MorphologyOperation.java" />
         <option value="$PROJECT_DIR$/src/plugins/smartShedding/SmartShedding.java" />
+        <option value="$PROJECT_DIR$/src/plugins/Colour_Deconvolution.java" />
+        <option value="$PROJECT_DIR$/src/workers/ShedWorker.java" />
+        <option value="$PROJECT_DIR$/src/plugins/morfology/MorphologyOperation.java" />
+        <option value="$PROJECT_DIR$/src/workers/PixelsMentor.java" />
       </list>
     </option>
   </component>
@@ -342,6 +720,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -620,29 +999,45 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="OverrideImplement.combined" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="83" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="107" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="File.Encoding" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="99" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ij-src.zip!/" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="110" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="899" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="904" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="105" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="101" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="File.Encoding" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="gradle.tool.window.active" value="Tasks" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -890,6 +1285,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32748538" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.67602336" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6725146" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263158" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.67602336" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.62923974" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -906,14 +1302,14 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.67368424" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22123177" sideWeight="0.70058477" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2994152" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2994152" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6725146" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263158" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -993,110 +1389,114 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/plugins/HomotopyFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/plugins/imageOperations/ImageOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="292" selection-end="292" vertical-scroll-proportion="-3.5132744">
+        <state line="14" column="114" selection-start="479" selection-end="479" vertical-scroll-proportion="0.25735295">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/plugins/snake/MovementOfSnake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="234" selection-end="234" vertical-scroll-proportion="0.23878437" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/road/Road.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="58" selection-end="58" vertical-scroll-proportion="0.08683068">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugins/ShedColoring.java">
+    <entry file="file://$PROJECT_DIR$/src/plugins/snake/LinePoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="52" selection-start="1176" selection-end="1176" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/workers/ShedWorker.java">
+    <entry file="file://$PROJECT_DIR$/src/plugins/Colour_Deconvolution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="33" selection-start="5897" selection-end="5897" vertical-scroll-proportion="0.0">
+        <state line="17" column="13" selection-start="340" selection-end="340" vertical-scroll-proportion="0.09191176">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk1.7.0_17/src.zip!/java/util/TreeMap.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/menu/LinoxToolsMenuFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="830" column="25" selection-start="29329" selection-end="29329" vertical-scroll-proportion="0.33285093" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugins/MyAPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="1534" selection-end="1534" vertical-scroll-proportion="0.33333334">
+        <state line="9" column="13" selection-start="156" selection-end="156" vertical-scroll-proportion="0.072376356">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugins/DataCollection.java">
+    <entry file="file://$PROJECT_DIR$/src/plugins/morfology/AreaClosing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="16" selection-start="4120" selection-end="4120" vertical-scroll-proportion="0.33333334">
+        <state line="9" column="13" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/workers/Clustering.java">
+    <entry file="file://$PROJECT_DIR$/src/plugins/morfology/AreaEqualing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="21" selection-start="2361" selection-end="2361" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugins/imageOperations/ImageOperationSmart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="127" selection-end="127" vertical-scroll-proportion="0.027829314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugins/imageOperations/ImageOperator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="31" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.77922076">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/workers/NodeWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="73" selection-start="7795" selection-end="7795" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugins/morfology/MorphologyOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="8" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.0">
+        <state line="10" column="13" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/plugins/morfology/MorphologyCompilation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="2519" selection-end="2519" vertical-scroll-proportion="0.74953616">
+        <state line="68" column="32" selection-start="2509" selection-end="2509" vertical-scroll-proportion="0.72170687">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/plugins/imageOperations/ImageOperation.java">
+    <entry file="file://$PROJECT_DIR$/src/plugins/DataCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="114" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
+        <state line="158" column="16" selection-start="4206" selection-end="4206" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plugins/Watershed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="19" selection-start="3594" selection-end="3594" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plugins/ShedColoring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="8" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.7164461">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workers/ShedWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="15" selection-start="4803" selection-end="4803" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/plugins/smartShedding/SmartShedding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="118" selection-start="1784" selection-end="1784" vertical-scroll-proportion="0.8490566">
+        <state line="37" column="0" selection-start="1137" selection-end="1137" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workers/Clustering.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="96" selection-start="2943" selection-end="2997" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plugins/morfology/MorphologyOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="74" selection-start="5109" selection-end="5128" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/workers/PixelsMentor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="27" selection-start="3083" selection-end="3083" vertical-scroll-proportion="0.8579767">
           <folding />
         </state>
       </provider>

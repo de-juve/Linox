@@ -27,8 +27,10 @@ public class ShedWorker {
     }
 
     public void addShed(int label, int level, Color color) {
-        if (sheds.containsKey(label))
+        if (sheds.containsKey(label)) {
+            System.err.println("shed exists already");
             return;
+        }
         sheds.put(label, new Shed(label, level, color));
         if (biggestLabel <= label)
             biggestLabel = label;

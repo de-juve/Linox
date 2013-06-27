@@ -4,8 +4,8 @@ import jaolho.data.lma.LMA;
 import jaolho.data.lma.LMAMultiDimFunction;
 
 
-/** 
- * An example fit which fits a plane to some data points 
+/**
+ * An example fit which fits a plane to some data points
  * and prints out the resulting fit parameters.
  */
 public class MultiDimExampleFit {
@@ -25,7 +25,7 @@ public class MultiDimExampleFit {
 			throw new RuntimeException("No such parameter index: " + parameterIndex);
 		}
 	}
-	
+
 	/** Does the actual fitting by using the above MultiDimExampleFunction (a plane) */
 	public static void main(String[] args) {
 		LMA lma = new LMA(
@@ -33,7 +33,7 @@ public class MultiDimExampleFit {
 			new double[] {1, 1, 1},
 			new double[][] {
 				// y x0 x1
-				{0, 2, 6}, 
+				{0, 2, 6},
 				{5, 10, 2},
 				{7, 20, 4},
 				{9, 30, 7},

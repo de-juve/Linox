@@ -16,17 +16,17 @@ public interface LMAMatrix {
 	 * parameter increments.
 	 */
 	public void invert() throws InvertException;
-	
+
 	/**
 	 * Set the value of a matrix element.
 	 */
 	public void setElement(int row, int col, double value);
-	
+
 	/**
 	 * Get the value of a matrix element.
 	 */
 	public double getElement(int row, int col);
-	
+
 	/**
 	 * Multiplies this matrix with an array (result = this * vector).
 	 * The lengths of the arrays must be equal to the number of rows in the matrix.

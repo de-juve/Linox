@@ -9,6 +9,7 @@ import plugins.MyAPlugin;
 import workers.Clustering;
 import workers.MassiveWorker;
 import workers.PixelsMentor;
+import workers.ShedWorker;
 
 import java.awt.*;
 import java.util.*;
@@ -57,6 +58,9 @@ public abstract class MorphologyOperation extends MyAPlugin implements DialogLis
         luminanceCalculatorPlugin.initProcessor(imageProcessor);
         luminanceCalculatorPlugin.run();
 
+        DataCollection.INSTANCE.newShedLabels(width*height);
+        ShedWorker.getInstance().clear();
+
         worker = new MassiveWorker();
         worker.sort(DataCollection.INSTANCE.getLuminances());
 
@@ -71,19 +75,42 @@ public abstract class MorphologyOperation extends MyAPlugin implements DialogLis
         }
         ArrayList<Integer> ids = worker.getIds();
 
+        Random rand = new Random();
+        boolean[] analyzed = new boolean[ids.size()];
+        int shedLabel;
         //start from pixels with min property
         for (Integer p : ids) {
+            if(analyzed[p]) {
+                continue;
+            }
             int root = DataCollection.INSTANCE.getStatus(p);
             if (root < 0) {
                 root = p;
             }
-            while (DataCollection.INSTANCE.getStatus(root) >= 0)
+            while (DataCollection.INSTANCE.getStatus(root) >= 0) {
                 root = DataCollection.INSTANCE.getStatus(root);
+            }
+
             int val = DataCollection.INSTANCE.getStatus(root);
+
+            if(!analyzed[root]) {
+                shedLabel = root;
+                DataCollection.INSTANCE.setShedLabel(root, shedLabel);
+                ShedWorker.getInstance().addShed(shedLabel, val, new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat()));
+                ShedWorker.getInstance().addElementToShed(shedLabel, root);
+            } else {
+                shedLabel = DataCollection.INSTANCE.getShedLabel(root);
+            }
+            analyzed[root] = true;
 
             while (p != root) {
                 int tmp = DataCollection.INSTANCE.getStatus(p);
                 DataCollection.INSTANCE.setStatus(p, val);
+
+                DataCollection.INSTANCE.setShedLabel(p, shedLabel);
+                ShedWorker.getInstance().addElementToShed(shedLabel, p);
+                analyzed[p] = true;
+
                 p = tmp;
             }
         }
@@ -93,7 +120,7 @@ public abstract class MorphologyOperation extends MyAPlugin implements DialogLis
             DataCollection.INSTANCE.setStatus(i, bright);
         }
 
-        Clustering.fillSheds(width, height);
+        //Clustering.fillSheds(width, height);
         //Clustering.fillShedsWithDiagonalNeighboureCondition(width, height);
     }
 
@@ -126,7 +153,8 @@ public abstract class MorphologyOperation extends MyAPlugin implements DialogLis
             DataCollection.INSTANCE.setStatus(p, representative[h]);
 
             //get neighboures
-            ArrayList<Integer> neighs = PixelsMentor.defineNeighboursIds(p, width, height);
+            //ArrayList<Integer> neighs = PixelsMentor.defineNeighboursIds(p, width, height);
+            ArrayList<Integer> neighs = PixelsMentor.defineNeighboursIdsWidthDiagonalCondition(p, width, height);
             for (Integer nid : neighs) {
                 if (DataCollection.INSTANCE.getStatus(nid) != NOT_ANALYZED) {
                     continue;

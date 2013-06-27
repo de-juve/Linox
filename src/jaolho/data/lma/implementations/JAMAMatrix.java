@@ -14,11 +14,11 @@ public class JAMAMatrix extends Matrix implements LMAMatrix {
 	public JAMAMatrix(double[][] elements) {
 		super(elements);
 	}
-	
+
 	public JAMAMatrix(int rows, int cols) {
 		super(rows, cols);
 	}
-	
+
 	public void invert() throws LMAMatrix.InvertException {
 		try {
 			Matrix m = inverse();
@@ -50,7 +50,7 @@ public class JAMAMatrix extends Matrix implements LMAMatrix {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		StringWriter s = new StringWriter();
 		PrintWriter out = new PrintWriter(s);

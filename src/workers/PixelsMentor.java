@@ -57,7 +57,21 @@ public class PixelsMentor {
                     resultArray.add(nid);
             }
         }
+        return resultArray;
+    }
 
+    public static ArrayList<Integer> defineNeighboursIdsWidthDiagonalCondition(Integer id, int width, int height) {
+        ArrayList<Integer> resultArray = new ArrayList<>();
+        ArrayList<Integer> neighbouresIds = defineNeighboursIds(id, width, height);
+        for (Integer nid : neighbouresIds) {
+            if (isDiagonalNeighboure(id, nid, width)) {
+                if (diagonalNeighboureCondition(id, nid, DataCollection.INSTANCE.getLuminances(), width, height) && id != nid) {
+                    resultArray.add(nid);
+                }
+            }  else if ( id != nid) {
+                resultArray.add(nid);
+            }
+        }
         return resultArray;
     }
 

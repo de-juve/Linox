@@ -22,11 +22,11 @@ public class Polynomial extends LMAFunction {
 	public double getY(double x, double[] a) {
 		double result = 0;
 		for (int i = 0; i < a.length; i++) {
-			result += pow(x, i) * a[i]; 
+			result += pow(x, i) * a[i];
 		}
 		return result;
 	}
-	
+
 	/** fast power */
 	private static double pow(double x, int exp) {
 		double result = 1;
@@ -35,7 +35,7 @@ public class Polynomial extends LMAFunction {
 		}
 		return result;
 	}
-	
+
 	public static void main(String[] args) {
 		System.out.println(pow(2, 1));
 	}
